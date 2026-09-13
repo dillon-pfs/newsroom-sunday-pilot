@@ -5,12 +5,10 @@ export function PublicFeedControls({
   paused: boolean;
   action: string;
 }) {
+  const href = paused ? action : `${action}?wire=delayed`;
+
   return (
-    <form
-      action={action}
-      method="get"
-      className="flex flex-col gap-3 border border-ink/12 bg-card px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-    >
+    <div className="flex flex-col gap-3 border border-ink/12 bg-card px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <p className="font-mono text-[11px] tracking-wide uppercase">
@@ -32,14 +30,13 @@ export function PublicFeedControls({
             : "Resilience stub: pause to mark the wire delayed. Corrections and duplicates only appear when official items arrive."}
         </p>
       </div>
-      {paused ? null : <input type="hidden" name="wire" value="delayed" />}
-      <button
-        type="submit"
+      <a
+        href={href}
         data-testid="public-feed-pause"
         className="inline-flex h-10 shrink-0 items-center rounded-md border border-ink/20 bg-background px-4 font-mono text-xs tracking-wide uppercase hover:bg-muted"
       >
         {paused ? "Resume feed" : "Pause feed"}
-      </button>
-    </form>
+      </a>
+    </div>
   );
 }

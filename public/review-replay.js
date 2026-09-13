@@ -104,7 +104,15 @@
       scrub.value = String(cursor);
     }
     if (delayedEl) {
-      delayedEl.hidden = !showDelayed;
+      if (showDelayed) {
+        delayedEl.hidden = false;
+        delayedEl.removeAttribute("hidden");
+        delayedEl.style.display = "";
+      } else {
+        delayedEl.hidden = true;
+        delayedEl.setAttribute("hidden", "");
+        delayedEl.style.display = "none";
+      }
     }
     if (delayedCopy) {
       delayedCopy.textContent =

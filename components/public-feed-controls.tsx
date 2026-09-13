@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export function PublicFeedControls() {
@@ -30,13 +29,14 @@ export function PublicFeedControls() {
             : "Resilience stub: pause to mark the wire delayed. Corrections and duplicates only appear when official items arrive."}
         </p>
       </div>
-      <Button
+      <button
         type="button"
-        variant={paused ? "default" : "outline"}
+        data-testid="public-feed-pause"
         onClick={() => setPaused((value) => !value)}
+        className="inline-flex h-10 shrink-0 items-center rounded-md border border-ink/20 bg-background px-4 font-mono text-xs tracking-wide uppercase hover:bg-muted"
       >
         {paused ? "Resume feed" : "Pause feed"}
-      </Button>
+      </button>
     </div>
   );
 }

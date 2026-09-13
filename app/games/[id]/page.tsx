@@ -25,8 +25,12 @@ export async function generateMetadata({
 
 export default async function GamePage({
   params,
+  searchParams,
 }: PageProps<"/games/[id]">) {
   const { id } = await params;
+  const query = await searchParams;
+  const wire = Array.isArray(query.wire) ? query.wire[0] : query.wire;
+  const paused = wire === "delayed";
   const game = getPublicGame(id);
   if (!game) {
     notFound();
@@ -74,7 +78,10 @@ export default async function GamePage({
             </div>
             <Badge className="font-mono text-[10px] uppercase">Flag on</Badge>
           </div>
-          <PublicFeedControls />
+          <PublicFeedControls
+            paused={paused}
+            action={`/games/${game.id}`}
+          />
           <EntryList
             entries={entries}
             emptyTitle="No official hooks yet"

@@ -211,3 +211,19 @@ export function delayedAt(cursorMs: number): boolean {
   );
   return !recovered;
 }
+
+export const SIMULATED_TICK_MS = 200;
+
+export function serializeReplayTape() {
+  return {
+    reelMs: SIMULATED_REEL_MS,
+    tickMs: SIMULATED_TICK_MS,
+    firstBeatMs: simulatedBeats[0]?.atMs ?? 400,
+    beats: simulatedBeats,
+  };
+}
+
+export function clampCursor(value: number) {
+  if (!Number.isFinite(value) || value < 0) return 0;
+  return Math.min(value, SIMULATED_REEL_MS);
+}

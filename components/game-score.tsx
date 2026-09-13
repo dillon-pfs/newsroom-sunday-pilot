@@ -37,13 +37,18 @@ export function GameScore({
             </Badge>
           )}
           <Badge variant="secondary" className="font-mono text-[10px] uppercase">
-            {statusLabel(status)}
+            <span data-replay-status={simulated ? "" : undefined}>
+              {statusLabel(status)}
+            </span>
           </Badge>
         </div>
       </div>
       <div className="mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
         <div>
-          <p className="font-mono text-5xl font-medium tracking-tight sm:text-6xl">
+          <p
+            className="font-mono text-5xl font-medium tracking-tight sm:text-6xl"
+            data-replay-away={simulated ? "" : undefined}
+          >
             {formatScore(score.away)}
           </p>
           <p className="mt-1 font-heading text-lg">{game.away.name}</p>
@@ -52,11 +57,16 @@ export function GameScore({
           </p>
         </div>
         <div className="text-center font-mono text-xs tracking-wide text-ink/45 uppercase">
-          <p>{clockLabel ?? "No official clock"}</p>
+          <p data-replay-clock={simulated ? "" : undefined}>
+            {clockLabel ?? "No official clock"}
+          </p>
           <p className="mt-1 text-ink/30">vs</p>
         </div>
         <div className="text-right">
-          <p className="font-mono text-5xl font-medium tracking-tight sm:text-6xl">
+          <p
+            className="font-mono text-5xl font-medium tracking-tight sm:text-6xl"
+            data-replay-home={simulated ? "" : undefined}
+          >
             {formatScore(score.home)}
           </p>
           <p className="mt-1 font-heading text-lg">{game.home.name}</p>

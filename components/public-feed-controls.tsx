@@ -1,26 +1,29 @@
-"use client";
-
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
-
-export function PublicFeedControls() {
-  const [paused, setPaused] = useState(false);
-
+export function PublicFeedControls({
+  paused,
+  action,
+}: {
+  paused: boolean;
+  action: string;
+}) {
   return (
-    <div className="flex flex-col gap-3 border border-ink/12 bg-card px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+    <form
+      action={action}
+      method="get"
+      className="flex flex-col gap-3 border border-ink/12 bg-card px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+    >
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <p className="font-mono text-[11px] tracking-wide uppercase">
             Public live feed
           </p>
           {paused ? (
-            <Badge variant="destructive" className="font-mono text-[10px] uppercase">
+            <span className="inline-flex h-5 items-center rounded-full bg-destructive/10 px-2 font-mono text-[10px] text-destructive uppercase">
               Updates delayed
-            </Badge>
+            </span>
           ) : (
-            <Badge variant="outline" className="font-mono text-[10px] uppercase">
+            <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] uppercase">
               Listening
-            </Badge>
+            </span>
           )}
         </div>
         <p className="mt-1 max-w-xl text-sm text-ink/65">
@@ -29,14 +32,14 @@ export function PublicFeedControls() {
             : "Resilience stub: pause to mark the wire delayed. Corrections and duplicates only appear when official items arrive."}
         </p>
       </div>
+      {paused ? null : <input type="hidden" name="wire" value="delayed" />}
       <button
-        type="button"
+        type="submit"
         data-testid="public-feed-pause"
-        onClick={() => setPaused((value) => !value)}
         className="inline-flex h-10 shrink-0 items-center rounded-md border border-ink/20 bg-background px-4 font-mono text-xs tracking-wide uppercase hover:bg-muted"
       >
         {paused ? "Resume feed" : "Pause feed"}
       </button>
-    </div>
+    </form>
   );
 }

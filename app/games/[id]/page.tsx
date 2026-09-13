@@ -78,10 +78,7 @@ export default async function GamePage({
             </div>
             <Badge className="font-mono text-[10px] uppercase">Flag on</Badge>
           </div>
-          <PublicFeedControls
-            paused={paused}
-            action={`/games/${game.id}`}
-          />
+          <PublicFeedControls paused={paused} gameId={game.id} />
           <EntryList
             entries={entries}
             emptyTitle="No official hooks yet"

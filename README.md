@@ -18,6 +18,8 @@ npm run build
 npm start
 ```
 
+`npm start` is the stable preview (port 43147). `npm run dev` is fine on a local machine; this slice does not depend on a live WebSocket.
+
 ## Routes
 
 | Path | What it is |

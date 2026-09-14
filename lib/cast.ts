@@ -22,7 +22,7 @@ export const CAST: Voice[] = [
     lens: "Absolute takes. Scoreboard theater. No notes.",
     bio: "House lead for Poor Form Sports. Files SATIRE after official facts land — never instead of them. Absolute about the scoreboard, allergic to invented clocks.",
     initials: "CA",
-    mark: "#902822",
+    mark: "#c41e12",
   },
   {
     slug: "wes-process",

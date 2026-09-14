@@ -74,13 +74,13 @@ export function EntryList({
                   {satire.map((line) => (
                     <li
                       key={`${entry.id}-${line.voiceId}-${line.line}`}
-                      className="border-l-4 border-satire bg-satire/10 px-3 py-2"
+                      className="border-l-4 border-satire-fill bg-satire-fill/15 px-3 py-2"
                     >
                       <div className="flex flex-wrap items-center gap-1.5">
                         <DeskPill tone="satire">Satire</DeskPill>
                         <Link
                           href={`/cast/${line.voiceId}`}
-                          className="font-mono text-[11px] tracking-wide text-satire uppercase underline-offset-4 hover:underline"
+                          className="font-mono text-[11px] tracking-wide text-ink uppercase underline-offset-4 hover:underline"
                         >
                           {line.voiceName}
                         </Link>

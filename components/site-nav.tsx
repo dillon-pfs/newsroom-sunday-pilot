@@ -13,6 +13,11 @@ const nav = [
       path.startsWith("/games/sunday-pilot") || path === "/demo",
   },
   {
+    href: "/stories",
+    label: "Stories",
+    match: (path: string) => path.startsWith("/stories"),
+  },
+  {
     href: "/cast",
     label: "Cast",
     match: (path: string) => path === "/cast",
@@ -43,7 +48,7 @@ export function SiteNav() {
             className={cn(
               "underline-offset-4",
               active
-                ? "text-masthead"
+                ? "font-medium text-masthead"
                 : "text-ink-soft hover:text-masthead hover:underline",
             )}
           >

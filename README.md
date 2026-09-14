@@ -22,11 +22,14 @@ npm start
 
 | Path | What it is |
 | --- | --- |
-| `/` | Home board. TV-black Melbourne scorebug; late window ghosted. Cast strip. |
+| `/` | Home board. Hot Bar tokens. TV-black Melbourne scorebug; Stories strip under Cast. |
 | `/demo` | Redirects to `/games/sunday-pilot`. |
 | `/games/sunday-pilot` | Canonical Melbourne DEMO timeline. Full Editor fact + SATIRE beats. |
 | `/games/sunday-pilot/delayed` | Public pause. Banner: **Updates delayed**. Resume returns to the game. |
 | `/games/late-window` | Hold listing. Live blog **off**. Scores **—**. |
+| `/stories` | DEMO/SATIRE longform index. Editor-owned seeds. |
+| `/stories/fifteen-plays-one-continent-zero-chill` | Chip Absolute Melbourne column. |
+| `/stories/conversion-referendums-week1` | Wes Process Week 1 process column. |
 | `/cast` | Poor Form Desk strip. |
 | `/cast/chip-absolute` (and other slugs) | Voice stubs. Chip Absolute is the lead profile. |
 | `/review` | Private review desk. Gate phrase: `desk`. |

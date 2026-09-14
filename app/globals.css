@@ -20,6 +20,7 @@
   --color-demo-foreground: var(--demo-foreground);
   --color-satire: var(--satire);
   --color-satire-foreground: var(--satire-foreground);
+  --color-satire-fill: var(--satire-fill);
   --color-card-loud: var(--card-loud);
   --color-bar: var(--bar);
   --color-bar-foreground: var(--bar-foreground);
@@ -64,20 +65,21 @@
 }
 
 :root {
-  --paper: #f6f1e7;
-  --ink: #1a120f;
-  --ink-soft: #5f524c;
-  --masthead: #902822;
+  --paper: #f4ebe0;
+  --ink: #0c0908;
+  --ink-soft: #3d342f;
+  --masthead: #c41e12;
   --sim: #4a2a12;
   --sim-foreground: #f7f2e3;
-  --demo: #a12a07;
-  --demo-foreground: #fefcf4;
-  --satire: #c45a12;
-  --satire-foreground: #fff8ef;
+  --demo: #e85d04;
+  --demo-foreground: #fff8ef;
+  --satire: #ffb703;
+  --satire-foreground: #0c0908;
+  --satire-fill: #fb8500;
   --card-loud: #ffffff;
   --bar: #0e0c0b;
-  --bar-foreground: #fefcf4;
-  --live-green: #1f7a3a;
+  --bar-foreground: #fff8ef;
+  --live-green: #b5e048;
   --warn: #ac312a;
   --background: var(--paper);
   --foreground: var(--ink);
@@ -86,16 +88,16 @@
   --popover: #fcfaf4;
   --popover-foreground: var(--ink);
   --primary: var(--masthead);
-  --primary-foreground: #fefcf4;
-  --secondary: #efe8d9;
+  --primary-foreground: #fff8ef;
+  --secondary: #efe4d4;
   --secondary-foreground: var(--ink);
-  --muted: #efe8d9;
+  --muted: #efe4d4;
   --muted-foreground: var(--ink-soft);
-  --accent: #efe8d9;
+  --accent: #efe4d4;
   --accent-foreground: var(--ink);
   --destructive: var(--warn);
-  --border: #c4b9a8;
-  --input: #c4b9a8;
+  --border: #1a120f;
+  --input: #1a120f;
   --ring: var(--masthead);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);

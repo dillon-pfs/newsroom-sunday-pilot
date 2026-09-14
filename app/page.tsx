@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { CastStrip } from "@/components/cast-strip";
 import { Scoreboard } from "@/components/scoreboard";
+import { StoriesStrip } from "@/components/story-card";
 import { listPublicGames } from "@/lib/live/public";
+import { listStories } from "@/lib/stories";
 
 export default function HomePage() {
   const games = listPublicGames();
+  const stories = listStories();
 
   return (
     <div className="space-y-6">
@@ -24,6 +27,7 @@ export default function HomePage() {
 
       <Scoreboard games={games} />
       <CastStrip />
+      <StoriesStrip stories={stories} />
 
       <section className="border-t border-border pt-4">
         <h2 className="font-heading text-lg font-semibold">Desk review</h2>

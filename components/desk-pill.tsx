@@ -16,7 +16,7 @@ export function DeskPill({
         tone === "demo" && "bg-demo text-demo-foreground",
         tone === "satire" && "bg-satire text-satire-foreground",
         tone === "final" && "bg-bar text-bar-foreground",
-        tone === "live" && "bg-live-green text-bar-foreground",
+        tone === "live" && "bg-live-green text-ink",
         tone === "sim" && "bg-sim text-sim-foreground",
         tone === "warn" && "bg-warn text-demo-foreground",
         tone === "lead" && "bg-masthead text-demo-foreground",

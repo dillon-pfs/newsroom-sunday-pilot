@@ -57,8 +57,8 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
                 <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">
                   DEMO timeline
                 </p>
-                <h2 className="font-heading text-xl font-semibold tracking-wide uppercase sm:text-2xl">
-                  DEMO timeline
+                <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+                  Timeline
                 </h2>
               </div>
               <div className="flex items-center gap-1.5">

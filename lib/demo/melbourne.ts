@@ -38,7 +38,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Kyren just scored the first NFL touchdown on this continent and the bar stool just levitated.",
+        line: "First NFL touchdown on this continent and it belongs to Kyren. The continent can keep the souvenir; I’ll keep the scream.",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Back-to-back picks like the football gods hit shuffle. Chaos is undefeated.",
+        line: "Pick. Pick. Same quarter. The timeline hit shuffle and somehow both teams answered ‘yes.’",
       },
     ],
   },
@@ -126,7 +126,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Mike Evans’s first touchdown as a 49er and Melbourne just learned the choreography.",
+        line: "Evans’s first as a 49er, Deebo sets the table, Melbourne’s doing the wave like it practiced. I’m filing that under destiny with a megaphone.",
       },
     ],
   },

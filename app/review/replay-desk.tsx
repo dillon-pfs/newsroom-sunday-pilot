@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { lockReview } from "@/app/review/actions";
 import { GameScore } from "@/components/game-score";
-import { getPublicGame } from "@/lib/live/public";
+import { getSimulatedFixture } from "@/lib/simulated/fixture";
 import {
   SIMULATED_REEL_MS,
   SIMULATED_TICK_MS,
@@ -14,12 +14,7 @@ import {
 } from "@/lib/simulated/replay";
 
 export function ReplayDesk({ initialMs = 0 }: { initialMs?: number }) {
-  const game = getPublicGame("sunday-pilot");
-  if (!game) {
-    return (
-      <p className="text-sm text-ink/70">Sunday Pilot Game is missing from the catalog.</p>
-    );
-  }
+  const game = getSimulatedFixture();
 
   const entries = [...beatsThrough(initialMs)].reverse();
   const tapeJson = JSON.stringify(serializeReplayTape()).replace(/</g, "\\u003c");
@@ -31,8 +26,9 @@ export function ReplayDesk({ initialMs = 0 }: { initialMs?: number }) {
           Simulated · Review only
         </p>
         <p className="mt-1 text-sm">
-          This reel is labeled SIMULATED on every beat. It is not wired to
-          the public scoreboard, game page, or blogger profile.
+          This reel is labeled SIMULATED on every beat. Greyshirts and Red
+          Caps are desk aliases for this tape only — not public teams, not
+          the Melbourne DEMO. The public board never loads this module.
         </p>
       </div>
 
@@ -67,7 +63,7 @@ export function ReplayDesk({ initialMs = 0 }: { initialMs?: number }) {
               </span>
             </div>
             <p className="mt-1 text-sm text-ink/65">
-              Play walks the Sunday Pilot Game tape. Pause is a feed-resilience stub.
+              Play walks the SIMULATED alias tape. Pause is a feed-resilience stub.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">

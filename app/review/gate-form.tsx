@@ -19,8 +19,9 @@ export function GateForm() {
           Desk gate
         </h1>
         <p className="mt-2 text-sm text-ink/70">
-          Simulated Sunday tape lives behind this phrase so it cannot ride
-          the public-live scoreboard. Pilot phrase is documented in the README.
+          SIMULATED desk-alias tape lives behind this phrase so it cannot
+          ride the public Melbourne DEMO. Pilot phrase is documented in the
+          README.
         </p>
       </div>
       <div className="space-y-2">

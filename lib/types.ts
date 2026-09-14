@@ -37,6 +37,10 @@ export type Game = {
   clockLabel: string | null;
   assignedBloggerId: string | null;
   feedNote: string;
+  /** Melbourne SF–LAR backtest. Public DEMO only — not the review tape. */
+  demo?: boolean;
+  /** Review-only fixture. Never listed on the public board. */
+  simulated?: boolean;
 };
 
 export type Blogger = {
@@ -46,6 +50,12 @@ export type Blogger = {
   title: string;
   bio: string;
   voiceNote: string;
+};
+
+export type SatireLine = {
+  voiceId: string;
+  voiceName: string;
+  line: string;
 };
 
 export type FeedEntry = {
@@ -60,6 +70,8 @@ export type FeedEntry = {
   duplicateOfId?: string;
   delayed?: boolean;
   path: FeedPath;
+  demo?: boolean;
+  satire?: SatireLine[];
 };
 
 export type SimulatedBeat = FeedEntry & {

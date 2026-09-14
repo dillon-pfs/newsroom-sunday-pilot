@@ -21,11 +21,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Newsroom · Sunday Pilot",
-    template: "%s · Newsroom",
+    default: "Poor Form Sports",
+    template: "%s · Poor Form Sports",
   },
   description:
-    "Sunday pilot for a satirical fantasy football newsroom: live scoreboard, editorial live blogs, and a private simulated replay.",
+    "Poor Form Sports Sunday pilot: Melbourne DEMO backtest, Chip Absolute lead, and a private SIMULATED review desk.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,0 +1,180 @@
+import type { FeedEntry } from "@/lib/types";
+
+export const DEMO_GAME_ID = "sunday-pilot";
+
+export const DEMO_BANNER =
+  "DEMO — SF 27 LAR 7 · Melbourne MCG backtest · not live · ESPN/Reuters/Rams.com/NFL gamebook";
+
+export const melbourneDemoEntries: FeedEntry[] = [
+  {
+    id: "demo-q1-pineiro-20",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Pineiro 20-yard FG — SF 3–0",
+    body: "After LAR punt, SF 15-play ~65-yd → Pineiro 20 FG. SF 3–0.",
+    postedAtLabel: "Q1 6:15",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "First points on Australian soil and it took a fifteen-play hostage situation. I am unwell in the best way.",
+      },
+    ],
+  },
+  {
+    id: "demo-q2-kyren-td",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Kyren Williams 5-yard TD — LAR 7–3",
+    body: "Stafford→Nacua 41; Kyren Williams 5-yd TD (Mevis). LAR 7–3. First NFL TD on Australian soil.",
+    postedAtLabel: "Q2 14:57",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Kyren just scored the first NFL touchdown on this continent and the bar stool just levitated.",
+      },
+    ],
+  },
+  {
+    id: "demo-q2-lake-int",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Quentin Lake intercepts Purdy",
+    body: "Quentin Lake INT of Purdy (intended Kittle).",
+    postedAtLabel: "Q2 ~12:04",
+    path: "public-live",
+    demo: true,
+  },
+  {
+    id: "demo-q2-green-int",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Renardo Green intercepts Stafford",
+    body: "Renardo Green INT of Stafford deep to Nacua.",
+    postedAtLabel: "Q2 ~8:52",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Back-to-back picks like the football gods hit shuffle. Chaos is undefeated.",
+      },
+    ],
+  },
+  {
+    id: "demo-q2-robinson-td",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Robinson 39-yard TD — SF 10–7 HT",
+    body: "Purdy→Demarcus Robinson (ex-Ram) 39-yd TD. SF 10–7 HT.",
+    postedAtLabel: "Q2 4:28",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Ex-Ram Demarcus Robinson just punched the scoreboard for San Francisco. That is personal and I am living.",
+      },
+    ],
+  },
+  {
+    id: "demo-ht-travel",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Travel and the MCG crowd",
+    body: "SF in Melbourne ~1 week; Rams day-before; crowd booed Rams / cheered 49ers.",
+    postedAtLabel: "HT travel",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "layover-len",
+        voiceName: "Layover Len",
+        line: "One team packed a week early. The other packed a carry-on. That is a matchup.",
+      },
+      {
+        voiceId: "boo-atlas",
+        voiceName: "Boo Atlas",
+        line: "The building booed one jersey and adopted the other. Neutral site? The throats filed a dissenting opinion.",
+      },
+    ],
+  },
+  {
+    id: "demo-q3-evans-td",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Evans first TD as a 49er — SF 17–7",
+    body: "Deebo KR ~45–46; Purdy→Mike Evans 2-yd TD (first as 49er). SF 17–7.",
+    postedAtLabel: "Q3 11:03",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Mike Evans’s first touchdown as a 49er and Melbourne just learned the choreography.",
+      },
+    ],
+  },
+  {
+    id: "demo-late-q3-stuffed",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Stafford sneak stuffed — turnover on downs",
+    body: "Nacua inches short; 4th-and-goal SF 1 Stafford sneak stuffed (TOD).",
+    postedAtLabel: "Late Q3",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Fourth-and-goal from the one, sneak stuffed, turnover on downs. That is not unlucky. That is a process result with a bruise.",
+      },
+    ],
+  },
+  {
+    id: "demo-q4-deebo-td",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Deebo 15-yard TD after 99-yard drive — SF 24–7",
+    body: "99-yd drive; Purdy→Deebo 15-yd TD. SF 24–7.",
+    postedAtLabel: "Q4 12:57",
+    path: "public-live",
+    demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Ninety-nine yards after you stop them at the door. Scoreboard theater, standing ovation, no notes.",
+      },
+    ],
+  },
+  {
+    id: "demo-q4-pineiro-56",
+    gameId: DEMO_GAME_ID,
+    kind: "fact",
+    authorId: null,
+    headline: "Pineiro 56-yard FG — SF 27–7",
+    body: "Pineiro 56 FG. SF 27–7.",
+    postedAtLabel: "Q4 9:43",
+    path: "public-live",
+    demo: true,
+  },
+];

@@ -1,8 +1,6 @@
-# Newsroom — Sunday Pilot
+# Poor Form Sports — Sunday Pilot
 
-Satirical fantasy-football newsroom desk. Smallest working slice: a live scoreboard, clickable games, an editorial live-blog flag, a Lead Blogger profile, and a private SIMULATED replay.
-
-Temp brand: **Newsroom**. Blogger: **Lead Blogger**. Featured game: **Sunday Pilot Game**.
+Satirical desk. Public surface is a labeled **Melbourne DEMO** (SF 27–LAR 7 at the MCG). Lead voice is **Chip Absolute**. A private **SIMULATED** replay stays behind the desk gate.
 
 ## Run locally
 
@@ -18,28 +16,35 @@ npm run build
 npm start
 ```
 
-`npm start` is the stable preview (port 43147). `npm run dev` is fine on a local machine; this slice does not depend on a live WebSocket.
+`npm start` is the stable preview (port 43147).
 
 ## Routes
 
 | Path | What it is |
 | --- | --- |
-| `/` | Home live scoreboard. Games are clickable. |
-| `/games/sunday-pilot` | Sunday Pilot Game. Editorial live blog **on**. Official stubs only. |
-| `/games/late-window` | Second listing. Editorial live blog **off**. |
-| `/bloggers/lead-blogger` | Lead Blogger profile and voice rule. |
+| `/` | Home board. DEMO scorebug for Melbourne; late window stays —. Cast strip. |
+| `/demo` | Same Melbourne timeline as Sunday Pilot. Every card is badged DEMO. |
+| `/games/sunday-pilot` | 49ers at Rams · Melbourne. Editorial live blog **on**. DEMO facts + Editor SATIRE. |
+| `/games/sunday-pilot/delayed` | Public pause. Banner: **Updates delayed**. Resume returns to the game. |
+| `/games/late-window` | Hold listing. Live blog **off**. Scores **—**. |
+| `/cast` | Poor Form Desk strip. |
+| `/cast/chip-absolute` (and other slugs) | Voice stubs: Chip Absolute, Wes Process, Layover Len, Boo Atlas, Chyron Carl, Postcard Pete. |
 | `/review` | Private review desk. Gate phrase: `desk`. |
+
+`/bloggers/lead-blogger` redirects to `/cast/chip-absolute`.
 
 Override the gate with `REVIEW_PASSWORD` if you need a local secret. Default remains `desk`.
 
+## DEMO vs SIMULATED
+
+- **DEMO** is Melbourne only: SF 27 – LAR 7, MCG backtest, not live. Sources named on the sticky banner: ESPN / Reuters / Rams.com / NFL gamebook. Injury beats skipped. Chyron Carl is silent.
+- SATIRE lines on DEMO cards are Editor-approved copy, shown with byline. Fact-only cards have no commentary.
+- Non-demo public scores stay **—**.
+- **SIMULATED** is `/review` only. Greyshirts and Red Caps are labeled **SIMULATED desk aliases**. Public pages never import `lib/simulated`.
+- Pause on the public DEMO game marks the wire delayed without fabricating updates. Review Play / Pause / scrub / rewind stay on the alias tape.
+
 ## Pilot constraints
 
-- **Live blog is editorial.** `liveBlogEnabled` is a desk flag. It is off unless editorial turns it on. Sunday Pilot Game is the only enabled game in this slice.
-- **No invented live facts on the public path.** `/`, `/games/*`, and `/bloggers/*` read `lib/live` only. Scores stay `—` until an official source exists. The public timeline can hold desk hooks (fact / commentary slots) but will not invent play-by-play.
-- **SIMULATED tape is review-only.** `lib/simulated/replay.ts` is imported by the private review desk, not by public-live pages. Every replay beat is labeled **SIMULATED**.
-- **Feed resilience stubs** (review reel + public pause control): corrections, duplicates, “updates delayed”, and play/pause. Pause on the public game page marks the wire delayed without fabricating updates.
-- **Two hooks, two jobs.** `fact` entries are official-shaped updates. `commentary` is Lead Blogger character voice and is never a score source.
-
-## What this pilot is not
-
-Not a real NFL feed. Not a public live blog of invented scores. Not every game on the board automatically gets a timeline.
+- Live blog is editorial (`liveBlogEnabled`). Sunday Pilot / DEMO is on; Late Window is not.
+- Two jobs on a card: **Fact** is the official-shaped hook. **SATIRE** is character voice and is never a score source.
+- The public-live path does not load the simulated reel.

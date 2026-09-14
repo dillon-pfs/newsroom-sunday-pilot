@@ -10,7 +10,7 @@ export default function NotFound() {
       </p>
       <h1 className="font-heading text-3xl font-semibold">Not on the board</h1>
       <p className="text-sm text-ink/70">
-        That game or desk page is not in the Sunday pilot.
+        That game or desk page is not on Poor Form Sports.
       </p>
       <Link href="/" className={cn(buttonVariants())}>
         Back to the scoreboard

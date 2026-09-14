@@ -18,7 +18,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
     : undefined;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <p className="font-mono text-[11px] tracking-wide uppercase">
         <Link href="/" className="text-ink/55 hover:text-masthead">
           Scoreboard
@@ -33,9 +33,9 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
 
       {blogger ? (
         <p className="text-sm">
-          Desk voice:{" "}
+          Lead:{" "}
           <Link
-            href={`/bloggers/${blogger.id}`}
+            href={`/cast/${blogger.id}`}
             className="text-masthead underline-offset-4 hover:underline"
           >
             {blogger.name}
@@ -44,15 +44,25 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
       ) : null}
 
       {game.liveBlogEnabled ? (
-        <section className="space-y-4">
+        <section className="space-y-3">
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div>
               <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-                Editorial live blog
+                {game.demo ? "DEMO timeline" : "Editorial live blog"}
               </p>
-              <h2 className="font-heading text-2xl font-semibold">Timeline</h2>
+              <h2 className="font-heading text-xl font-semibold sm:text-2xl">
+                Timeline
+              </h2>
             </div>
-            <Badge className="font-mono text-[10px] uppercase">Flag on</Badge>
+            <Badge
+              className={
+                game.demo
+                  ? "bg-demo text-demo-foreground font-mono text-[10px] uppercase"
+                  : "font-mono text-[10px] uppercase"
+              }
+            >
+              {game.demo ? "Demo" : "Flag on"}
+            </Badge>
           </div>
           <PublicFeedControls paused={paused} gameId={game.id} />
           <EntryList
@@ -62,7 +72,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
           />
         </section>
       ) : (
-        <section className="border border-dashed border-ink/20 px-4 py-10">
+        <section className="border border-dashed border-ink/20 px-4 py-8">
           <Badge variant="outline" className="font-mono text-[10px] uppercase">
             Flag off
           </Badge>
@@ -70,8 +80,8 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
             Live blog is not enabled
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-ink/70">
-            Editorial left this game as scoreboard-only. The Sunday pilot
-            does not open a timeline unless the desk flag is on.
+            Editorial left this game as scoreboard-only. Scores stay — unless
+            a labeled DEMO result is on the board.
           </p>
         </section>
       )}

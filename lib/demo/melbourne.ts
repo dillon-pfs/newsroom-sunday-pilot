@@ -20,7 +20,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "First points on Australian soil and it took a fifteen-play hostage situation. I am unwell in the best way.",
+        line: "Fifteen plays for a field goal on a new continent. That’s not football — that’s a hostage negotiation with uprights.",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "First NFL touchdown on this continent and it belongs to Kyren. The continent can keep the souvenir; I’ll keep the scream.",
+        line: "First NFL touchdown on Australian soil and it’s Kyren Williams. History just wore a Rams jersey for six seconds and I need a minute.",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Pick. Pick. Same quarter. The timeline hit shuffle and somehow both teams answered ‘yes.’",
+        line: "Interception. Interception. Same quarter. At this point the football is applying for dual citizenship.",
       },
     ],
   },
@@ -85,7 +85,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Ex-Ram Demarcus Robinson just punched the scoreboard for San Francisco. That is personal and I am living.",
+        line: "Ex-Ram Demarcus Robinson just scored on the Rams in Australia. Somewhere a group chat just combusted.",
       },
     ],
   },
@@ -126,7 +126,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Evans’s first as a 49er, Deebo sets the table, Melbourne’s doing the wave like it practiced. I’m filing that under destiny with a megaphone.",
+        line: "Deebo sets the table, Evans scores his first as a 49er, and Melbourne high-fives itself like it drafted him.",
       },
     ],
   },
@@ -162,7 +162,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Ninety-nine yards after you stop them at the door. Scoreboard theater, standing ovation, no notes.",
+        line: "You stuff them at the one, then they go ninety-nine yards. That’s not a drive — that’s revenge tourism.",
       },
     ],
   },

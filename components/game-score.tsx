@@ -23,7 +23,7 @@ export function GameScore({
       className={cn(
         "border px-4 py-4 sm:px-5",
         simulated && "border-sim bg-card",
-        demo && "border-demo bg-ink text-paper",
+        demo && "border-demo bg-bar text-bar-foreground",
         !simulated && !demo && "border-ink/15 bg-card",
       )}
     >
@@ -32,7 +32,7 @@ export function GameScore({
           <p
             className={cn(
               "font-mono text-[11px] tracking-[0.18em] uppercase",
-              demo ? "text-demo-foreground/80" : "text-masthead",
+              demo ? "text-bar-foreground/80" : "text-masthead",
             )}
           >
             {game.windowLabel}
@@ -40,7 +40,7 @@ export function GameScore({
           <h1
             className={cn(
               "font-heading text-2xl font-semibold tracking-tight sm:text-3xl",
-              demo && "text-paper",
+              demo && "text-bar-foreground",
             )}
           >
             {game.name}
@@ -64,7 +64,7 @@ export function GameScore({
             variant={demo ? "secondary" : "secondary"}
             className={cn(
               "font-mono text-[10px] uppercase",
-              demo && "bg-paper/15 text-paper",
+              demo && "border-bar-foreground/25 bg-transparent text-bar-foreground",
             )}
           >
             <span data-replay-status={simulated ? "" : undefined}>
@@ -84,13 +84,13 @@ export function GameScore({
           >
             {formatScore(score.away)}
           </p>
-          <p className={cn("mt-0.5 font-heading text-base sm:text-lg", demo && "text-paper")}>
+          <p className={cn("mt-0.5 font-heading text-base sm:text-lg", demo && "text-bar-foreground")}>
             {game.away.name}
           </p>
           <p
             className={cn(
               "font-mono text-xs tracking-wide uppercase",
-              demo ? "text-paper/60" : "text-ink/50",
+              demo ? "text-bar-foreground/60" : "text-ink/50",
             )}
           >
             {game.away.short}
@@ -100,13 +100,13 @@ export function GameScore({
         <div
           className={cn(
             "text-center font-mono text-[10px] tracking-wide uppercase sm:text-xs",
-            demo ? "text-paper/55" : "text-ink/45",
+            demo ? "text-bar-foreground/55" : "text-ink/45",
           )}
         >
           <p data-replay-clock={simulated ? "" : undefined}>
             {clockLabel ?? "No official clock"}
           </p>
-          <p className={cn("mt-1 text-2xl font-semibold", demo ? "text-paper" : "text-ink/30")}>
+          <p className={cn("mt-1 text-2xl font-semibold", demo ? "text-bar-foreground" : "text-ink/30")}>
             –
           </p>
         </div>
@@ -120,13 +120,13 @@ export function GameScore({
           >
             {formatScore(score.home)}
           </p>
-          <p className={cn("mt-0.5 font-heading text-base sm:text-lg", demo && "text-paper")}>
+          <p className={cn("mt-0.5 font-heading text-base sm:text-lg", demo && "text-bar-foreground")}>
             {game.home.name}
           </p>
           <p
             className={cn(
               "font-mono text-xs tracking-wide uppercase",
-              demo ? "text-paper/60" : "text-ink/50",
+              demo ? "text-bar-foreground/60" : "text-ink/50",
             )}
           >
             {game.home.short}

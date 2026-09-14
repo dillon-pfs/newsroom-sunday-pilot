@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/cast/chip-absolute",
         permanent: false,
       },
+      {
+        source: "/demo",
+        destination: "/games/sunday-pilot",
+        permanent: true,
+      },
     ];
   },
 };

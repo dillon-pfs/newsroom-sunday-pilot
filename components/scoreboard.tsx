@@ -1,22 +1,17 @@
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { formatScore, statusLabel } from "@/lib/copy";
+import { GhostWindowCard, HeroScorebug } from "@/components/scorebug";
 import type { Game } from "@/lib/types";
 
-export function Scoreboard({
-  games,
-  sourceLabel = "Public board",
-}: {
-  games: Game[];
-  sourceLabel?: string;
-}) {
+export function Scoreboard({ games }: { games: Game[] }) {
   if (games.length === 0) {
     return (
-      <div className="border border-dashed border-ink/20 px-4 py-8 text-center text-sm text-ink/65">
+      <div className="border border-dashed border-border px-4 py-8 text-center text-sm text-ink-soft">
         No games on the Sunday board.
       </div>
     );
   }
+
+  const featured = games.filter((game) => game.demo);
+  const rest = games.filter((game) => !game.demo);
 
   return (
     <section className="space-y-2">
@@ -29,90 +24,18 @@ export function Scoreboard({
             Sunday window
           </h2>
         </div>
-        <Badge variant="outline" className="font-mono text-[10px] uppercase">
-          {sourceLabel}
-        </Badge>
+        <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
+          Public board
+        </span>
       </div>
-      <ul className="divide-y divide-ink/10 border border-ink/15 bg-card">
-        {games.map((game) => (
-          <li key={game.id}>
-            <Link
-              href={game.demo ? "/demo" : `/games/${game.id}`}
-              className="block px-3 py-2.5 transition-colors hover:bg-muted/70 sm:px-4"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="font-mono text-[10px] tracking-wide text-ink/50 uppercase">
-                  {game.windowLabel}
-                  <span className="mx-1.5 text-ink/25">·</span>
-                  {statusLabel(game.status)}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {game.demo ? (
-                    <Badge className="bg-demo text-demo-foreground font-mono text-[10px] tracking-wide uppercase">
-                      Demo
-                    </Badge>
-                  ) : null}
-                  <Badge
-                    variant="outline"
-                    className="font-mono text-[10px] uppercase"
-                  >
-                    {game.liveBlogEnabled ? "Blog on" : "Blog off"}
-                  </Badge>
-                </div>
-              </div>
-              <div className="mt-1.5 grid grid-cols-[1fr_auto_1fr] items-center gap-2 font-mono">
-                <TeamScore
-                  short={game.away.short}
-                  name={game.away.name}
-                  score={game.officialScore.away}
-                  align="left"
-                  demo={game.demo}
-                />
-                <span className="text-[10px] tracking-wide text-ink/35 uppercase">
-                  {game.demo ? "Final" : "@"}
-                </span>
-                <TeamScore
-                  short={game.home.short}
-                  name={game.home.name}
-                  score={game.officialScore.home}
-                  align="right"
-                  demo={game.demo}
-                />
-              </div>
-            </Link>
-          </li>
+      <div className="space-y-2">
+        {featured.map((game) => (
+          <HeroScorebug key={game.id} game={game} />
         ))}
-      </ul>
+        {rest.map((game) => (
+          <GhostWindowCard key={game.id} game={game} />
+        ))}
+      </div>
     </section>
-  );
-}
-
-function TeamScore({
-  short,
-  name,
-  score,
-  align,
-  demo,
-}: {
-  short: string;
-  name: string;
-  score: number | null;
-  align: "left" | "right";
-  demo?: boolean;
-}) {
-  return (
-    <div className={align === "right" ? "text-right" : "text-left"}>
-      <p
-        className={
-          demo
-            ? "text-3xl font-semibold tracking-tight sm:text-4xl"
-            : "text-2xl font-medium tracking-tight text-ink/55 sm:text-3xl"
-        }
-      >
-        {formatScore(score)}
-      </p>
-      <p className="text-xs tracking-wide text-ink/80 uppercase">{short}</p>
-      <p className="text-[11px] text-ink/50 normal-case">{name}</p>
-    </div>
   );
 }

@@ -11,6 +11,7 @@ const geistSans = Geist({
 const newsreader = Newsreader({
   variable: "--font-newsreader",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 const plexMono = IBM_Plex_Mono({

@@ -22,13 +22,13 @@ npm start
 
 | Path | What it is |
 | --- | --- |
-| `/` | Home board. DEMO scorebug for Melbourne; late window stays —. Cast strip. |
-| `/demo` | Same Melbourne timeline as Sunday Pilot. Every card is badged DEMO. |
-| `/games/sunday-pilot` | 49ers at Rams · Melbourne. Editorial live blog **on**. DEMO facts + Editor SATIRE. |
+| `/` | Home board. TV-black Melbourne scorebug; late window ghosted. Cast strip. |
+| `/demo` | Redirects to `/games/sunday-pilot`. |
+| `/games/sunday-pilot` | Canonical Melbourne DEMO timeline. Full Editor fact + SATIRE beats. |
 | `/games/sunday-pilot/delayed` | Public pause. Banner: **Updates delayed**. Resume returns to the game. |
 | `/games/late-window` | Hold listing. Live blog **off**. Scores **—**. |
 | `/cast` | Poor Form Desk strip. |
-| `/cast/chip-absolute` (and other slugs) | Voice stubs: Chip Absolute, Wes Process, Layover Len, Boo Atlas, Chyron Carl, Postcard Pete. |
+| `/cast/chip-absolute` (and other slugs) | Voice stubs. Chip Absolute is the lead profile. |
 | `/review` | Private review desk. Gate phrase: `desk`. |
 
 `/bloggers/lead-blogger` redirects to `/cast/chip-absolute`.

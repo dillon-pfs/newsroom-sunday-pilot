@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CAST } from "@/lib/cast";
+import { CAST, LEAD_VOICE_ID } from "@/lib/cast";
+import { cn } from "@/lib/utils";
 
 export function CastStrip() {
   return (
@@ -21,24 +22,38 @@ export function CastStrip() {
         </Link>
       </div>
       <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-        {CAST.map((voice) => (
-          <li key={voice.slug}>
-            <Link
-              href={`/cast/${voice.slug}`}
-              className="block h-full border border-ink/12 bg-card px-2.5 py-2 transition-colors hover:border-masthead/50"
-            >
-              <p className="font-heading text-sm font-semibold leading-tight">
-                {voice.name}
-              </p>
-              <p className="mt-1 font-mono text-[10px] tracking-wide text-ink/50 uppercase">
-                {voice.title}
-              </p>
-              <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-ink/65">
-                {voice.lens}
-              </p>
-            </Link>
-          </li>
-        ))}
+        {CAST.map((voice) => {
+          const lead = voice.slug === LEAD_VOICE_ID;
+          return (
+            <li key={voice.slug}>
+              <Link
+                href={`/cast/${voice.slug}`}
+                className={cn(
+                  "block h-full bg-card-loud px-2.5 py-2",
+                  lead
+                    ? "border-2 border-masthead"
+                    : "border border-border",
+                )}
+              >
+                <span
+                  className="mb-2 inline-flex size-7 items-center justify-center font-mono text-[10px] font-medium text-demo-foreground"
+                  style={{ backgroundColor: voice.mark }}
+                >
+                  {voice.initials}
+                </span>
+                <p className="font-heading text-sm font-semibold leading-tight">
+                  {voice.name}
+                </p>
+                <p className="mt-1 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
+                  {voice.title}
+                </p>
+                <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-ink-soft">
+                  {voice.lens}
+                </p>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

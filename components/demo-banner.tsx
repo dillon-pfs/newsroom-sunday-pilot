@@ -5,7 +5,7 @@ import { DEMO_BANNER } from "@/lib/demo/melbourne";
 
 export function DemoBanner() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/review")) {
+  if (pathname === "/" || pathname?.startsWith("/scores/") || pathname?.startsWith("/review")) {
     return null;
   }
 

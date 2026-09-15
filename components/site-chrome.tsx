@@ -23,8 +23,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <SiteNav />
           </div>
           <p className="max-w-3xl text-sm text-ink-soft">
-            Satirical desk. Public DEMO is Melbourne SF 27–LAR 7, labeled, not
-            live. SIMULATED tape stays on the private review screen.
+            NFL scores and a satirical desk. Melbourne DEMO is a labeled
+            backtest. SIMULATED tape stays on the private review screen.
           </p>
         </div>
       </header>

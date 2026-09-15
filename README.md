@@ -1,6 +1,6 @@
 # Poor Form Sports — Sunday Pilot
 
-Satirical desk. Public surface is a labeled **Melbourne DEMO** (SF 27–LAR 7 at the MCG). Lead voice is **Chip Absolute**. A private **SIMULATED** replay stays behind the desk gate.
+Satirical desk with a live NFL scoreboard. Lead voice is **Chip Absolute**. The labeled **Melbourne DEMO** (SF 27–LAR 7 at the MCG) remains in its own archive section. A private **SIMULATED** replay stays behind the desk gate.
 
 ## Run locally
 
@@ -18,11 +18,32 @@ npm start
 
 `npm start` is the stable preview (port 43147).
 
+## Live NFL scoreboard
+
+The complete implementation and setup guide is in [docs/nfl-scoreboard.md](docs/nfl-scoreboard.md).
+
+- ESPN is the primary source; the first browser load calls `/api/nfl/scores`.
+- `BALLDONTLIE_API_KEY` enables backup scores and game status.
+- Production requires `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
+- Local development uses an in-memory cache if Redis is not configured.
+- Copy `.env.example` to `.env.local` and fill in the values you need.
+- Do not put credentials in `NEXT_PUBLIC_` variables or commit `.env.local`.
+- Use Node 22.18+ (or Node 24) for the TypeScript test/smoke scripts.
+
+```bash
+npm run test:nfl
+npm run typecheck
+npm run lint
+npm run smoke:espn
+```
+
 ## Routes
 
 | Path | What it is |
 | --- | --- |
-| `/` | Home board. Hot Bar tokens. TV-black Melbourne scorebug; Stories strip under Cast. |
+| `/` | Live NFL board, labeled Melbourne demo archive, Cast and Stories. |
+| `/api/nfl/scores` | Normalized scores with cache age and availability; no credentials. |
+| `/scores/[id]` | Live game details for a fixture in the current scoreboard window. |
 | `/demo` | Redirects to `/games/sunday-pilot`. |
 | `/games/sunday-pilot` | Canonical Melbourne DEMO timeline. Full Editor fact + SATIRE beats. |
 | `/games/sunday-pilot/delayed` | Public pause. Banner: **Updates delayed**. Resume returns to the game. |
@@ -42,7 +63,7 @@ Override the gate with `REVIEW_PASSWORD` if you need a local secret. Default rem
 
 - **DEMO** is Melbourne only: SF 27 – LAR 7, MCG backtest, not live. Sources named on the sticky banner: ESPN / Reuters / Rams.com / NFL gamebook. Injury beats skipped. Chyron Carl is silent.
 - SATIRE lines on DEMO cards are Editor-approved copy, shown with byline. Fact-only cards have no commentary.
-- Non-demo public scores stay **—**.
+- The legacy Late Window hold listing stays **—**. Real NFL fixtures use the independent `/api/nfl/scores` feed and `/scores/[id]` view.
 - **SIMULATED** is `/review` only. Greyshirts and Red Caps are labeled **SIMULATED desk aliases**. Public pages never import `lib/simulated`.
 - Pause on the public DEMO game marks the wire delayed without fabricating updates. Review Play / Pause / scrub / rewind stay on the alias tape.
 

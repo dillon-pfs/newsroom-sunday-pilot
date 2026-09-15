@@ -23,8 +23,9 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <SiteNav />
           </div>
           <p className="max-w-3xl text-sm text-ink-soft">
-            Satirical desk. Public DEMO is Melbourne SF 27–LAR 7, labeled, not
-            live. SIMULATED tape stays on the private review screen.
+            Satirical desk. Public DEMO is three labeled backtests — Melbourne,
+            SNF, MNF — not live. SIMULATED tape stays on the private review
+            screen.
           </p>
         </div>
       </header>
@@ -33,7 +34,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       </main>
       <footer className="border-t border-border">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-1 px-4 py-3 font-mono text-[11px] tracking-wide text-ink-soft uppercase sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>Poor Form Sports · Lead: Chip Absolute · DEMO: SF 27–LAR 7 Melbourne</p>
+          <p>Poor Form Sports · Lead: Chip Absolute · DEMO: Melbourne · SNF · MNF</p>
           <p>Public-live path never loads the SIMULATED reel.</p>
         </div>
       </footer>

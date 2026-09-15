@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · Poor Form Sports",
   },
   description:
-    "Poor Form Sports Sunday pilot: Melbourne DEMO backtest, Chip Absolute lead, and a private SIMULATED review desk.",
+    "Poor Form Sports Sunday pilot: three labeled DEMO backtests, Chip Absolute lead, and a private SIMULATED review desk.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

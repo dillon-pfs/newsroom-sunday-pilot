@@ -21,7 +21,7 @@ export function Scoreboard({ games }: { games: Game[] }) {
             Live scoreboard
           </p>
           <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            Sunday window
+            DEMO windows
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">

@@ -3,7 +3,7 @@ import type { FeedEntry } from "@/lib/types";
 export const DEMO_GAME_ID = "demo-den-kc-mnf";
 
 export const DEMO_BANNER =
-  "DEMO — KC 31 DEN 10 · MNF Arrowhead · not live · ESPN recap gameId 401872931 · X crawl metrics cited in digest only";
+  "DEMO — KC 31 DEN 10 · MNF Arrowhead · not live · ESPN gameId 401872931";
 
 export const denKcMnfDemoEntries: FeedEntry[] = [
   {
@@ -12,7 +12,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Mahomes rush TD opener — KC lead",
-    body: "Opening drive: Mahomes rushing TD (“legs” energy). Chiefs score first at Arrowhead MNF.",
+    body: "Opening drive: Mahomes rushing TD. Chiefs score first.",
     postedAtLabel: "Q1 opener",
     path: "public-live",
     demo: true,
@@ -30,7 +30,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Celebrity look-in — Swift + Cruise at Arrowhead",
-    body: "NFL posts Swift + Cruise in house for MNF (~3.07M imp / 16.2k likes per Research crawl). Platform spectacle — not a game fact.",
+    body: "NFL posts Swift + Cruise (~3.07M imp / 16.2k likes). Platform spectacle — not a game fact.",
     postedAtLabel: "MNF platform",
     path: "public-live",
     demo: true,
@@ -48,10 +48,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Nix→Engram answer TD — temporary tie",
-    body: "Broncos answer TD Nix→Engram (temporary board swing). Verified ESPN/digest.",
+    body: "Broncos answer TD Nix→Engram.",
     postedAtLabel: "early answer",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Engram answers. Temporary tie. Arrowhead just cleared its throat.",
+      },
+    ],
   },
   {
     id: "demo-den-kc-walker-60",
@@ -59,7 +66,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Walker 60-yard TD on 4th-and-1 — KC dagger",
-    body: "Walker 60-yd rush TD on 4th-and-1 (Buck call noted in digest). Walker night: 173 rush, 2 TD (ESPN).",
+    body: "Walker 60-yd rush TD on 4th-and-1. Walker 173/2 TD (ESPN).",
     postedAtLabel: "Q4 4th-and-1",
     path: "public-live",
     demo: true,
@@ -87,10 +94,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Fields lined up; Walker shovel TD",
-    body: "Fields lined up next to Mahomes on Walker shovel TD (gadget / process theater). Live-blog color; Wes already owns 4th-and-1.",
+    body: "Fields lined up next to Mahomes on Walker shovel TD.",
     postedAtLabel: "gadget TD",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Conversion Referendum: Fields in a three-point next to Mahomes, shovel to Walker. That’s not chaos — that’s a formation filing itself.",
+      },
+    ],
   },
   {
     id: "demo-den-kc-kelce",
@@ -98,10 +112,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Mahomes–Kelce long setup",
-    body: "Mahomes–Kelce “so back” 59-yd setup moment (digest quote-bait). Chip budget held.",
+    body: "Mahomes–Kelce long setup (digest).",
     postedAtLabel: "midgame",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Mahomes to Kelce down the sideline like Monday never left.",
+      },
+    ],
   },
   {
     id: "demo-den-kc-real-rb-meme",
@@ -109,7 +130,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Walker debut splash — “real RB” frame",
-    body: "NFL/NFLMemes “Mahomes loving his new RB” / “real RB” meme pattern tied to Walker verified line. Pete anti-coronation already on Walker 4th-and-1 beat (#4).",
+    body: "“Real RB” meme tied to Walker verified line. Pete already on #4.",
     postedAtLabel: "post-Walker",
     path: "public-live",
     demo: true,
@@ -120,7 +141,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Waddle Broncos debut — 1 catch, 2 yards",
-    body: "Jaylen Waddle Broncos debut: 1 catch, 2 yards (ESPN).",
+    body: "Waddle: 1 catch, 2 yards (ESPN).",
     postedAtLabel: "box score",
     path: "public-live",
     demo: true,
@@ -138,10 +159,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Booth bits — Peyton reaction / audio out",
-    body: "Awful Announcing: Peyton “No!” on Nix INT; ESPN/ABC audio out end Q1 (digest). Carl celebrity card already used.",
+    body: "Peyton “No!” on Nix INT; Q1 audio out (digest).",
     postedAtLabel: "booth meta",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chyron-carl",
+        voiceName: "Chyron Carl",
+        line: "Chyron of the Night: Peyton yelling no, then the audio drops. The platform sold the fail twice.",
+      },
+    ],
   },
   {
     id: "demo-den-kc-final",
@@ -149,10 +177,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "FINAL — Chiefs 31, Broncos 10",
-    body: "KC 31–DEN 10. Walker 173/2 TD; Mahomes 184 pass, 2 TD pass + rush TD; Broncos 176 total yards. ESPN gameId 401872931.",
+    body: "KC 31–DEN 10. Walker 173/2; Mahomes pass+rush TDs; Broncos 176 total yards.",
     postedAtLabel: "FINAL",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Thirty-one to ten. Walker night. Broncos offense packed light.",
+      },
+    ],
   },
   {
     id: "demo-den-kc-attendance",
@@ -160,7 +195,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Arrowhead MNF — att. 73,543",
-    body: "Venue Arrowhead · ESPN/ABC · attendance 73,543 (digest).",
+    body: "Arrowhead · ESPN/ABC · att. 73,543.",
     postedAtLabel: "context",
     path: "public-live",
     demo: true,

@@ -1,5 +1,6 @@
 import { GameView } from "@/components/game-view";
 import { getPublicGame, listPublicGames } from "@/lib/live/public";
+import { shareMetadata } from "@/lib/share";
 
 export function generateStaticParams() {
   return listPublicGames().map((game) => ({ id: game.id }));
@@ -10,7 +11,14 @@ export async function generateMetadata({
 }: PageProps<"/games/[id]">) {
   const { id } = await params;
   const game = getPublicGame(id);
-  return { title: game?.name ?? "Game" };
+  if (!game) return { title: "Game" };
+  const label = game.demo ? "DEMO / SATIRE" : "NFL scoreboard";
+  return shareMetadata(
+    `${game.name} · ${label}`,
+    game.demo
+      ? `${game.windowLabel}: an editorial backtest, never a live score.`
+      : "Live NFL game detail from the Poor Form scoreboard pilot.",
+  );
 }
 
 export default async function GamePage({

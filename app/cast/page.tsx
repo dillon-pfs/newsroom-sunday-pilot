@@ -2,10 +2,12 @@ import Link from "next/link";
 import { CastStrip } from "@/components/cast-strip";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { CAST } from "@/lib/cast";
+import { shareMetadata } from "@/lib/share";
 
-export const metadata = {
-  title: "Cast",
-};
+export const metadata = shareMetadata(
+  "Cast · DEMO / SATIRE",
+  "Meet the Poor Form Desk: six named voices and the house Desk, each with a defined satire lane.",
+);
 
 export default function CastIndexPage() {
   return (

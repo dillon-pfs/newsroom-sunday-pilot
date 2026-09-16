@@ -5,6 +5,7 @@ import { AssignedScorebug } from "@/components/scorebug";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { CAST, LEAD_VOICE_ID, getVoice } from "@/lib/cast";
 import { demoGamesForVoice, gamesForBlogger } from "@/lib/live/public";
+import { shareMetadata } from "@/lib/share";
 
 export function generateStaticParams() {
   return CAST.map((voice) => ({ slug: voice.slug }));
@@ -15,7 +16,9 @@ export async function generateMetadata({
 }: PageProps<"/cast/[slug]">) {
   const { slug } = await params;
   const voice = getVoice(slug);
-  return { title: voice?.name ?? "Cast" };
+  return voice
+    ? shareMetadata(`${voice.name} · ${voice.title}`, `${voice.bio} Poor Form Sports DEMO / SATIRE.`)
+    : { title: "Cast" };
 }
 
 export default async function CastVoicePage({

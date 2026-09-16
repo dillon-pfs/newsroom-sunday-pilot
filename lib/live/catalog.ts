@@ -1,10 +1,14 @@
 import { LEAD_VOICE_ID, listVoices, voiceToBlogger } from "@/lib/cast";
+import { dalNygSnfDemoEntries } from "@/lib/demo/dal-nyg-snf";
+import { denKcMnfDemoEntries } from "@/lib/demo/den-kc-mnf";
 import { melbourneDemoEntries } from "@/lib/demo/melbourne";
 import type { Blogger, FeedEntry, Game } from "@/lib/types";
 
 /**
- * Public-live catalog only. Do not import simulated replay data here.
- * DEMO = Melbourne SF 27–LAR 7. Non-demo public scores stay empty (—).
+ * Editorial DEMO catalog for /games/*: Melbourne, SNF and MNF backtests.
+ * "public-live" is the legacy editorial feed path, not a live scores source.
+ * Real NFL fixtures use lib/nfl and /api/nfl/scores. Never import simulated
+ * review data here or map these demo IDs into live NFL coverage.
  */
 
 export const PUBLIC_FEED_PATH = "public-live" as const;
@@ -28,19 +32,39 @@ export const games: Game[] = [
       "DEMO backtest of the Melbourne MCG meeting — not a live wire. Sources: ESPN, Reuters, Rams.com, NFL gamebook. Injury beats skipped. Carl silent.",
   },
   {
-    id: "late-window",
-    name: "Late window",
-    away: { id: "tbd-away", name: "TBD", short: "TBD" },
-    home: { id: "tbd-home", name: "TBD", short: "TBD" },
-    status: "scheduled",
-    windowLabel: "Late window",
-    liveBlogEnabled: false,
-    officialScore: { away: null, home: null },
-    clockLabel: null,
-    assignedBloggerId: null,
+    id: "demo-dal-nyg-snf",
+    name: "Cowboys at Giants · SNF",
+    away: { id: "dal", name: "Cowboys", short: "DAL" },
+    home: { id: "nyg", name: "Giants", short: "NYG" },
+    status: "final",
+    windowLabel: "SNF DEMO",
+    liveBlogEnabled: true,
+    officialScore: { away: 20, home: 28 },
+    clockLabel: "Final",
+    assignedBloggerId: LEAD_VOICE_ID,
+    demo: true,
     feedNote:
-      "Hold listing. No DEMO result and no invented score. Public stays — until an official source exists.",
+      "DEMO backtest of DAL @ NYG SNF — not a live wire. Sources: ESPN, CBS, NBC, Giants.com. Injury beats skipped. Len, Boo, Carl silent.",
+  },
+  {
+    id: "demo-den-kc-mnf",
+    name: "Broncos at Chiefs · MNF",
+    away: { id: "den", name: "Broncos", short: "DEN" },
+    home: { id: "kc", name: "Chiefs", short: "KC" },
+    status: "final",
+    windowLabel: "MNF DEMO",
+    liveBlogEnabled: true,
+    officialScore: { away: 10, home: 31 },
+    clockLabel: "Final",
+    assignedBloggerId: LEAD_VOICE_ID,
+    demo: true,
+    feedNote:
+      "DEMO backtest of DEN @ KC MNF — not a live wire. Sources: ESPN recap gameId 401872931. X crawl metrics cited in digest only. Injury beats skipped. Len, Boo silent.",
   },
 ];
 
-export const publicLiveEntries: FeedEntry[] = melbourneDemoEntries;
+export const publicLiveEntries: FeedEntry[] = [
+  ...melbourneDemoEntries,
+  ...dalNygSnfDemoEntries,
+  ...denKcMnfDemoEntries,
+];

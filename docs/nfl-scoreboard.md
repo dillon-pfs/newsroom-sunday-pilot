@@ -6,6 +6,8 @@ The home page fetches `/api/nfl/scores` as soon as its scoreboard mounts. The ro
 
 The page stays statically rendered; only the scoreboard polls. Current games get their own `/scores/[id]` view. The Melbourne demo URLs and private simulated replay stay separate from real game identities. Blog links are editorial opt-ins in `lib/nfl/coverage.ts` and default to off.
 
+The demo integration also includes PR #2's SNF and MNF backtests. All three demo cards appear in a labeled archive beneath the independent live scoreboard. Their seeded scores and editorial copy are never used as live provider fallback.
+
 ## Run locally
 
 1. Install the repository's existing dependencies with `npm ci`.
@@ -68,19 +70,23 @@ npm run typecheck
 npm run lint
 npm run build
 npm run smoke:espn
+npm run smoke:failover
 ```
 
 If a restricted environment prevents Turbopack's worker from binding a local port, `npm run build -- --webpack` verifies the same application with Next.js's alternative compiler. The normal build command is unchanged.
 
 Automated tests exercise normalization, zero/missing scores, provider request construction, ID continuity, simultaneous visitors, primary outage, total outage, rate reservations, circuit cooldown, lease fencing and score corrections. Before launch, supply real backup/Redis credentials, open the site during a live game, then verify primary failure and total-feed failure in a separate preview deployment. Do not use production credentials for intentional outage tests.
 
+See [failover smoke](failover-smoke.md) for the one-command offline smoke and the exact Preview steps to force ESPN failure, backup activation, saved-score display and recovery. `NFL_SMOKE_OUTAGE` is honored only in development/Preview; production ignores it.
+
 ### Verification performed for this implementation
 
-- 19 automated tests passed, including mocked Redis REST command/authentication checks.
+- 23 automated tests passed, including mocked Redis REST commands, stale UI presentation and production fault-injection guards.
 - TypeScript and ESLint passed.
 - The production build passed with `next build --webpack`. This environment blocked Turbopack's local worker port; the repository's normal build command remains unchanged.
 - The actual ESPN adapter returned 16 normalized games.
-- Read-only HTTP checks against the local Next.js app passed: scores endpoint, snapshot reuse, home page, encoded game-detail URLs, and invalid-ID 404.
+- Read-only HTTP checks against the combined local Next.js app passed: scores endpoint, snapshot reuse, home page, encoded game-detail URLs, invalid-ID 404, all three isolated DEMO timelines and the Melbourne redirect.
+- `npm run smoke:failover` passed ESPN → backup → saved-score UI → recovery using controlled provider samples and the same presentation helpers as the scoreboard.
 - BALLDONTLIE and Redis behavior were tested with controlled responses, not your live account credentials. No active-game latency or browser visual check was completed; the browser tool's security-policy check was unavailable.
 
 With the local development server running, repeat the HTTP integration check with `node scripts/smoke-app.ts`. It requires a nonempty current ESPN slate and network access. The production site has not been deployed by these checks.

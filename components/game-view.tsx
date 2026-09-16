@@ -5,6 +5,7 @@ import { EntryList } from "@/components/entry-list";
 import { GameScore } from "@/components/game-score";
 import { PublicFeedControls } from "@/components/public-feed-controls";
 import { MiniScorebug } from "@/components/scorebug";
+import { demoChrome } from "@/lib/demo/banners";
 import { getBlogger, getPublicGame, getPublicLiveBlog } from "@/lib/live/public";
 
 export function GameView({ id, paused }: { id: string; paused: boolean }) {
@@ -17,6 +18,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
   const blogger = game.assignedBloggerId
     ? getBlogger(game.assignedBloggerId)
     : undefined;
+  const chrome = demoChrome(game.id);
 
   if (game.demo) {
     return (
@@ -25,7 +27,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
         <div className="space-y-5 px-4 sm:px-6">
           <div>
             <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-              Melbourne · MCG
+              {chrome?.kicker ?? game.windowLabel}
             </p>
             <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
               {game.name}
@@ -46,8 +48,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
               <DeskPill tone="final">Final</DeskPill>
             </div>
             <p className="mt-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-              Sources: ESPN, Reuters, Rams.com, NFL gamebook · Injury beats
-              skipped · Carl silent
+              {chrome?.sources ?? game.feedNote}
             </p>
           </div>
 

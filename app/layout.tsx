@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · Poor Form Sports",
   },
   description:
-    "Poor Form Sports: NFL scores, Chip Absolute and the satirical desk, plus the labeled Melbourne DEMO archive.",
+    "Poor Form Sports: NFL scores, Chip Absolute and the satirical desk, plus the labeled Melbourne, SNF and MNF DEMO archive.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

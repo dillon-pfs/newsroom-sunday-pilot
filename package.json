@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test:nfl": "node --test tests/nfl/*.test.ts",
-    "smoke:espn": "node scripts/smoke-espn.ts"
+    "smoke:espn": "node scripts/smoke-espn.ts",
+    "smoke:failover": "node scripts/smoke-failover.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

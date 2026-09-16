@@ -21,7 +21,7 @@ export function Scoreboard({ games }: { games: Game[] }) {
             Demo archive · not live
           </p>
           <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            Melbourne backtest
+            Melbourne, SNF &amp; MNF backtests
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">

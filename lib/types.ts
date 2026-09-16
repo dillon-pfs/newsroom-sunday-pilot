@@ -37,7 +37,7 @@ export type Game = {
   clockLabel: string | null;
   assignedBloggerId: string | null;
   feedNote: string;
-  /** Melbourne SF–LAR backtest. Public DEMO only — not the review tape. */
+  /** Public DEMO backtest. Not the live NFL board and not the review tape. */
   demo?: boolean;
   /** Review-only fixture. Never listed on the public board. */
   simulated?: boolean;

@@ -1,6 +1,6 @@
 # Poor Form Sports — Sunday Pilot
 
-Satirical desk with a live NFL scoreboard. Lead voice is **Chip Absolute**. The labeled **Melbourne DEMO** (SF 27–LAR 7 at the MCG) remains in its own archive section. A private **SIMULATED** replay stays behind the desk gate.
+Satirical desk with a live NFL scoreboard. Lead voice is **Chip Absolute**. Three labeled **DEMO** backtests have their own archive section: Melbourne (SF 27–LAR 7), SNF (NYG 28–DAL 20), and MNF (KC 31–DEN 10). A private **SIMULATED** replay stays behind the desk gate.
 
 ## Run locally
 
@@ -35,19 +35,21 @@ npm run test:nfl
 npm run typecheck
 npm run lint
 npm run smoke:espn
+npm run smoke:failover
 ```
 
 ## Routes
 
 | Path | What it is |
 | --- | --- |
-| `/` | Live NFL board, labeled Melbourne demo archive, Cast and Stories. |
+| `/` | Live NFL board, labeled Melbourne/SNF/MNF demo archive, Cast and Stories. |
 | `/api/nfl/scores` | Normalized scores with cache age and availability; no credentials. |
 | `/scores/[id]` | Live game details for a fixture in the current scoreboard window. |
 | `/demo` | Redirects to `/games/sunday-pilot`. |
 | `/games/sunday-pilot` | Canonical Melbourne DEMO timeline. Full Editor fact + SATIRE beats. |
 | `/games/sunday-pilot/delayed` | Public pause. Banner: **Updates delayed**. Resume returns to the game. |
-| `/games/late-window` | Hold listing. Live blog **off**. Scores **—**. |
+| `/games/demo-dal-nyg-snf` | SNF DEMO timeline. DAL @ NYG, NYG 28–20. Editor fact + SATIRE seeds. |
+| `/games/demo-den-kc-mnf` | MNF DEMO timeline. DEN @ KC, KC 31–10. Editor fact + SATIRE seeds. |
 | `/stories` | DEMO/SATIRE longform index. Editor-owned seeds. |
 | `/stories/fifteen-plays-one-continent-zero-chill` | Chip Absolute Melbourne column. |
 | `/stories/conversion-referendums-week1` | Wes Process Week 1 process column. |
@@ -61,14 +63,18 @@ Override the gate with `REVIEW_PASSWORD` if you need a local secret. Default rem
 
 ## DEMO vs SIMULATED
 
-- **DEMO** is Melbourne only: SF 27 – LAR 7, MCG backtest, not live. Sources named on the sticky banner: ESPN / Reuters / Rams.com / NFL gamebook. Injury beats skipped. Chyron Carl is silent.
+- **DEMO** is three labeled public backtests, not live, and not the live NFL scoreboard:
+  - Melbourne: SF 27 – LAR 7, MCG. Sources: ESPN / Reuters / Rams.com / NFL gamebook. Injury beats skipped. Chyron Carl is silent.
+  - SNF: NYG 28 – DAL 20, MetLife. Sources: ESPN / CBS / NBC / Giants.com. Len, Boo, Carl silent.
+  - MNF: KC 31 – DEN 10, Arrowhead. Sources: ESPN recap gameId 401872931. Len, Boo silent. Carl files one platform beat.
 - SATIRE lines on DEMO cards are Editor-approved copy, shown with byline. Fact-only cards have no commentary.
-- The legacy Late Window hold listing stays **—**. Real NFL fixtures use the independent `/api/nfl/scores` feed and `/scores/[id]` view.
+- DEMO ids stay in `lib/demo/*` and `lib/live/catalog.ts`. They are not mapped into live NFL coverage or `/api/nfl/scores`.
+- Real NFL fixtures use the independent `/api/nfl/scores` feed and `/scores/[id]` view. The old Late Window placeholder is retired.
 - **SIMULATED** is `/review` only. Greyshirts and Red Caps are labeled **SIMULATED desk aliases**. Public pages never import `lib/simulated`.
-- Pause on the public DEMO game marks the wire delayed without fabricating updates. Review Play / Pause / scrub / rewind stay on the alias tape.
+- Pause on a public DEMO game marks the wire delayed without fabricating updates. Review Play / Pause / scrub / rewind stay on the alias tape.
 
 ## Pilot constraints
 
-- Live blog is editorial (`liveBlogEnabled`). Sunday Pilot / DEMO is on; Late Window is not.
+- Live blog is editorial (`liveBlogEnabled`). All three DEMO games are on.
 - Two jobs on a card: **Fact** is the official-shaped hook. **SATIRE** is character voice and is never a score source.
 - The public-live path does not load the simulated reel.

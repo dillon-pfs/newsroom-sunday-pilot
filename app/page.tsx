@@ -21,8 +21,8 @@ export default function HomePage() {
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
           Follow the NFL scoreboard, then catch up with Chip Absolute and the
-          desk. SATIRE is Editor-approved and labeled. The Melbourne DEMO
-          remains a separate backtest below.
+          desk. SATIRE is Editor-approved and labeled. The Melbourne, SNF and
+          MNF DEMO backtests have their own archive below.
         </p>
       </section>
 

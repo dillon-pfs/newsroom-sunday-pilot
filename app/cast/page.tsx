@@ -17,9 +17,9 @@ export default function CastIndexPage() {
           Cast
         </h1>
         <p className="text-sm leading-6 text-ink/75">
-          Six lenses. Chip Absolute leads. Carl is silent on the Melbourne
-          DEMO. SATIRE lines on the timeline are Editor-approved copy, shown
-          with byline.
+          Six lenses. Chip Absolute leads. SATIRE lines on the timelines are
+          Editor-approved copy, shown with byline. Carl is silent on Melbourne
+          and files one MNF platform beat.
         </p>
       </section>
       <CastStrip />

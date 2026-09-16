@@ -3,6 +3,7 @@ import { getStore } from "./cache.ts";
 import { fetchEspn } from "./providers/espn.ts";
 import { fetchBalldontlie } from "./providers/balldontlie.ts";
 import { identityKey } from "./providers/common.ts";
+import { forcedProviderFailure, smokeOutage } from "./smoke-outage.ts";
 import type { NflGame, Provider, SavedState, ScoreboardResponse, Store, WeekSelection } from "./types.ts";
 
 export function emptyState(): SavedState {
@@ -155,9 +156,13 @@ export function createScoreboardService(deps: Dependencies) {
 
 export async function getScoreboard(): Promise<ScoreboardResponse> {
   try {
+    const outage = smokeOutage();
     return await createScoreboardService({
-      store: getStore(), selection: selectedWeek(), espn: fetchEspn,
-      backup: process.env.BALLDONTLIE_API_KEY ? selection => fetchBalldontlie(process.env.BALLDONTLIE_API_KEY!, selection) : undefined,
+      store: getStore(), selection: selectedWeek(),
+      espn: outage === "none" ? fetchEspn : forcedProviderFailure,
+      backup: process.env.BALLDONTLIE_API_KEY
+        ? outage === "all" ? forcedProviderFailure : selection => fetchBalldontlie(process.env.BALLDONTLIE_API_KEY!, selection)
+        : undefined,
       log: (provider, error) => console.warn("[nfl] Provider refresh failed", { provider,
         reason: error instanceof Error ? error.message : "Unknown error" }),
     })();

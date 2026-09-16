@@ -84,7 +84,8 @@ export default async function CastVoicePage({
 
       {voice.slug === "chyron-carl" ? (
         <p className="text-sm text-ink-soft">
-          Carl is silent on the Melbourne DEMO. No SATIRE line filed.
+          Carl is silent on the Melbourne DEMO. One SATIRE line on the MNF
+          platform beat.
         </p>
       ) : null}
 

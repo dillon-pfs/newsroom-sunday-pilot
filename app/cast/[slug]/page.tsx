@@ -4,7 +4,7 @@ import { DeskPill } from "@/components/desk-pill";
 import { AssignedScorebug } from "@/components/scorebug";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { CAST, LEAD_VOICE_ID, getVoice } from "@/lib/cast";
-import { gamesForBlogger } from "@/lib/live/public";
+import { demoGamesForVoice, gamesForBlogger } from "@/lib/live/public";
 
 export function generateStaticParams() {
   return CAST.map((voice) => ({ slug: voice.slug }));
@@ -28,7 +28,10 @@ export default async function CastVoicePage({
   }
 
   const assigned = gamesForBlogger(voice.slug);
+  const demoAssignments = demoGamesForVoice(voice.slug);
   const lead = voice.slug === LEAD_VOICE_ID;
+  const favorite = getVoice(voice.favoriteCoworker.slug);
+  const leastFavorite = getVoice(voice.leastFavoriteCoworker.slug);
 
   return (
     <div className="space-y-6">
@@ -67,10 +70,45 @@ export default async function CastVoicePage({
                 Files satire after facts
               </span>
             ) : null}
+            {demoAssignments.length > 0 ? <DeskPill tone="demo">On assignment</DeskPill> : null}
           </div>
           <p className="max-w-2xl text-base leading-7 text-ink">{voice.bio}</p>
         </div>
       </section>
+
+      <section className="grid gap-px border border-border bg-border sm:grid-cols-2">
+        <div className="bg-card p-4">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Fun fact</p>
+          <p className="mt-2 text-sm leading-6 text-ink">{voice.funFact}</p>
+        </div>
+        <div className="bg-card p-4">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Appears when</p>
+          <p className="mt-2 text-sm leading-6 text-ink">{voice.appearsWhen}</p>
+        </div>
+        <div className="bg-card p-4">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Favorite coworker</p>
+          <p className="mt-2 text-sm leading-6 text-ink">
+            {favorite ? <Link href={`/cast/${favorite.slug}`} className="font-medium underline-offset-4 hover:underline">{favorite.name}</Link> : "The desk"}
+            {" · "}{voice.favoriteCoworker.why}
+          </p>
+        </div>
+        <div className="bg-card p-4">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Least favorite coworker</p>
+          <p className="mt-2 text-sm leading-6 text-ink">
+            {leastFavorite ? <Link href={`/cast/${leastFavorite.slug}`} className="font-medium underline-offset-4 hover:underline">{leastFavorite.name}</Link> : "The desk"}
+            {" · "}{voice.leastFavoriteCoworker.why}
+          </p>
+        </div>
+      </section>
+
+      <a
+        href={`https://x.com/${voice.xHandle}`}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+      >
+        Follow @{voice.xHandle} on X
+      </a>
 
       <section className="border border-border bg-card-loud py-4 pr-4 pl-0">
         <div className="border-l-[6px] border-masthead px-4">
@@ -130,6 +168,20 @@ export default async function CastVoicePage({
           </ul>
         )}
       </section>
+
+      {demoAssignments.length > 0 ? (
+        <section className="space-y-3">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">On assignment</p>
+          <h2 className="font-heading text-2xl font-semibold">Labeled DEMO lines</h2>
+          <div className="flex flex-wrap gap-2">
+            {demoAssignments.map((game) => (
+              <Link key={game.id} href={`/games/${game.id}`} className="border border-border bg-card px-3 py-2 text-sm underline-offset-4 hover:underline">
+                {game.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

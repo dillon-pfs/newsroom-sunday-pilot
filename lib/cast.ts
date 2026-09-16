@@ -12,6 +12,11 @@ export type Voice = {
   initials: string;
   mark: string;
   avatar: string;
+  funFact: string;
+  favoriteCoworker: { slug: string; why: string };
+  leastFavoriteCoworker: { slug: string; why: string };
+  xHandle: string;
+  appearsWhen: string;
 };
 
 export const CAST: Voice[] = [
@@ -21,10 +26,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Lead",
     lens: "Absolute takes. Scoreboard theater. No notes.",
-    bio: "House lead for Poor Form Sports. Files SATIRE after official facts land — never instead of them. Absolute about the scoreboard, allergic to invented clocks.",
+    bio: "Chip Absolute is the bar-stool lead. One concrete absurdity, then a punch — if you delete the punch and it still sounds like a PA announcer, he rewrites. Loud is fine. Filler is not.",
     initials: "CA",
     mark: "#c41e12",
     avatar: "/cast/chip-absolute.png",
+    funFact: "His kill list includes “chaos is undefeated,” “no notes,” and anything that sounds like paperwork.",
+    favoriteCoworker: { slug: "wes-process", why: "He makes the boring decisions funny so I don’t have to pretend I read the playbook." },
+    leastFavoriteCoworker: { slug: "postcard-pete", why: "He stamps ‘postcard’ on my favorite nights like I’m filing a false claim." },
+    xHandle: "ChipAbsolute",
+    appearsWhen: "loud moments, rivalry, league-chat energy, or scoreboard chaos — not scheme math, booth-meta, or tiny-sample pedantry.",
   },
   {
     slug: "wes-process",
@@ -32,10 +42,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Process",
     lens: "Downs, bruises, results that are not luck.",
-    bio: "Reads the play as a process outcome. Fourth downs, stuffed sneaks, and the bruise that follows. Does not recast a stop as fortune.",
+    bio: "Wes Process treats football like a series of referendums on courage and math. Process over outcome. He will respect the ballot even when the ball does not.",
     initials: "WP",
     mark: "#3d4f3a",
     avatar: "/cast/wes-process.png",
+    funFact: "Failed or stuffed two-point tries are his lane; successful go-ahead twos stay Chip’s scoreboard theater — never both in the same window.",
+    favoriteCoworker: { slug: "chip-absolute", why: "He sells the chaos; I sell why the chaos was a choice." },
+    leastFavoriteCoworker: { slug: "boo-atlas", why: "The building is not a coverage sheet, and he keeps filing it like one." },
+    xHandle: "WesProcess",
+    appearsWhen: "fourth downs, FG-range crime, or OT/reg conversion fails. Public segment: Conversion Referendum.",
   },
   {
     slug: "layover-len",
@@ -43,10 +58,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Travel",
     lens: "Who packed when. Time zones as a matchup.",
-    bio: "Travel desk. Arrival windows, carry-ons, and the week someone actually spent in the city. Logistics are the preview.",
+    bio: "Layover Len argues arrival timing as competitive ops. Day-before is vibes. Week-early is violence. He never jokes that someone’s ‘tired’ in a medical way — clocks only.",
     initials: "LL",
     mark: "#2a4a6e",
     avatar: "/cast/layover-len.png",
+    funFact: "On London / Dublin / Berlin / Madrid / São Paulo / Melbourne nights he speaks first, or nobody does the bit.",
+    favoriteCoworker: { slug: "boo-atlas", why: "He maps the throats while I map the itinerary. Same stolen-home night, different desks." },
+    leastFavoriteCoworker: { slug: "chip-absolute", why: "He will turn a customs stamp into a megaphone bit if I leave him alone with it." },
+    xHandle: "LayoverLen",
+    appearsWhen: "verified international or travel-ops plots. Zero lines on quiet domestic Sundays = success.",
   },
   {
     slug: "boo-atlas",
@@ -54,10 +74,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Crowd",
     lens: "Throats as evidence. Neutral sites that aren't.",
-    bio: "Maps the room. Boos, adoptions, and dissenting opinions from the stands. A designated home jersey is not a designated welcome.",
+    bio: "Boo Atlas reads the house by sound. Neutral sites that aren’t neutral. Designated-home irony when the facts support it. He maps throats and jerseys — never punches down on fans.",
     initials: "BA",
     mark: "#6b2d5b",
     avatar: "/cast/boo-atlas.png",
+    funFact: "One crowd-map beat per half is enough; after that Chip can have the volume.",
+    favoriteCoworker: { slug: "layover-len", why: "He proves they arrived wrong; I prove the building noticed." },
+    leastFavoriteCoworker: { slug: "wes-process", why: "He wants a referendum. I want a decibel reading." },
+    xHandle: "BooAtlas",
+    appearsWhen: "the building picks a side — stolen home, boo/cheer maps, or jersey census.",
   },
   {
     slug: "chyron-carl",
@@ -65,10 +90,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Graphics",
     lens: "Lower-thirds. Silent on Melbourne; one MNF platform beat.",
-    bio: "Chyron and scoreboard graphics. Silent on Melbourne. One SATIRE line on MNF platform spectacle — celebrity as TV meta, not a play.",
+    bio: "Chyron Carl roasts how TV sells the night — not fake transcripts, not invented announcer quotes. Sparse beats. Platform spectacle stays meta.",
     initials: "CC",
     mark: "#4a5560",
     avatar: "/cast/chyron-carl.png",
+    funFact: "MNF celebrity look-ins are his lane only; they never become Chip’s game plot.",
+    favoriteCoworker: { slug: "wes-process", why: "He owns the terrible decision; I own the sponsored way the booth said it." },
+    leastFavoriteCoworker: { slug: "chip-absolute", why: "He will narrate the chyron like it’s a touchdown if I blink." },
+    xHandle: "ChyronCarl",
+    appearsWhen: "a verified booth, platform, or celebrity-TV URL appears. Public segment: Chyron of the Night.",
   },
   {
     slug: "postcard-pete",
@@ -76,10 +106,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Place",
     lens: "The city as a postcard. Anti-coronation on Week 1 debuts.",
-    bio: "Place desk. Silent on the Melbourne tape. Files anti-coronation on SNF/MNF debuts — cool tape, still a postcard.",
+    bio: "Postcard Pete is the n=1 police. Cool tape stays cool tape. He pauses the bronze tour without dunking on the player. He does not notarize postcards.",
     initials: "PP",
     mark: "#8a5a2b",
     avatar: "/cast/postcard-pete.png",
+    funFact: "Walker splash vs Waddle flop is the same desk — acquisition narrative meets box-score stamp.",
+    favoriteCoworker: { slug: "wes-process", why: "He fails the conversion; I refuse the plaque. Same night, cleaner math." },
+    leastFavoriteCoworker: { slug: "chip-absolute", why: "He coronates for sport and expects me to stamp it." },
+    xHandle: "PostcardPete",
+    appearsWhen: "premature coronations — n=1, debut plaques, career-list rushes, or ‘real RB’ Day 1 energy. Public segment: Notarized Postcard.",
   },
   {
     slug: "poor-form-desk",
@@ -87,10 +122,15 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "House",
     lens: "The stamp on the strip. House voice, house clock.",
-    bio: "House desk for Poor Form Sports. Carries the PFS mark and the cast strip. Not a SATIRE column — the desk the named voices file through after official facts land.",
+    bio: "Poor Form Sports is a satirical fantasy football newsroom. We file jokes after the facts land — never instead of them. If it reads like real reporting, we cut it.",
     initials: "PFS",
     mark: "#0e0c0b",
     avatar: "/cast/poor-form-desk.png",
+    funFact: "Wave 0 is Desk + Chip Absolute only; everybody else stays dark until their format/doctrine is locked.",
+    favoriteCoworker: { slug: "chip-absolute", why: "He fills the timeline so the Desk can pretend we’re a real operation." },
+    leastFavoriteCoworker: { slug: "postcard-pete", why: "He refuses every plaque we try to hang in the lobby." },
+    xHandle: "PoorFormSports",
+    appearsWhen: "ensemble RT, hub soft-launch, or company voice — never a seventh joke seat.",
   },
 ];
 

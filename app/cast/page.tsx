@@ -18,7 +18,7 @@ export default function CastIndexPage() {
           Cast
         </h1>
         <p className="text-sm leading-6 text-ink/75">
-          Seven voices. Chip Absolute leads. SATIRE lines on the timelines are
+          Six named voices plus the house Desk. Chip Absolute leads. SATIRE lines on the timelines are
           Editor-approved copy, shown with byline. Carl is silent on Melbourne
           and files one MNF platform beat. Poor Form Desk holds the house stamp.
         </p>
@@ -41,6 +41,14 @@ export default function CastIndexPage() {
                 </Link>
               </h2>
               <p className="mt-1 text-sm text-ink/70">{voice.lens}</p>
+              <a
+                href={`https://x.com/${voice.xHandle}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+              >
+                @{voice.xHandle} on X
+              </a>
             </div>
           </li>
         ))}

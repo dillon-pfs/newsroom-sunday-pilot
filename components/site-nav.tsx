@@ -23,6 +23,11 @@ const nav = [
     match: (path: string) => path === "/cast",
   },
   {
+    href: "/mail",
+    label: "Mail the Desk",
+    match: (path: string) => path.startsWith("/mail"),
+  },
+  {
     href: "/cast/chip-absolute",
     label: "Chip Absolute",
     match: (path: string) => path.startsWith("/cast/chip-absolute"),

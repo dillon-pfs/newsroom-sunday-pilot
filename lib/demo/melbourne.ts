@@ -22,6 +22,11 @@ export const melbourneDemoEntries: FeedEntry[] = [
         voiceName: "Chip Absolute",
         line: "Fifteen plays for a field goal on a new continent. That’s not football — that’s a hostage negotiation with uprights.",
       },
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Conversion Referendum: fifteen plays, three points, first Australian regular-season stamp. Process showed up. Drama did not.",
+      },
     ],
   },
   {
@@ -30,7 +35,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Kyren Williams 5-yard TD — LAR 7–3",
-    body: "Stafford→Nacua 41; Kyren Williams 5-yd TD (Mevis). LAR 7–3. First NFL TD on Australian soil.",
+    body: "Stafford→Nacua 41; Kyren Williams 5-yd TD. LAR 7–3. First NFL TD on Australian soil.",
     postedAtLabel: "Q2 14:57",
     path: "public-live",
     demo: true,
@@ -39,6 +44,11 @@ export const melbourneDemoEntries: FeedEntry[] = [
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
         line: "First NFL touchdown on Australian soil and it’s Kyren Williams. History just wore a Rams jersey for six seconds and I need a minute.",
+      },
+      {
+        voiceId: "postcard-pete",
+        voiceName: "Postcard Pete",
+        line: "Notarized Postcard: first TD on a new continent. Cool plaque. Stamp refused until someone scores again.",
       },
     ],
   },
@@ -176,5 +186,12 @@ export const melbourneDemoEntries: FeedEntry[] = [
     postedAtLabel: "Q4 9:43",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "postcard-pete",
+        voiceName: "Postcard Pete",
+        line: "Notarized Postcard: fifty-six-yard bow on a new continent. Cool ending. Still not a dynasty stamp.",
+      },
+    ],
   },
 ];

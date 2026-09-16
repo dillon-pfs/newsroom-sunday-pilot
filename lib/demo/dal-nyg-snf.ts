@@ -12,10 +12,17 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Skattebo 3-yard TD — NYG 7–0",
-    body: "Giants 10-83, 8:20 opening drive; Cam Skattebo 3-yd rush TD (Zvada XP). NYG 7–0. First points of Harbaugh NY era.",
+    body: "Giants 10-83, 8:20; Cam Skattebo 3-yd rush TD (Zvada XP). NYG 7–0. First points of Harbaugh NY era.",
     postedAtLabel: "Q1 6:40",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Ten plays, eighty-three yards, first points of the Harbaugh New York era. The new shop scored before Dallas finished unpacking.",
+      },
+    ],
   },
   {
     id: "demo-dal-nyg-lamb-td",
@@ -23,10 +30,17 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Lamb 1-yard TD — 7–7",
-    body: "Williams initially ruled in, replay reverses; Prescott→CeeDee Lamb 1-yd TD (Aubrey XP). 7–7.",
+    body: "Williams ruled in then replay reverses; Prescott→Lamb 1-yd TD (Aubrey XP). 7–7.",
     postedAtLabel: "Q2 5:44",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Conversion Referendum: ruled in, reversed, next snap it’s a touchdown anyway. The booth called almost. The process called next play.",
+      },
+    ],
   },
   {
     id: "demo-dal-nyg-holland-int",
@@ -34,10 +48,17 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Holland intercepts Prescott",
-    body: "3rd-and-5; Prescott deep right INT by Jevón Holland at NYG 45 (sliding sideline pick).",
+    body: "3rd-and-5; Prescott deep right INT by Jevón Holland at NYG 45.",
     postedAtLabel: "Q2 ~0:58",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Conversion Referendum: third-and-five, deep ball, Holland slides under it. Dallas just donated the half.",
+      },
+    ],
   },
   {
     id: "demo-dal-nyg-likely-td1",
@@ -45,7 +66,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Likely 15-yard TD — NYG 14–7 HT",
-    body: "After Holland INT: Dart→Isaiah Likely 15-yd TD (Zvada XP). NYG 14–7 HT. Likely NY debut TD #1.",
+    body: "Dart→Isaiah Likely 15-yd TD (Zvada XP). NYG 14–7 HT. Likely debut TD #1.",
     postedAtLabel: "Q2 0:20",
     path: "public-live",
     demo: true,
@@ -63,7 +84,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Likely 2-yard TD after 8:01 grind — NYG 21–7",
-    body: "12-play, 74-yard, 8:01 march; Dart→Likely 2-yd TD. NYG 21–7. Likely finishes 8/8, 78, 2 TD.",
+    body: "12-74, 8:01; Dart→Likely 2-yd TD. NYG 21–7. Likely 8/8, 78, 2 TD.",
     postedAtLabel: "Q3 6:59",
     path: "public-live",
     demo: true,
@@ -90,6 +111,13 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     postedAtLabel: "Q3 0:37",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Twelve plays later Dallas is within one. Fine. The building still remembers who started the night.",
+      },
+    ],
   },
   {
     id: "demo-dal-nyg-singletary-td",
@@ -97,7 +125,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Singletary 9-yard TD after 8:11 drive — NYG 28–14",
-    body: "13-play ~65-yard, 8:11; Dart→Devin Singletary 9-yd TD. NYG 28–14. Dart’s third TD.",
+    body: "13-play ~65-yard, 8:11; Dart→Singletary 9-yd TD. NYG 28–14. Dart 3 TD, 0 INT.",
     postedAtLabel: "Q4 7:26",
     path: "public-live",
     demo: true,
@@ -115,7 +143,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Williams 17-yard TD; Aubrey XP wide right — NYG 28–20",
-    body: "Prescott→Williams 17-yd TD; taunting on Williams; Aubrey XP No Good Wide Right. NYG 28–20.",
+    body: "Prescott→Williams 17-yd TD; taunting; Aubrey XP wide right. NYG 28–20.",
     postedAtLabel: "Q4 5:21",
     path: "public-live",
     demo: true,
@@ -133,10 +161,17 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "Giants never give it back — final 5:21",
-    body: "After kickoff NYG converts 3rd down, kneels three times. Dallas does not get the ball back. TOP NYG 36:40 / 29 first downs.",
+    body: "NYG converts 3rd, kneels three times. Dallas never gets the ball back. TOP 36:40 / 29 first downs.",
     postedAtLabel: "Q4 5:21→0:00",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "wes-process",
+        voiceName: "Wes Process",
+        line: "Conversion Referendum: final five-twenty-one, zero Cowboys snaps. Clock was the protagonist.",
+      },
+    ],
   },
   {
     id: "demo-dal-nyg-final",
@@ -144,9 +179,16 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     kind: "fact",
     authorId: null,
     headline: "FINAL — Giants 28, Cowboys 20",
-    body: "NYG 28–DAL 20. Dart 23/29, 230, 3 TD, 0 INT. Harbaugh NY debut W. MetLife SNF.",
+    body: "NYG 28–DAL 20. Dart 23/29, 230, 3 TD, 0 INT. Harbaugh NY debut W.",
     postedAtLabel: "FINAL",
     path: "public-live",
     demo: true,
+    satire: [
+      {
+        voiceId: "chip-absolute",
+        voiceName: "Chip Absolute",
+        line: "Final: twenty-eight to twenty. Harbaugh’s New York opener ends with Dallas still looking for a stop.",
+      },
+    ],
   },
 ];

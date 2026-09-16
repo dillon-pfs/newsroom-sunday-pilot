@@ -51,6 +51,16 @@ export function CastStrip() {
                   {voice.lens}
                 </p>
               </Link>
+              {voice.x ? (
+                <a
+                  href={voice.x.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block font-mono text-[10px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+                >
+                  @{voice.x.handle} on X
+                </a>
+              ) : null}
             </li>
           );
         })}

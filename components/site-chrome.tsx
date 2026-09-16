@@ -29,6 +29,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             Poor Form Sports · Lead: Chip Absolute · DEMO: Melbourne · SNF · MNF
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
+            <a href="https://x.com/PoorFormSports" target="_blank" rel="noopener noreferrer" className="hover:text-masthead hover:underline">Follow the Desk</a>
             <Link href="/about" className="hover:text-masthead hover:underline">About satire</Link>
             <Link href="/mail" className="hover:text-masthead hover:underline">Mail the Desk</Link>
             <span>Public-live path never loads the SIMULATED reel.</span>

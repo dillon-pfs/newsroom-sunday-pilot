@@ -43,14 +43,20 @@ export default function CastIndexPage() {
                 </Link>
               </h2>
               <p className="mt-1 text-sm text-ink/70">{voice.lens}</p>
-              <a
-                href={`https://x.com/${voice.xHandle}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
-              >
-                @{voice.xHandle} on X
-              </a>
+              {voice.x ? (
+                <a
+                  href={voice.x.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+                >
+                  @{voice.x.handle} on X
+                </a>
+              ) : (
+                <span className="mt-2 inline-block font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+                  X account coming soon
+                </span>
+              )}
             </div>
           </li>
         ))}

@@ -104,14 +104,20 @@ export default async function CastVoicePage({
         </div>
       </section>
 
-      <a
-        href={`https://x.com/${voice.xHandle}`}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
-      >
-        Follow @{voice.xHandle} on X
-      </a>
+      {voice.x ? (
+        <a
+          href={voice.x.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+        >
+          Follow @{voice.x.handle} on X
+        </a>
+      ) : (
+        <span className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+          X account coming soon
+        </span>
+      )}
 
       <section className="border border-border bg-card-loud py-4 pr-4 pl-0">
         <div className="border-l-[6px] border-masthead px-4">

@@ -53,7 +53,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Followed the coach up I-95 and immediately caught two touchdowns like the playbook came with a MetroCard.",
+        line: "Followed the coach up I-95 and caught two touchdowns before the MetroCard even warmed up.",
       },
     ],
   },
@@ -71,12 +71,12 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "postcard-pete",
         voiceName: "Postcard Pete",
-        line: "Eight-for-eight and two scores in a debut. Cool tape. Still a postcard. We do not bronze Week 1 Tight Ends Who Followed the Coach.",
+        line: "Notarized Postcard: eight-for-eight, two scores, Week 1 debut. Cool tape. Stamp refused.",
       },
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Eight minutes, then eight more, then five-twenty-one of never giving it back. That’s not vibes — that’s a possession referendum Harbaugh brought in his suitcase.",
+        line: "Conversion Referendum: eight minutes, eight more, five-twenty-one of never giving it back. Harbaugh packed the possession ballot.",
       },
     ],
   },
@@ -105,7 +105,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "First night in New York, three touchdowns, zero picks, Cowboys still looking for a stop. Debut energy filed under: the new shop just announced itself.",
+        line: "Three touchdowns. Zero picks. First night in New York. The new shop just announced itself at full volume.",
       },
     ],
   },
@@ -123,7 +123,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Score the touchdown, talk about it, watch the kick slide right, stay down eight. Self-inflicted math.",
+        line: "Conversion Referendum: score it, talk about it, kick slides right, stay down eight. Self-inflicted math.",
       },
     ],
   },

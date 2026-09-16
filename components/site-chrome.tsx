@@ -1,6 +1,7 @@
 import { BrandLockup, BrandMark } from "@/components/brand-lockup";
 import { DemoBanner } from "@/components/demo-banner";
 import { SiteNav } from "@/components/site-nav";
+import Link from "next/link";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
@@ -27,7 +28,11 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <BrandMark size={16} />
             Poor Form Sports · Lead: Chip Absolute · DEMO: Melbourne · SNF · MNF
           </p>
-          <p>Public-live path never loads the SIMULATED reel.</p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1">
+            <Link href="/about" className="hover:text-masthead hover:underline">About satire</Link>
+            <Link href="/mail" className="hover:text-masthead hover:underline">Mail the Desk</Link>
+            <span>Public-live path never loads the SIMULATED reel.</span>
+          </p>
         </div>
       </footer>
     </div>

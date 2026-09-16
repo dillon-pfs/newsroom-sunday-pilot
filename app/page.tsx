@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CastStrip } from "@/components/cast-strip";
+import { BestOfDemo } from "@/components/best-of-demo";
 import { Scoreboard } from "@/components/scoreboard";
 import { LiveScoreboard } from "@/components/scoreboard/live-scoreboard";
 import { StoriesStrip } from "@/components/story-card";
@@ -28,6 +29,7 @@ export default function HomePage() {
 
       <LiveScoreboard />
       <Scoreboard games={games.filter((game) => game.demo)} />
+      <BestOfDemo />
       <CastStrip />
       <StoriesStrip stories={stories} />
 

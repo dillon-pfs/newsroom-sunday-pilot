@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DeskPill } from "@/components/desk-pill";
+import { ThisLineReaction } from "@/components/this-line-reaction";
 import { kindLabel } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 import type { FeedEntry } from "@/lib/types";
@@ -38,6 +39,7 @@ export function EntryList({
         return (
           <li
             key={entry.id}
+            id={entry.id}
             className={cn(
               "border-2 bg-card-loud",
               showDemo && "rounded-[2px] border-border",
@@ -88,6 +90,7 @@ export function EntryList({
                       <p className="mt-1 font-heading text-[17px] leading-7 text-ink italic">
                         {line.line}
                       </p>
+                      {showDemo ? <ThisLineReaction id={`${entry.id}-${line.voiceId}`} /> : null}
                     </li>
                   ))}
                 </ul>

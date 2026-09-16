@@ -36,3 +36,20 @@ export function gamesForBlogger(bloggerId: string): Game[] {
   if (!voice) return [];
   return games.filter((game) => game.assignedBloggerId === voice.slug);
 }
+
+/** Public DEMO timelines where a named voice has a labeled SATIRE line. */
+export function demoGamesForVoice(voiceId: string): Game[] {
+  const gameIds = new Set(
+    publicLiveEntries
+      .filter((entry) => entry.demo && entry.satire?.some((line) => line.voiceId === voiceId))
+      .map((entry) => entry.gameId),
+  );
+  return games.filter((game) => game.demo && gameIds.has(game.id));
+}
+
+export function voicesForDemoGame(gameId: string) {
+  const ids = new Set(
+    getPublicLiveBlog(gameId).flatMap((entry) => entry.satire?.map((line) => line.voiceId) ?? []),
+  );
+  return listVoices().filter((voice) => ids.has(voice.slug));
+}

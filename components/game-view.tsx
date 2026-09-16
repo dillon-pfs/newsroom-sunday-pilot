@@ -6,7 +6,7 @@ import { GameScore } from "@/components/game-score";
 import { PublicFeedControls } from "@/components/public-feed-controls";
 import { MiniScorebug } from "@/components/scorebug";
 import { demoChrome } from "@/lib/demo/banners";
-import { getBlogger, getPublicGame, getPublicLiveBlog } from "@/lib/live/public";
+import { getBlogger, getPublicGame, getPublicLiveBlog, voicesForDemoGame } from "@/lib/live/public";
 
 export function GameView({ id, paused }: { id: string; paused: boolean }) {
   const game = getPublicGame(id);
@@ -19,6 +19,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
     ? getBlogger(game.assignedBloggerId)
     : undefined;
   const chrome = demoChrome(game.id);
+  const voices = game.demo ? voicesForDemoGame(game.id) : [];
 
   if (game.demo) {
     return (
@@ -50,6 +51,18 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
             <p className="mt-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
               {chrome?.sources ?? game.feedNote}
             </p>
+            {voices.length > 0 ? (
+              <div className="mt-4 border-t border-border pt-3">
+                <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">Who should talk?</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {voices.map((voice) => (
+                    <Link key={voice.slug} href={`/cast/${voice.slug}`} className="border border-border bg-card px-2 py-1 text-sm underline-offset-4 hover:underline">
+                      {voice.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
 
           <section className="space-y-3">

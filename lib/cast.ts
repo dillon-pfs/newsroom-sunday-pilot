@@ -15,7 +15,7 @@ export type Voice = {
   funFact: string;
   favoriteCoworker: { slug: string; why: string };
   leastFavoriteCoworker: { slug: string; why: string };
-  xHandle: string;
+  x: { handle: string; url: string } | null;
   appearsWhen: string;
 };
 
@@ -33,7 +33,7 @@ export const CAST: Voice[] = [
     funFact: "His kill list includes “chaos is undefeated,” “no notes,” and anything that sounds like paperwork.",
     favoriteCoworker: { slug: "wes-process", why: "He makes the boring decisions funny so I don’t have to pretend I read the playbook." },
     leastFavoriteCoworker: { slug: "postcard-pete", why: "He stamps ‘postcard’ on my favorite nights like I’m filing a false claim." },
-    xHandle: "ChipAbsolute",
+    x: { handle: "ChipAbsolute", url: "https://x.com/ChipAbsolute" },
     appearsWhen: "loud moments, rivalry, league-chat energy, or scoreboard chaos — not scheme math, booth-meta, or tiny-sample pedantry.",
   },
   {
@@ -49,7 +49,7 @@ export const CAST: Voice[] = [
     funFact: "Failed or stuffed two-point tries are his lane; successful go-ahead twos stay Chip’s scoreboard theater — never both in the same window.",
     favoriteCoworker: { slug: "chip-absolute", why: "He sells the chaos; I sell why the chaos was a choice." },
     leastFavoriteCoworker: { slug: "boo-atlas", why: "The building is not a coverage sheet, and he keeps filing it like one." },
-    xHandle: "WesProcess",
+    x: null,
     appearsWhen: "fourth downs, FG-range crime, or OT/reg conversion fails. Public segment: Conversion Referendum.",
   },
   {
@@ -65,7 +65,7 @@ export const CAST: Voice[] = [
     funFact: "On London / Dublin / Berlin / Madrid / São Paulo / Melbourne nights he speaks first, or nobody does the bit.",
     favoriteCoworker: { slug: "boo-atlas", why: "He maps the throats while I map the itinerary. Same stolen-home night, different desks." },
     leastFavoriteCoworker: { slug: "chip-absolute", why: "He will turn a customs stamp into a megaphone bit if I leave him alone with it." },
-    xHandle: "LayoverLen",
+    x: null,
     appearsWhen: "verified international or travel-ops plots. Zero lines on quiet domestic Sundays = success.",
   },
   {
@@ -81,7 +81,7 @@ export const CAST: Voice[] = [
     funFact: "One crowd-map beat per half is enough; after that Chip can have the volume.",
     favoriteCoworker: { slug: "layover-len", why: "He proves they arrived wrong; I prove the building noticed." },
     leastFavoriteCoworker: { slug: "wes-process", why: "He wants a referendum. I want a decibel reading." },
-    xHandle: "BooAtlas",
+    x: null,
     appearsWhen: "the building picks a side — stolen home, boo/cheer maps, or jersey census.",
   },
   {
@@ -97,7 +97,7 @@ export const CAST: Voice[] = [
     funFact: "MNF celebrity look-ins are his lane only; they never become Chip’s game plot.",
     favoriteCoworker: { slug: "wes-process", why: "He owns the terrible decision; I own the sponsored way the booth said it." },
     leastFavoriteCoworker: { slug: "chip-absolute", why: "He will narrate the chyron like it’s a touchdown if I blink." },
-    xHandle: "ChyronCarl",
+    x: null,
     appearsWhen: "a verified booth, platform, or celebrity-TV URL appears. Public segment: Chyron of the Night.",
   },
   {
@@ -113,7 +113,7 @@ export const CAST: Voice[] = [
     funFact: "Walker splash vs Waddle flop is the same desk — acquisition narrative meets box-score stamp.",
     favoriteCoworker: { slug: "wes-process", why: "He fails the conversion; I refuse the plaque. Same night, cleaner math." },
     leastFavoriteCoworker: { slug: "chip-absolute", why: "He coronates for sport and expects me to stamp it." },
-    xHandle: "PostcardPete",
+    x: null,
     appearsWhen: "premature coronations — n=1, debut plaques, career-list rushes, or ‘real RB’ Day 1 energy. Public segment: Notarized Postcard.",
   },
   {
@@ -129,7 +129,7 @@ export const CAST: Voice[] = [
     funFact: "Wave 0 is Desk + Chip Absolute only; everybody else stays dark until their format/doctrine is locked.",
     favoriteCoworker: { slug: "chip-absolute", why: "He fills the timeline so the Desk can pretend we’re a real operation." },
     leastFavoriteCoworker: { slug: "postcard-pete", why: "He refuses every plaque we try to hang in the lobby." },
-    xHandle: "PoorFormSports",
+    x: { handle: "PoorFormSports", url: "https://x.com/PoorFormSports" },
     appearsWhen: "ensemble RT, hub soft-launch, or company voice — never a seventh joke seat.",
   },
 ];

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { DeskPill } from "@/components/desk-pill";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { getStory, listStories, storyVoice } from "@/lib/stories";
+import { shareMetadata } from "@/lib/share";
 
 export function generateStaticParams() {
   return listStories().map((story) => ({ slug: story.slug }));
@@ -13,7 +14,9 @@ export async function generateMetadata({
 }: PageProps<"/stories/[slug]">) {
   const { slug } = await params;
   const story = getStory(slug);
-  return { title: story?.title ?? "Story" };
+  return story
+    ? shareMetadata(`${story.title} · DEMO / SATIRE`, story.dek)
+    : { title: "Story" };
 }
 
 export default async function StoryArticlePage({

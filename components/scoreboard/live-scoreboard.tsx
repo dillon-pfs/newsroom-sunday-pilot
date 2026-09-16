@@ -16,6 +16,26 @@ function isScoreboard(value: unknown): value is ScoreboardResponse {
     (data.lastSuccessfulFetchAt === null || Number.isFinite(Date.parse(data.lastSuccessfulFetchAt)));
 }
 
+function PilotBoardNotice({ gameId }: { gameId?: string }) {
+  return (
+    <div className="border-2 border-masthead bg-card-loud px-4 py-6 text-left">
+      <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Pilot mode</p>
+      <h3 className="mt-1 font-heading text-2xl font-semibold">The live board is asleep.</h3>
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-soft">
+        The league is fine. This pilot does not have its Production live-score cache wired yet, so it will not pretend empty space is an NFL Sunday. The labeled DEMO games below are the show.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 font-mono text-[11px] tracking-wide text-masthead uppercase">
+        <Link href="/games/sunday-pilot" className="underline-offset-4 hover:underline">Melbourne DEMO</Link>
+        <Link href="/games/demo-dal-nyg-snf" className="underline-offset-4 hover:underline">SNF DEMO</Link>
+        <Link href="/games/demo-den-kc-mnf" className="underline-offset-4 hover:underline">MNF DEMO</Link>
+        <Link href="/stories" className="underline-offset-4 hover:underline">Desk stories</Link>
+        <Link href="/about" className="underline-offset-4 hover:underline">How labels work</Link>
+      </div>
+      {gameId ? <p className="mt-4 text-xs text-ink-soft">That live-game detail is unavailable until the pilot board wakes up.</p> : null}
+    </div>
+  );
+}
+
 export function LiveScoreboard({ gameId }: { gameId?: string }) {
   const [data, setData] = useState<ScoreboardResponse | null>(null);
   const [failed, setFailed] = useState(false);
@@ -97,12 +117,14 @@ export function LiveScoreboard({ gameId }: { gameId?: string }) {
       </div>
       <p role="status" className="sr-only">{!data ? failed ? "Scores temporarily unavailable." : "Loading scoreboard." : stale ? "Score updates are delayed." : "Scoreboard available."}</p>
       {featured ? <GameScoreCard game={featured} stale={stale} featured details={Boolean(gameId)} /> : (
-        <div className="border border-dashed border-border bg-card px-4 py-8 text-center text-sm text-ink-soft">
-          {!data ? failed ? "We’re retrying the score feed. Check back shortly." : "Fetching NFL scores…" : gameId ? "This game is outside the current scoreboard window." : "No games scheduled in this window."}
-        </div>
+        !data && failed ? <PilotBoardNotice gameId={gameId} /> : (
+          <div className="border border-dashed border-border bg-card px-4 py-8 text-center text-sm text-ink-soft">
+            {!data ? "Fetching NFL scores…" : gameId ? "This game is outside the current scoreboard window." : "No games scheduled in this window."}
+          </div>
+        )
       )}
       {others.length > 0 ? <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{others.map(game => <GameScoreCard key={game.id} game={game} stale={stale} />)}</div> : null}
-      <p className="text-xs text-ink-soft">Kickoff times shown in Central Time. Scores may lag the game.</p>
+      {data ? <p className="text-xs text-ink-soft">Kickoff times shown in Central Time. Scores may lag the game.</p> : null}
       {gameId ? <Link href="/" className="font-mono text-xs text-masthead underline underline-offset-4">← All games</Link> : null}
     </section>
   );

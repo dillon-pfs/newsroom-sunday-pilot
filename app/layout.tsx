@@ -21,12 +21,25 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://newsroom-sunday-pilot.vercel.app"),
   title: {
     default: "Poor Form Sports",
     template: "%s · Poor Form Sports",
   },
   description:
     "Poor Form Sports: NFL scores, Chip Absolute and the satirical desk, plus the labeled Melbourne, SNF and MNF DEMO archive.",
+  openGraph: {
+    title: "Poor Form Sports · DEMO / SATIRE",
+    description: "A labeled NFL scoreboard pilot and satirical desk. DEMO games are never live scores.",
+    siteName: "Poor Form Sports",
+    images: [{ url: "/brand/wordmark-bar.png", alt: "Poor Form Sports · DEMO / SATIRE" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Poor Form Sports · DEMO / SATIRE",
+    description: "A labeled NFL scoreboard pilot and satirical desk.",
+    images: ["/brand/wordmark-bar.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

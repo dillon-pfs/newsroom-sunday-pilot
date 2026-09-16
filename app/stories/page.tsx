@@ -1,9 +1,11 @@
 import { StoryCard } from "@/components/story-card";
 import { listStories } from "@/lib/stories";
+import { shareMetadata } from "@/lib/share";
 
-export const metadata = {
-  title: "Stories",
-};
+export const metadata = shareMetadata(
+  "Stories · DEMO / SATIRE",
+  "Filed DEMO columns from the Poor Form Desk. Satire after the facts land, never instead of them.",
+);
 
 export default function StoriesIndexPage() {
   const stories = listStories();

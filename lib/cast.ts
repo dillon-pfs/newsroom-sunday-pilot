@@ -11,6 +11,7 @@ export type Voice = {
   bio: string;
   initials: string;
   mark: string;
+  avatar: string;
 };
 
 export const CAST: Voice[] = [
@@ -23,6 +24,7 @@ export const CAST: Voice[] = [
     bio: "House lead for Poor Form Sports. Files SATIRE after official facts land — never instead of them. Absolute about the scoreboard, allergic to invented clocks.",
     initials: "CA",
     mark: "#c41e12",
+    avatar: "/cast/chip-absolute.png",
   },
   {
     slug: "wes-process",
@@ -33,6 +35,7 @@ export const CAST: Voice[] = [
     bio: "Reads the play as a process outcome. Fourth downs, stuffed sneaks, and the bruise that follows. Does not recast a stop as fortune.",
     initials: "WP",
     mark: "#3d4f3a",
+    avatar: "/cast/wes-process.png",
   },
   {
     slug: "layover-len",
@@ -43,6 +46,7 @@ export const CAST: Voice[] = [
     bio: "Travel desk. Arrival windows, carry-ons, and the week someone actually spent in the city. Logistics are the preview.",
     initials: "LL",
     mark: "#2a4a6e",
+    avatar: "/cast/layover-len.png",
   },
   {
     slug: "boo-atlas",
@@ -53,6 +57,7 @@ export const CAST: Voice[] = [
     bio: "Maps the room. Boos, adoptions, and dissenting opinions from the stands. A designated home jersey is not a designated welcome.",
     initials: "BA",
     mark: "#6b2d5b",
+    avatar: "/cast/boo-atlas.png",
   },
   {
     slug: "chyron-carl",
@@ -63,6 +68,7 @@ export const CAST: Voice[] = [
     bio: "Chyron and scoreboard graphics. Silent on Melbourne. One SATIRE line on MNF platform spectacle — celebrity as TV meta, not a play.",
     initials: "CC",
     mark: "#4a5560",
+    avatar: "/cast/chyron-carl.png",
   },
   {
     slug: "postcard-pete",
@@ -73,6 +79,18 @@ export const CAST: Voice[] = [
     bio: "Place desk. Silent on the Melbourne tape. Files anti-coronation on SNF/MNF debuts — cool tape, still a postcard.",
     initials: "PP",
     mark: "#8a5a2b",
+    avatar: "/cast/postcard-pete.png",
+  },
+  {
+    slug: "poor-form-desk",
+    name: "Poor Form Desk",
+    desk: "Poor Form Desk",
+    title: "House",
+    lens: "The stamp on the strip. House voice, house clock.",
+    bio: "House desk for Poor Form Sports. Carries the PFS mark and the cast strip. Not a SATIRE column — the desk the named voices file through after official facts land.",
+    initials: "PFS",
+    mark: "#0e0c0b",
+    avatar: "/cast/poor-form-desk.png",
   },
 ];
 

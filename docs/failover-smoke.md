@@ -17,4 +17,4 @@ For the browser-only network case, load scores first and then take that browser 
 
 Check `/games/sunday-pilot`, `/games/demo-dal-nyg-snf` and `/games/demo-den-kc-mnf`: each remains a labeled DEMO with its own seeded timeline and source banner, unaffected by score-provider failures. `/demo` still redirects to Melbourne. The live response must contain only `nfl:` game IDs, never DEMO/review IDs. Leave `lib/nfl/coverage.ts` unmapped unless a real live editorial blog has been published.
 
-Record Preview URL, observed source, timestamp and UI result at each step. The offline smoke does not claim that credentialed API access, Redis connectivity or browser rendering have been verified.
+Record Preview URL, observed source, timestamp and UI result at each step. The offline smoke does not claim that credentialed API access, Redis connectivity or browser rendering have been verified. Run this credentialed Preview checklist after the integration Preview deploy; do not point the outage flag at Production.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DeskPill } from "@/components/desk-pill";
 import { AssignedScorebug } from "@/components/scorebug";
+import { VoiceAvatar } from "@/components/voice-avatar";
 import { CAST, LEAD_VOICE_ID, getVoice } from "@/lib/cast";
 import { gamesForBlogger } from "@/lib/live/public";
 
@@ -40,16 +41,16 @@ export default async function CastVoicePage({
       </p>
 
       <section className="flex flex-col gap-4 sm:flex-row sm:items-start">
-        <span
+        <VoiceAvatar
+          voice={voice}
+          size={lead ? 160 : 112}
+          labelled
           className={
             lead
-              ? "inline-flex size-[88px] shrink-0 items-center justify-center font-mono text-2xl font-medium text-demo-foreground sm:size-24 sm:text-3xl"
-              : "inline-flex size-14 shrink-0 items-center justify-center font-mono text-lg font-medium text-demo-foreground"
+              ? "size-[88px] shrink-0 sm:size-32"
+              : "size-20 shrink-0 sm:size-24"
           }
-          style={{ backgroundColor: voice.mark }}
-        >
-          {voice.initials}
-        </span>
+        />
         <div className="min-w-0 space-y-2">
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
             {voice.desk}
@@ -86,6 +87,12 @@ export default async function CastVoicePage({
         <p className="text-sm text-ink-soft">
           Carl is silent on the Melbourne DEMO. One SATIRE line on the MNF
           platform beat.
+        </p>
+      ) : null}
+
+      {voice.slug === "poor-form-desk" ? (
+        <p className="text-sm text-ink-soft">
+          House desk. Holds the PFS stamp. SATIRE stays on the named voices.
         </p>
       ) : null}
 

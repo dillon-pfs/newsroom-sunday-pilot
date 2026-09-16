@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DeskPill } from "@/components/desk-pill";
+import { VoiceAvatar } from "@/components/voice-avatar";
 import { storyVoice, type Story } from "@/lib/stories";
 
 export function StoryCard({ story }: { story: Story }) {
@@ -26,12 +27,7 @@ export function StoryCard({ story }: { story: Story }) {
         <p className="mt-1 text-sm leading-6 text-ink-soft">{story.dek}</p>
         {voice ? (
           <p className="mt-3 flex items-center gap-2 text-sm">
-            <span
-              className="inline-flex size-7 items-center justify-center font-mono text-[10px] font-medium text-demo-foreground"
-              style={{ backgroundColor: voice.mark }}
-            >
-              {voice.initials}
-            </span>
+            <VoiceAvatar voice={voice} size={28} className="size-7" />
             <span className="font-medium text-ink">{voice.name}</span>
             <span className="font-mono text-[10px] tracking-wide text-ink-soft uppercase">
               Cast

@@ -20,7 +20,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Opening drive, Mahomes on his legs, and the building remembered why Monday nights still argue.",
+        line: "Opening drive. Mahomes on his legs. Monday nights still argue for a reason.",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chyron-carl",
         voiceName: "Chyron Carl",
-        line: "Three million impressions of the booth selling the night before the football finished the sentence. That’s platform spectacle, not a play call.",
+        line: "Chyron of the Night: three million impressions selling the booth before the football finished the sentence. Platform spectacle. Not a play call.",
       },
     ],
   },
@@ -67,17 +67,17 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Fourth-and-one at Arrowhead and they handed the referendum to a running back. Sixty yards later the math filed itself.",
+        line: "Conversion Referendum: fourth-and-one, hand it to the running back, sixty yards later the ballot counts itself.",
       },
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "New running back, sixty yards on fourth-and-one, Arrowhead doing the thing. That’s not a cameo — that’s the Chiefs remembering they own Mondays.",
+        line: "New back. Fourth-and-one. Sixty yards. Arrowhead just remembered it owns Mondays.",
       },
       {
         voiceId: "postcard-pete",
         voiceName: "Postcard Pete",
-        line: "One night, 173 yards, two scores. Cool tape. Still a postcard. We do not bronze Week 1 running backs.",
+        line: "Notarized Postcard: 173 yards, two scores, one night. Cool tape. Week 1 bronze refused.",
       },
     ],
   },
@@ -128,7 +128,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "postcard-pete",
         voiceName: "Postcard Pete",
-        line: "Debut night, one catch, two yards. The splash narrative brought a suitcase; the box score brought a postcard.",
+        line: "Notarized Postcard: debut night, one catch, two yards. Splash narrative packed a suitcase. Box score packed a stamp.",
       },
     ],
   },

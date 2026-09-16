@@ -144,7 +144,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Fourth-and-goal from the one, sneak stuffed, turnover on downs. That is not unlucky. That is a process result with a bruise.",
+        line: "Conversion Referendum: fourth-and-goal from the one, sneak stuffed, turnover on downs. Not unlucky — process with a bruise.",
       },
     ],
   },

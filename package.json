@@ -6,7 +6,12 @@
     "dev": "next dev --port 43147 --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --port 43147 --hostname 0.0.0.0",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/nfl/*.test.ts",
+    "test:nfl": "node --experimental-strip-types --test tests/nfl/*.test.ts",
+    "smoke:espn": "node --experimental-strip-types scripts/smoke-espn.ts",
+    "smoke:failover": "node --experimental-strip-types scripts/smoke-failover.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

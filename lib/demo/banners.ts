@@ -1,0 +1,55 @@
+import { DEMO_BANNER as melbourneBanner, DEMO_GAME_ID as melbourneId } from "@/lib/demo/melbourne";
+import { DEMO_BANNER as dalNygBanner, DEMO_GAME_ID as dalNygId } from "@/lib/demo/dal-nyg-snf";
+import { DEMO_BANNER as denKcBanner, DEMO_GAME_ID as denKcId } from "@/lib/demo/den-kc-mnf";
+
+export const HOME_DEMO_BANNER =
+  "DEMO — labeled backtests · SF 27 LAR 7 · NYG 28 DAL 20 · KC 31 DEN 10 · not live";
+
+type DemoChrome = {
+  banner: string;
+  kicker: string;
+  sources: string;
+};
+
+const DEMO_CHROME: Record<string, DemoChrome> = {
+  [melbourneId]: {
+    banner: melbourneBanner,
+    kicker: "Melbourne · MCG",
+    sources:
+      "Sources: ESPN, Reuters, Rams.com, NFL gamebook · Injury beats skipped · Carl silent",
+  },
+  [dalNygId]: {
+    banner: dalNygBanner,
+    kicker: "SNF · MetLife",
+    sources:
+      "Sources: ESPN, CBS, NBC, Giants.com · Injury beats skipped · Len, Boo, Carl silent",
+  },
+  [denKcId]: {
+    banner: denKcBanner,
+    kicker: "MNF · Arrowhead",
+    sources:
+      "Sources: ESPN recap gameId 401872931 · X crawl cited in digest only · Injury beats skipped · Len, Boo silent",
+  },
+};
+
+export function demoChrome(gameId: string): DemoChrome | undefined {
+  return DEMO_CHROME[gameId];
+}
+
+export function demoBannerForPath(pathname: string | null): string {
+  if (!pathname) return HOME_DEMO_BANNER;
+  for (const [id, chrome] of Object.entries(DEMO_CHROME)) {
+    if (pathname.startsWith(`/games/${id}`)) {
+      return chrome.banner;
+    }
+  }
+  return HOME_DEMO_BANNER;
+}
+
+export function isDemoGamePath(pathname: string): boolean {
+  return (
+    pathname === "/demo" ||
+    pathname.startsWith("/games/sunday-pilot") ||
+    pathname.startsWith("/games/demo-")
+  );
+}

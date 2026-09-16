@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isDemoGamePath } from "@/lib/demo/banners";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -9,8 +10,7 @@ const nav = [
   {
     href: "/games/sunday-pilot",
     label: "DEMO",
-    match: (path: string) =>
-      path.startsWith("/games/sunday-pilot") || path === "/demo",
+    match: (path: string) => isDemoGamePath(path),
   },
   {
     href: "/stories",

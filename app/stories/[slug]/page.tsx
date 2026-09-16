@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DeskPill } from "@/components/desk-pill";
+import { VoiceAvatar } from "@/components/voice-avatar";
 import { getStory, listStories, storyVoice } from "@/lib/stories";
 
 export function generateStaticParams() {
@@ -50,12 +51,7 @@ export default async function StoryArticlePage({
             href={`/cast/${voice.slug}`}
             className="flex items-center gap-2"
           >
-            <span
-              className="inline-flex size-9 items-center justify-center font-mono text-xs font-medium text-demo-foreground"
-              style={{ backgroundColor: voice.mark }}
-            >
-              {voice.initials}
-            </span>
+            <VoiceAvatar voice={voice} size={36} className="size-9" />
             <span className="font-medium text-ink">{voice.name}</span>
           </Link>
           <span className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
@@ -112,12 +108,7 @@ export default async function StoryArticlePage({
               href={`/cast/${voice.slug}`}
               className="flex items-center gap-3 border-2 border-border bg-card-loud px-3 py-3"
             >
-              <span
-                className="inline-flex size-10 items-center justify-center font-mono text-sm font-medium text-demo-foreground"
-                style={{ backgroundColor: voice.mark }}
-              >
-                {voice.initials}
-              </span>
+              <VoiceAvatar voice={voice} size={40} className="size-10" />
               <span>
                 <span className="block font-heading text-lg font-semibold">
                   {voice.name}

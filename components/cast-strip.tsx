@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VoiceAvatar } from "@/components/voice-avatar";
 import { CAST, LEAD_VOICE_ID } from "@/lib/cast";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +22,7 @@ export function CastStrip() {
           Full strip
         </Link>
       </div>
-      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
         {CAST.map((voice) => {
           const lead = voice.slug === LEAD_VOICE_ID;
           return (
@@ -35,12 +36,11 @@ export function CastStrip() {
                     : "border border-border",
                 )}
               >
-                <span
-                  className="mb-2 inline-flex size-7 items-center justify-center font-mono text-[10px] font-medium text-demo-foreground"
-                  style={{ backgroundColor: voice.mark }}
-                >
-                  {voice.initials}
-                </span>
+                <VoiceAvatar
+                  voice={voice}
+                  size={56}
+                  className="mb-2 size-14"
+                />
                 <p className="font-heading text-sm font-semibold leading-tight">
                   {voice.name}
                 </p>

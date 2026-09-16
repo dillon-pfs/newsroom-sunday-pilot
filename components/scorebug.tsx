@@ -66,7 +66,7 @@ export function HeroScorebug({ game }: { game: Game }) {
       </div>
       <div className="flex items-center justify-between gap-3 border-t border-bar-foreground/10 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.14em] text-bar-foreground/65 uppercase">
-          Open Melbourne DEMO timeline →
+          Open {game.windowLabel} timeline →
         </p>
         <span className="inline-flex h-7 items-center rounded-full bg-demo px-3 font-mono text-[10px] tracking-wide text-demo-foreground uppercase">
           Enter blog
@@ -174,7 +174,7 @@ export function AssignedScorebug({ game }: { game: Game }) {
       </div>
       <div className="flex items-center justify-between gap-3 border-t border-bar-foreground/10 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.14em] text-bar-foreground/65 uppercase">
-          Open Melbourne DEMO timeline →
+          Open {game.windowLabel} timeline →
         </p>
         <span className="inline-flex h-7 items-center rounded-full bg-demo px-3 font-mono text-[10px] tracking-wide text-demo-foreground uppercase">
           Enter blog

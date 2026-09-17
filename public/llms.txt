@@ -38,4 +38,3 @@ The newsroom-sunday-pilot.vercel.app hostname is an alternate deployment of this
 - [Chip Absolute on X](https://x.com/ChipAbsolute): Fictional lead persona's account.
 
 These are brand/persona accounts, not NFL accounts. No other cast social accounts are asserted here.
-

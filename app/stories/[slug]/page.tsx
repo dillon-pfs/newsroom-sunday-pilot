@@ -77,6 +77,70 @@ export default async function StoryArticlePage({
               </p>
             );
           }
+          if (block.kind === "h2") {
+            return (
+              <h2
+                key={`h2-${index}`}
+                className="font-heading text-2xl font-semibold tracking-tight"
+              >
+                {block.text}
+              </h2>
+            );
+          }
+          if (block.kind === "table") {
+            return (
+              <div key={`table-${index}`} className="overflow-x-auto border-2 border-border">
+                <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
+                  <thead className="bg-card-loud">
+                    <tr>
+                      {block.headers.map((header) => (
+                        <th
+                          key={header}
+                          className="border-b border-border px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase"
+                        >
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row, rowIndex) => (
+                      <tr key={`row-${rowIndex}`} className="align-top">
+                        {row.map((cell, cellIndex) => (
+                          <td
+                            key={`cell-${rowIndex}-${cellIndex}`}
+                            className="border-b border-border px-3 py-2 text-ink"
+                          >
+                            {cellIndex === 0 ? (
+                              <span className="font-mono text-[11px] tracking-wide uppercase">
+                                {cell}
+                              </span>
+                            ) : cellIndex === 1 ? (
+                              <span className="font-medium">{cell}</span>
+                            ) : (
+                              cell
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+          if (block.kind === "ul") {
+            return (
+              <ul
+                key={`ul-${index}`}
+                className="list-disc space-y-2 pl-5 text-base leading-7 text-ink"
+              >
+                {block.items.map((item, itemIndex) => (
+                  <li key={`li-${index}-${itemIndex}`}>{item}</li>
+                ))}
+              </ul>
+            );
+          }
           if (block.kind === "rich") {
             return (
               <p key={`p-${index}`} className="text-base leading-7 text-ink">

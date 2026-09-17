@@ -16,13 +16,13 @@ function isScoreboard(value: unknown): value is ScoreboardResponse {
     (data.lastSuccessfulFetchAt === null || Number.isFinite(Date.parse(data.lastSuccessfulFetchAt)));
 }
 
-function PilotBoardNotice({ gameId }: { gameId?: string }) {
+function UnavailableBoardNotice({ gameId }: { gameId?: string }) {
   return (
     <div className="border-2 border-masthead bg-card-loud px-4 py-6 text-left">
-      <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Pilot mode</p>
-      <h3 className="mt-1 font-heading text-2xl font-semibold">The live board is asleep.</h3>
+      <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">Updates unavailable</p>
+      <h3 className="mt-1 font-heading text-2xl font-semibold">The board can’t check scores right now.</h3>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-soft">
-        The league is fine. This pilot does not have its Production live-score cache wired yet, so it will not pretend empty space is an NFL Sunday. The labeled DEMO games below are the show.
+        We don’t have a saved scoreboard to show in this view. This does not mean there are no NFL games. We’ll keep trying for updates; meanwhile, the labeled DEMO archive is available below.
       </p>
       <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 font-mono text-[11px] tracking-wide text-masthead uppercase">
         <Link href="/games/sunday-pilot" className="underline-offset-4 hover:underline">Melbourne DEMO</Link>
@@ -31,7 +31,7 @@ function PilotBoardNotice({ gameId }: { gameId?: string }) {
         <Link href="/stories" className="underline-offset-4 hover:underline">Desk stories</Link>
         <Link href="/about" className="underline-offset-4 hover:underline">How labels work</Link>
       </div>
-      {gameId ? <p className="mt-4 text-xs text-ink-soft">That live-game detail is unavailable until the pilot board wakes up.</p> : null}
+      {gameId ? <p className="mt-4 text-xs text-ink-soft">This game’s live details will return when score updates are available.</p> : null}
     </div>
   );
 }
@@ -117,7 +117,7 @@ export function LiveScoreboard({ gameId }: { gameId?: string }) {
       </div>
       <p role="status" className="sr-only">{!data ? failed ? "Scores temporarily unavailable." : "Loading scoreboard." : stale ? "Score updates are delayed." : "Scoreboard available."}</p>
       {featured ? <GameScoreCard game={featured} stale={stale} featured details={Boolean(gameId)} /> : (
-        !data && failed ? <PilotBoardNotice gameId={gameId} /> : (
+        !data && failed ? <UnavailableBoardNotice gameId={gameId} /> : (
           <div className="border border-dashed border-border bg-card px-4 py-8 text-center text-sm text-ink-soft">
             {!data ? "Fetching NFL scores…" : gameId ? "This game is outside the current scoreboard window." : "No games scheduled in this window."}
           </div>

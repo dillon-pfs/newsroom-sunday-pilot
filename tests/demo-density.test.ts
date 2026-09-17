@@ -9,19 +9,19 @@ const cases = [
     name: "MNF",
     entries: denKcMnfDemoEntries,
     gameId: "demo-den-kc-mnf",
-    voices: { "chip-absolute": 5, "wes-process": 2, "postcard-pete": 2, "chyron-carl": 2 },
+    voices: { "chip-absolute": 3, "wes-process": 2, "postcard-pete": 2, "chyron-carl": 2, "poor-form-desk": 1 },
   },
   {
     name: "SNF",
     entries: dalNygSnfDemoEntries,
     gameId: "demo-dal-nyg-snf",
-    voices: { "chip-absolute": 5, "wes-process": 5, "postcard-pete": 1 },
+    voices: { "chip-absolute": 4, "wes-process": 5, "postcard-pete": 1, "poor-form-desk": 1 },
   },
   {
     name: "Melbourne",
     entries: melbourneDemoEntries,
     gameId: "sunday-pilot",
-    voices: { "chip-absolute": 6, "wes-process": 2, "postcard-pete": 2, "layover-len": 1, "boo-atlas": 1 },
+    voices: { "chip-absolute": 6, "wes-process": 2, "postcard-pete": 2, "layover-len": 1, "boo-atlas": 1, "poor-form-desk": 1 },
   },
 ] as const;
 

@@ -20,7 +20,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Opening drive. Mahomes on his legs. Monday nights still argue for a reason.",
+        line: "Opening drive. Mahomes on his legs. Broncos fans: the group chat can stay optimistic for twelve more minutes.",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Engram answers. Temporary tie. Arrowhead just cleared its throat.",
+        line: "Engram ties it. Text your Chiefs friend who called the opener a night. Temporary.",
       },
     ],
   },
@@ -79,7 +79,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "New back. Fourth-and-one. Sixty yards. Arrowhead just remembered it owns Mondays.",
+        line: "Fourth-and-one. Walker took it sixty. Your Broncos friend would like to stop discussing football.",
       },
       {
         voiceId: "postcard-pete",
@@ -102,7 +102,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Conversion Referendum: Fields in a three-point next to Mahomes, shovel to Walker. That’s not chaos — that’s a formation filing itself.",
+        line: "Conversion Referendum: Fields in a three-point next to Mahomes, shovel to Walker. That’s not chaos — that’s a formation with a clipboard.",
       },
     ],
   },
@@ -116,13 +116,6 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     postedAtLabel: "midgame",
     path: "public-live",
     demo: true,
-    satire: [
-      {
-        voiceId: "chip-absolute",
-        voiceName: "Chip Absolute",
-        line: "Mahomes to Kelce down the sideline like Monday never left.",
-      },
-    ],
   },
   {
     id: "demo-den-kc-real-rb-meme",
@@ -183,9 +176,9 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     demo: true,
     satire: [
       {
-        voiceId: "chip-absolute",
-        voiceName: "Chip Absolute",
-        line: "Thirty-one to ten. Walker night. Broncos offense packed light.",
+        voiceId: "poor-form-desk",
+        voiceName: "Poor Form Desk",
+        line: "Chip already told the Broncos friend to stop discussing football. Final: thirty-one to ten.",
       },
     ],
   },

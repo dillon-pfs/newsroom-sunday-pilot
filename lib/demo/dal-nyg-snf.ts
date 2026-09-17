@@ -20,7 +20,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Ten plays, eighty-three yards, first points of the Harbaugh New York era. The new shop scored before Dallas finished unpacking.",
+        line: "Ten plays, eighty-three yards, first points of the Harbaugh New York era. Cowboys fans: you can stop waiting for the unpacking bit.",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Followed the coach up I-95 and caught two touchdowns before the MetroCard even warmed up.",
+        line: "Followed the coach up I-95 and scored before halftime. Text your Ravens friend who said the MetroCard wouldn’t warm up.",
       },
     ],
   },
@@ -97,7 +97,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "wes-process",
         voiceName: "Wes Process",
-        line: "Conversion Referendum: eight minutes, eight more, five-twenty-one of never giving it back. Harbaugh packed the possession ballot.",
+        line: "Conversion Referendum: eight minutes, seventy-four yards, possession that never gave it back. Harbaugh packed the ballot.",
       },
     ],
   },
@@ -115,7 +115,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Twelve plays later Dallas is within one. Fine. The building still remembers who started the night.",
+        line: "Twelve plays later Dallas is within one. Fine. Giants fans: mute the Cowboys cousin for one more quarter.",
       },
     ],
   },
@@ -133,7 +133,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Three touchdowns. Zero picks. First night in New York. The new shop just announced itself at full volume.",
+        line: "Three touchdowns. Zero picks. Your Giants friend has already made September unbearable.",
       },
     ],
   },
@@ -185,9 +185,9 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     demo: true,
     satire: [
       {
-        voiceId: "chip-absolute",
-        voiceName: "Chip Absolute",
-        line: "Final: twenty-eight to twenty. Harbaugh’s New York opener ends with Dallas still looking for a stop.",
+        voiceId: "poor-form-desk",
+        voiceName: "Poor Form Desk",
+        line: "Chip already made September unbearable for somebody’s Giants friend. Final: twenty-eight to twenty.",
       },
     ],
   },

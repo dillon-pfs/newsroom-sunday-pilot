@@ -18,6 +18,13 @@ npm start
 
 `npm start` is the stable preview (port 43147).
 
+## File a story
+
+Editor files one plain Markdown document in `content/stories/`. Follow the
+[filing guide](docs/stories/README.md) and copy the [template](docs/stories/TEMPLATE.md).
+`npm run check:stories` checks the filing before a Preview build. Shelf cards and
+story pages are generated from those files; no TypeScript copy edits are needed.
+
 ## Live NFL scoreboard
 
 The complete implementation and setup guide is in [docs/nfl-scoreboard.md](docs/nfl-scoreboard.md).

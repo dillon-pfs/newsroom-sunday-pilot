@@ -66,7 +66,7 @@ export function HeroScorebug({ game }: { game: Game }) {
       </div>
       <div className="flex items-center justify-between gap-3 border-t border-bar-foreground/10 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.14em] text-bar-foreground/65 uppercase">
-          Open {game.windowLabel} {game.demo ? "DEMO archive" : "timeline"} →
+          Open {game.windowLabel} {game.demo ? "archive" : "timeline"} →
         </p>
         <span className="inline-flex h-7 items-center rounded-full bg-demo px-3 font-mono text-[10px] tracking-wide text-demo-foreground uppercase">
           {game.demo ? "View archive" : "Enter blog"}

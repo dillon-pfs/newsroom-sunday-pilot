@@ -3,7 +3,7 @@ import type { FeedEntry } from "@/lib/types";
 export const DEMO_GAME_ID = "demo-dal-nyg-snf";
 
 export const DEMO_BANNER =
-  "DEMO — NYG 28 DAL 20 · SNF MetLife · Harbaugh debut · not live · ESPN/CBS/NBC/Giants.com";
+  "NYG 28 DAL 20 · SNF MetLife · Harbaugh debut · not live · ESPN/CBS/NBC/Giants.com";
 
 export const dalNygSnfDemoEntries: FeedEntry[] = [
   {
@@ -37,8 +37,8 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
-        line: "Conversion Referendum: ruled in, reversed, next snap it’s a touchdown anyway. The booth called almost. The process called next play.",
+        voiceName: "Wes",
+        line: "Conversion Referendum: ruled in, reversed, next snap it’s a touchdown anyway. The booth called almost. The ballot called next play.",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: third-and-five, deep ball, Holland slides under it. Dallas just donated the half.",
       },
     ],
@@ -96,7 +96,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
       },
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: eight minutes, seventy-four yards, possession that never gave it back. Harbaugh packed the ballot.",
       },
     ],
@@ -150,7 +150,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: score it, talk about it, kick slides right, stay down eight. Self-inflicted math.",
       },
     ],
@@ -168,7 +168,7 @@ export const dalNygSnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: final five-twenty-one, zero Cowboys snaps. Clock was the protagonist.",
       },
     ],

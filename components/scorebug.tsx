@@ -18,7 +18,7 @@ export function HeroScorebug({ game }: { game: Game }) {
           {game.demo ? "Archive" : game.liveBlogEnabled ? "Blog on" : "Blog off"}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
-          {game.demo ? <DeskPill tone="demo">Demo</DeskPill> : null}
+          {game.demo ? <DeskPill tone="outline">Archive</DeskPill> : null}
           {game.status === "final" ? (
             <DeskPill
               tone="final"
@@ -139,7 +139,7 @@ export function MiniScorebug({
         >
           Final
         </DeskPill>
-        {game.demo ? <DeskPill tone="demo">Demo</DeskPill> : null}
+        {game.demo ? <DeskPill tone="outline">Archive</DeskPill> : null}
       </div>
     </div>
   );
@@ -153,7 +153,7 @@ export function AssignedScorebug({ game }: { game: Game }) {
           {game.windowLabel} · Final · {game.demo ? "Archive" : "Blog on"}
         </p>
         <div className="flex gap-1.5">
-          <DeskPill tone="demo">Demo</DeskPill>
+          <DeskPill tone="outline">Archive</DeskPill>
           <DeskPill
             tone="final"
             className="border border-bar-foreground/25 bg-transparent"

@@ -9,8 +9,8 @@ import { listStories } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
 
 export const metadata = shareMetadata(
-  "NFL board + satirical desk",
-  "A labeled NFL scoreboard pilot with DEMO backtests and SATIRE from the Poor Form Desk.",
+  "NFL board + desk",
+  "NFL scores and a desk with opinions from Poor Form Sports. Entertainment only. Not reporting. Not betting advice.",
 );
 
 export default function HomePage() {
@@ -27,9 +27,9 @@ export default function HomePage() {
           The desk has opinions. The board labels its work.
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
-          Follow the NFL scoreboard when the pilot cache is awake, then catch
-          up with Chip Absolute and the desk. SATIRE is Editor-approved and
-          labeled. The Melbourne, SNF and MNF DEMO backtests have their own archive below.
+          Follow the NFL scoreboard when it is up, then catch up with Chip
+          Absolute and the desk. Entertainment only. Melbourne, SNF and MNF
+          archives sit below.
         </p>
       </section>
 
@@ -42,8 +42,7 @@ export default function HomePage() {
       <section className="border-t border-border pt-4">
         <h2 className="font-heading text-lg font-semibold">Desk review</h2>
         <p className="mt-1 max-w-xl text-sm leading-6 text-ink-soft">
-          Private gate for the SIMULATED reel. Stay labeled SIMULATED — never
-          on the public board.
+          Private desk tape. Not on the public board.
         </p>
         <Link
           href="/review"

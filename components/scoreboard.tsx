@@ -11,25 +11,25 @@ export function Scoreboard({ games }: { games: Game[] }) {
   if (demos.length === 0) return null;
 
   return (
-    <section aria-labelledby="demo-archive-heading" className="space-y-3">
+    <section aria-labelledby="archive-heading" className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-            Demo archive · not live
+            Filed archive · not live
           </p>
-          <h2 id="demo-archive-heading" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            {featured ? "Featured DEMO · Melbourne" : "DEMO archive"}
+          <h2 id="archive-heading" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+            {featured ? "Featured · Melbourne" : "Archive"}
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
-          Demo
+          Archive
         </span>
       </div>
       {featured ? <HeroScorebug game={featured} /> : null}
       {archive.length > 0 ? (
         <div>
           <h3 className="mb-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-            More from the DEMO archive
+            More from the archive
           </h3>
           <ul className="divide-y divide-border border border-border">
             {archive.map((game) => (
@@ -39,7 +39,7 @@ export function Scoreboard({ games }: { games: Game[] }) {
                   className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-3 py-3 hover:bg-card-loud focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-masthead sm:px-4"
                 >
                   <span className="flex flex-wrap items-center gap-2">
-                    <DeskPill tone="demo">Demo</DeskPill>
+                    <DeskPill tone="outline">Archive</DeskPill>
                     <span className="text-sm font-medium">{game.windowLabel} · {game.away.short} @ {game.home.short}</span>
                   </span>
                   <span className="font-mono text-[11px] text-ink-soft">

@@ -22,14 +22,14 @@ export const games: Game[] = [
     away: { id: "sf", name: "49ers", short: "SF" },
     home: { id: "lar", name: "Rams", short: "LAR" },
     status: "final",
-    windowLabel: "Melbourne DEMO",
+    windowLabel: "Melbourne",
     liveBlogEnabled: true,
     officialScore: { away: 27, home: 7 },
     clockLabel: "Final",
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "DEMO backtest of the Melbourne MCG meeting — not a live wire. Sources: ESPN, Reuters, Rams.com, NFL gamebook. Injury beats skipped. Carl silent.",
+      "Melbourne MCG archive — not a live wire. Sources: ESPN, Reuters, Rams.com, NFL gamebook. Injury beats skipped. Carl silent.",
   },
   {
     id: "demo-dal-nyg-snf",
@@ -37,14 +37,14 @@ export const games: Game[] = [
     away: { id: "dal", name: "Cowboys", short: "DAL" },
     home: { id: "nyg", name: "Giants", short: "NYG" },
     status: "final",
-    windowLabel: "SNF DEMO",
+    windowLabel: "SNF",
     liveBlogEnabled: true,
     officialScore: { away: 20, home: 28 },
     clockLabel: "Final",
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "DEMO backtest of DAL @ NYG SNF — not a live wire. Sources: ESPN, CBS, NBC, Giants.com. Injury beats skipped. Len, Boo, Carl silent.",
+      "DAL @ NYG Sunday night archive — not a live wire. Sources: ESPN, CBS, NBC, Giants.com. Injury beats skipped. Len, Boo, Carl silent.",
   },
   {
     id: "demo-den-kc-mnf",
@@ -52,14 +52,14 @@ export const games: Game[] = [
     away: { id: "den", name: "Broncos", short: "DEN" },
     home: { id: "kc", name: "Chiefs", short: "KC" },
     status: "final",
-    windowLabel: "MNF DEMO",
+    windowLabel: "MNF",
     liveBlogEnabled: true,
     officialScore: { away: 10, home: 31 },
     clockLabel: "Final",
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "DEMO backtest of DEN @ KC MNF — not a live wire. Sources: ESPN recap gameId 401872931. X crawl metrics cited in digest only. Injury beats skipped. Len, Boo silent.",
+      "DEN @ KC Monday night archive — not a live wire. Sources: ESPN recap gameId 401872931. X crawl metrics cited in digest only. Injury beats skipped. Len, Boo silent.",
   },
 ];
 

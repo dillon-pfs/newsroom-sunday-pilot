@@ -18,6 +18,6 @@ export function getSimulatedFixture(): Game {
     assignedBloggerId: null,
     simulated: true,
     feedNote:
-      "Greyshirts and Red Caps are SIMULATED desk aliases for /review only. They are not public teams and are not the Melbourne DEMO.",
+      "Greyshirts and Red Caps are desk aliases for /review only. They are not public teams and are not the Melbourne archive.",
   };
 }

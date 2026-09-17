@@ -1,11 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { demoBannerForPath } from "@/lib/demo/banners";
+import { demoBannerForPath, isDemoGamePath } from "@/lib/demo/banners";
 
 export function DemoBanner() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname?.startsWith("/scores/") || pathname?.startsWith("/review")) {
+  if (!pathname || !isDemoGamePath(pathname)) {
     return null;
   }
 

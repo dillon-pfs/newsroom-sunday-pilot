@@ -3,7 +3,7 @@ import type { FeedEntry } from "@/lib/types";
 export const DEMO_GAME_ID = "demo-den-kc-mnf";
 
 export const DEMO_BANNER =
-  "DEMO — KC 31 DEN 10 · MNF Arrowhead · not live · ESPN gameId 401872931";
+  "KC 31 DEN 10 · MNF Arrowhead · not live · ESPN gameId 401872931";
 
 export const denKcMnfDemoEntries: FeedEntry[] = [
   {
@@ -73,7 +73,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: fourth-and-one, hand it to the running back, sixty yards later the ballot counts itself.",
       },
       {
@@ -101,7 +101,7 @@ export const denKcMnfDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
+        voiceName: "Wes",
         line: "Conversion Referendum: Fields in a three-point next to Mahomes, shovel to Walker. That’s not chaos — that’s a formation with a clipboard.",
       },
     ],

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DeskPill } from "@/components/desk-pill";
 import { ThisLineReaction } from "@/components/this-line-reaction";
+import { voiceDisplayName } from "@/lib/cast";
 import { kindLabel } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 import type { FeedEntry } from "@/lib/types";
@@ -79,12 +80,11 @@ export function EntryList({
                       className="border-l-4 border-satire-fill bg-satire-fill/15 px-3 py-2"
                     >
                       <div className="flex flex-wrap items-center gap-1.5">
-                        <DeskPill tone="satire">Satire</DeskPill>
                         <Link
                           href={`/cast/${line.voiceId}`}
                           className="font-mono text-[11px] tracking-wide text-ink uppercase underline-offset-4 hover:underline"
                         >
-                          {line.voiceName}
+                          {voiceDisplayName(line.voiceId, line.voiceName)}
                         </Link>
                       </div>
                       <p className="mt-1 font-heading text-[17px] leading-7 text-ink italic">

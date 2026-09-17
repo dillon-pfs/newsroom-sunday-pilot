@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { loadStories } from "../lib/stories/content.ts";
 import { CAST } from "../lib/cast.ts";
 import { dalNygSnfDemoEntries, DEMO_BANNER as dalNygBanner } from "../lib/demo/dal-nyg-snf.ts";
 import { denKcMnfDemoEntries, DEMO_BANNER as denKcBanner } from "../lib/demo/den-kc-mnf.ts";
@@ -95,11 +96,12 @@ test("timeline bylines do not show Wes Process or DEMO/SATIRE words", () => {
 });
 
 test("staff picks and other story copy stay house voice", () => {
-  const stories = source("lib/stories.ts").replaceAll("wes-process", "wes");
+  // Inspect rendered content fields, not loader code or classification metadata.
+  const stories = loadStories().map((story) => [story.title, story.dek, story.bylineDetail, story.relatedGameLabel, story.body].filter(Boolean).join("\n")).join("\n").replaceAll("wes-process", "wes");
   for (const pattern of FORBIDDEN) {
-    assert.equal(pattern.test(stories), false, `lib/stories.ts still has ${pattern}`);
+    assert.equal(pattern.test(stories), false, `content/stories still has ${pattern}`);
   }
-  assert.equal(/\bprocess\b/i.test(stories), false, "lib/stories.ts still lectures process");
+  assert.equal(/\bprocess\b/i.test(stories), false, "content/stories still lectures process");
   assert.match(
     stories,
     /\*\*Wes\*\* picks the call that still stands after a bad bounce\./,

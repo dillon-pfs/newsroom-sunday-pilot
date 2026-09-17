@@ -1,23 +1,11 @@
 import Link from "next/link";
+import { StoryBody } from "@/components/story-body";
 import { notFound } from "next/navigation";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { getStory, listStories, storyVoice } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
 
-function inlineText(text: string) {
-  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g).map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={index}>{part.slice(2, -2)}</strong>;
-    }
-    if (part.startsWith("*") && part.endsWith("*")) {
-      return <em key={index}>{part.slice(1, -1)}</em>;
-    }
-    if (part.startsWith("`") && part.endsWith("`")) {
-      return <code key={index}>{part.slice(1, -1)}</code>;
-    }
-    return part;
-  });
-}
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return listStories().map((story) => ({ slug: story.slug }));
@@ -75,113 +63,9 @@ export default async function StoryArticlePage({
         </div>
       ) : null}
 
-      <p className="max-w-2xl text-base leading-7 text-ink-soft">{story.dek}</p>
+      {story.dek ? <p className="max-w-2xl text-base leading-7 text-ink-soft">{story.dek}</p> : null}
 
-      <div className="max-w-4xl space-y-5 border-t border-border pt-5">
-        {story.body.map((block, index) => {
-          if (block.kind === "signoff") {
-            return (
-              <p
-                key={`signoff-${index}`}
-                className="font-heading text-base text-ink italic"
-              >
-                {block.text}
-              </p>
-            );
-          }
-          if (block.kind === "rich") {
-            return (
-              <p key={`p-${index}`} className="max-w-2xl text-base leading-7 text-ink">
-                {block.parts.map((part, partIndex) =>
-                  part.italic ? (
-                    <em key={partIndex}>{part.text}</em>
-                  ) : (
-                    <span key={partIndex}>{part.text}</span>
-                  ),
-                )}
-              </p>
-            );
-          }
-          if (block.kind === "p") {
-            return (
-              <p key={`p-${index}`} className="max-w-2xl text-base leading-7 text-ink">
-                {inlineText(block.text)}
-              </p>
-            );
-          }
-          if (block.kind === "heading") {
-            return (
-              <h2 key={`heading-${index}`} className="font-heading text-2xl font-semibold text-ink">
-                {block.text}
-              </h2>
-            );
-          }
-          if (block.kind === "rule") {
-            return <hr key={`rule-${index}`} className="border-border" />;
-          }
-          if (block.kind === "list") {
-            return (
-              <ul key={`list-${index}`} className="max-w-2xl list-disc space-y-1 pl-5 text-base leading-7 text-ink">
-                {block.items.map((item, itemIndex) => (
-                  <li key={itemIndex}>{inlineText(item)}</li>
-                ))}
-              </ul>
-            );
-          }
-          if (block.kind === "table") {
-            return (
-              <div key={`table-${index}`} className="overflow-x-auto border border-border">
-                <table className="w-full min-w-[680px] border-collapse text-left text-sm leading-6 text-ink">
-                  <thead className="bg-card-loud font-mono text-[11px] tracking-wide uppercase">
-                    <tr>
-                      {block.headers.map((header) => (
-                        <th key={header} scope="col" className="border-b border-border px-3 py-2 font-semibold">
-                          {header}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {block.rows.map((row, rowIndex) => (
-                      <tr key={rowIndex} className="border-b border-border last:border-0">
-                        {row.map((cell, cellIndex) =>
-                          cellIndex === 0 ? (
-                            <th key={cellIndex} scope="row" className="w-36 px-3 py-2 align-top font-medium">
-                              {inlineText(cell)}
-                            </th>
-                          ) : (
-                            <td key={cellIndex} className={cellIndex === 1 ? "w-48 px-3 py-2 align-top" : "px-3 py-2 align-top"}>
-                              {inlineText(cell)}
-                            </td>
-                          ),
-                        )}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            );
-          }
-          if (block.kind === "figure") {
-            return (
-              <figure key={`figure-${index}`} className="space-y-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={block.src}
-                  alt={block.alt}
-                  className="w-full border-2 border-border bg-card-loud"
-                />
-                {block.caption ? (
-                  <figcaption className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-                    {block.caption}
-                  </figcaption>
-                ) : null}
-              </figure>
-            );
-          }
-          return null;
-        })}
-      </div>
+      <StoryBody html={story.html} />
 
       <section className="grid gap-2 border-t border-border pt-5 sm:grid-cols-2">
         <div>

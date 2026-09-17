@@ -22,7 +22,7 @@ export function StoryCard({ story }: { story: Story }) {
         <h2 className="mt-2 font-heading text-2xl font-semibold tracking-tight sm:text-[28px]">
           {story.title}
         </h2>
-        <p className="mt-1 text-sm leading-6 text-ink-soft">{story.dek}</p>
+        {story.dek ? <p className="mt-1 text-sm leading-6 text-ink-soft">{story.dek}</p> : null}
         {voice ? (
           <p className="mt-3 flex items-center gap-2 text-sm">
             <VoiceAvatar voice={voice} size={28} className="size-7" />

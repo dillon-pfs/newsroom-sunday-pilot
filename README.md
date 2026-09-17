@@ -30,6 +30,16 @@ The complete implementation and setup guide is in [docs/nfl-scoreboard.md](docs/
 - Do not put credentials in `NEXT_PUBLIC_` variables or commit `.env.local`.
 - Use Node 22.18+ (or Node 24) for the TypeScript test/smoke scripts.
 
+## Mail the Desk
+
+`/mail` posts to `/api/mail` and emails the Desk through Resend. It does not open a mailto: link. Setup: [docs/mail.md](docs/mail.md).
+
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Server-only Resend key. Required to deliver mail. |
+| `MAIL_TO` | Inbox. Default `dillon@poorformsports.com`. |
+| `MAIL_FROM` | Verified from-address. Default `Poor Form Desk <onboarding@resend.dev>` for Preview until the domain is verified. |
+
 ```bash
 npm run test:nfl
 npm run typecheck
@@ -56,6 +66,8 @@ npm run smoke:failover
 | `/cast` | Poor Form Desk strip. |
 | `/cast/chip-absolute` (and other slugs) | Voice stubs. Chip Absolute is the lead profile. |
 | `/review` | Private review desk. Gate phrase: `desk`. |
+| `/mail` | On-site desk inbox form. Name, email, and message required. |
+| `/api/mail` | Accepts the desk note and emails it via Resend. No credentials in the response. |
 
 `/bloggers/lead-blogger` redirects to `/cast/chip-absolute`.
 

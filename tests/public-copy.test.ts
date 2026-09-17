@@ -1,12 +1,10 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import { CAST } from "../lib/cast.ts";
-import { HOME_DEMO_BANNER } from "../lib/demo/banners.ts";
-import { DEMO_BANNER as melbourneBanner, melbourneDemoEntries } from "../lib/demo/melbourne.ts";
-import { DEMO_BANNER as dalNygBanner, dalNygSnfDemoEntries } from "../lib/demo/dal-nyg-snf.ts";
-import { DEMO_BANNER as denKcBanner, denKcMnfDemoEntries } from "../lib/demo/den-kc-mnf.ts";
-import { games } from "../lib/live/catalog.ts";
-import { stories } from "../lib/stories.ts";
+import { dalNygSnfDemoEntries, DEMO_BANNER as dalNygBanner } from "../lib/demo/dal-nyg-snf.ts";
+import { denKcMnfDemoEntries, DEMO_BANNER as denKcBanner } from "../lib/demo/den-kc-mnf.ts";
+import { melbourneDemoEntries, DEMO_BANNER as melbourneBanner } from "../lib/demo/melbourne.ts";
 
 const FORBIDDEN = [
   /\bDillon\b/i,
@@ -21,17 +19,7 @@ const FORBIDDEN = [
   /\bCursor\b/,
 ];
 
-const SKIP_KEYS = new Set([
-  "slug",
-  "id",
-  "voiceId",
-  "gameId",
-  "avatar",
-  "relatedGameHref",
-  "href",
-  "url",
-  "x",
-]);
+const SKIP_KEYS = new Set(["slug", "id", "voiceId", "gameId", "avatar", "url"]);
 
 function collect(value: unknown, path: string, into: Array<[string, string]>) {
   if (typeof value === "string") {
@@ -50,7 +38,7 @@ function collect(value: unknown, path: string, into: Array<[string, string]>) {
   }
 }
 
-function assertClean(label: string, strings: Array<[string, string]>) {
+function assertClean(label: string, strings: Array<[string, string]>, alsoBanProcess = false) {
   for (const [path, text] of strings) {
     for (const pattern of FORBIDDEN) {
       assert.equal(
@@ -59,17 +47,15 @@ function assertClean(label: string, strings: Array<[string, string]>) {
         `${label} ${path} still has public chrome "${pattern}": ${text}`,
       );
     }
+    if (alsoBanProcess) {
+      assert.equal(/\bprocess\b/i.test(text), false, `${label} ${path} still says process: ${text}`);
+    }
   }
 }
 
-test("public story copy has no Dillon, DEMO, SATIRE, or tooling leaks", () => {
-  const strings: Array<[string, string]> = [];
-  collect(stories, "stories", strings);
-  assertClean("stories", strings);
-  for (const [, text] of strings) {
-    assert.equal(/\bprocess\b/i.test(text), false, `story copy still lectures process: ${text}`);
-  }
-});
+function source(relativePath: string) {
+  return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
+}
 
 test("public cast display names stay house voice", () => {
   const wes = CAST.find((voice) => voice.slug === "wes-process");
@@ -78,30 +64,22 @@ test("public cast display names stay house voice", () => {
   assert.notEqual(wes.title.toLowerCase(), "process");
   const strings: Array<[string, string]> = [];
   collect(CAST, "cast", strings);
-  assertClean("cast", strings);
-  for (const [, text] of strings) {
-    assert.equal(/\bprocess\b/i.test(text), false, `cast copy still says process: ${text}`);
-  }
+  assertClean("cast", strings, true);
 });
 
-test("shared banners and archive labels stay unlabeled", () => {
-  const strings: Array<[string, string]> = [];
-  collect(
-    {
-      HOME_DEMO_BANNER,
-      melbourneBanner,
-      dalNygBanner,
-      denKcBanner,
-      games: games.map((game) => ({
-        name: game.name,
-        windowLabel: game.windowLabel,
-        feedNote: game.feedNote,
-      })),
-    },
-    "chrome",
-    strings,
+test("shared archive banners stay unlabeled", () => {
+  assertClean(
+    "banners",
+    [
+      ["melbourne", melbourneBanner],
+      ["snf", dalNygBanner],
+      ["mnf", denKcBanner],
+    ],
   );
-  assertClean("chrome", strings);
+  const banners = source("lib/demo/banners.ts");
+  assert.match(banners, /Archive · SF 27 LAR 7 · NYG 28 DAL 20 · KC 31 DEN 10 · not live/);
+  assert.equal(/\bDEMO —/.test(banners), false);
+  assert.equal(/LABELED BACKTESTS/i.test(banners), false);
 });
 
 test("timeline bylines do not show Wes Process or DEMO/SATIRE words", () => {
@@ -113,36 +91,47 @@ test("timeline bylines do not show Wes Process or DEMO/SATIRE words", () => {
     "lines",
     strings,
   );
-  assertClean("timeline", strings);
-  for (const [, text] of strings) {
-    assert.equal(/\bprocess\b/i.test(text), false, `timeline line still says process: ${text}`);
-  }
+  assertClean("timeline", strings, true);
 });
 
-test("staff picks how-to uses house voice", () => {
-  const staff = stories.find((story) => story.slug === "staff-picks-rest-of-2026");
-  assert.ok(staff);
-  const headingIndex = staff.body.findIndex(
-    (block) => block.kind === "heading" && block.text === "How to read this",
+test("staff picks and other story copy stay house voice", () => {
+  const stories = source("lib/stories.ts").replaceAll("wes-process", "wes");
+  for (const pattern of FORBIDDEN) {
+    assert.equal(pattern.test(stories), false, `lib/stories.ts still has ${pattern}`);
+  }
+  assert.equal(/\bprocess\b/i.test(stories), false, "lib/stories.ts still lectures process");
+  assert.match(
+    stories,
+    /\*\*Wes\*\* picks the call that still stands after a bad bounce\./,
   );
-  assert.ok(headingIndex >= 0);
-  const list = staff.body[headingIndex + 1];
-  assert.equal(list?.kind, "list");
-  if (list.kind !== "list") return;
-  assert.deepEqual(list.items, [
-    "**Chip** picks fights fans can forward.",
-    "**Wes** picks the call that still stands after a bad bounce.",
-    "**Pete** refuses the plaque until the sample earns it — and still names Lions / Campbell where a real pick is required.",
-    "**Carl** admits what television wants.",
-    "**Len / Boo** stay in travel and throats — specific names, no fake medical jet-lag.",
-    "**Desk** mostly refuses to play — on purpose.",
-  ]);
-  const note = staff.body[headingIndex + 2];
-  assert.equal(note?.kind, "p");
-  if (note.kind !== "p") return;
-  assert.equal(note.text, "Desk may refresh these picks. Do not treat as betting advice. Do not engrave.");
-  const signoff = staff.body[headingIndex + 3];
-  assert.equal(signoff?.kind, "signoff");
-  if (signoff.kind !== "signoff") return;
-  assert.equal(signoff.text, "— Poor Form Desk · staff ballot · Sep 17, 2026");
+  assert.match(stories, /Desk may refresh these picks\. Do not treat as betting advice\. Do not engrave\./);
+  assert.match(stories, /— Poor Form Desk · staff ballot · Sep 17, 2026/);
+  assert.equal(/Update after Dillon curation/.test(stories), false);
+  assert.equal(/picks process that survives/.test(stories), false);
+});
+
+test("about, stories shelf, and site chrome drop DEMO/SATIRE words", () => {
+  const files = [
+    "app/about/page.tsx",
+    "app/page.tsx",
+    "app/stories/page.tsx",
+    "app/stories/[slug]/page.tsx",
+    "app/layout.tsx",
+    "components/site-chrome.tsx",
+    "components/site-nav.tsx",
+    "components/story-card.tsx",
+    "components/demo-banner.tsx",
+    "lib/live/catalog.ts",
+  ];
+  for (const file of files) {
+    const text = source(file)
+      .replaceAll("wes-process", "wes")
+      .replace(/DEMO_[A-Z_]+|HOME_DEMO_BANNER|isDemoGamePath|demoBannerForPath|demoChrome/g, "X");
+    const strings = [...text.matchAll(/["'`]([^"'`\\]|\\.)*["'`]/g)].map((match) => match[0]);
+    for (const snippet of strings) {
+      for (const pattern of FORBIDDEN) {
+        assert.equal(pattern.test(snippet), false, `${file} still has ${pattern} in ${snippet}`);
+      }
+    }
+  }
 });

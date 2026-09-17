@@ -55,6 +55,8 @@ npm run smoke:failover
 | `/stories/conversion-referendums-week1` | Wes Process Week 1 process column. |
 | `/cast` | Poor Form Desk strip. |
 | `/cast/chip-absolute` (and other slugs) | Voice stubs. Chip Absolute is the lead profile. |
+| `/mail` | On-site Mail the Desk form. Posts to `/api/mail` and emails the desk via Resend. |
+| `/api/mail` | Accepts name, email, and message. No mailto. |
 | `/review` | Private review desk. Gate phrase: `desk`. |
 
 `/bloggers/lead-blogger` redirects to `/cast/chip-absolute`.

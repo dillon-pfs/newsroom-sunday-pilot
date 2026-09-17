@@ -3,8 +3,8 @@ import { listStories } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
 
 export const metadata = shareMetadata(
-  "Stories · DEMO / SATIRE",
-  "Filed DEMO columns from the Poor Form Desk. Satire after the facts land, never instead of them.",
+  "Stories · SATIRE / DEMO",
+  "Filed satire from the Poor Form Desk. DEMO stories are labeled; satire after the facts land, never instead of them.",
 );
 
 export default function StoriesIndexPage() {
@@ -20,7 +20,7 @@ export default function StoriesIndexPage() {
           Stories
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
-          Satirical desk longform — DEMO seeds labeled; Editor owns copy.
+          Satirical desk longform — DEMO pieces labeled; Editor owns copy.
         </p>
       </section>
 

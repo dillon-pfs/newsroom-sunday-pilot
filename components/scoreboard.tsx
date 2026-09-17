@@ -1,41 +1,56 @@
-import { GhostWindowCard, HeroScorebug } from "@/components/scorebug";
+import Link from "next/link";
+import { HeroScorebug } from "@/components/scorebug";
+import { DeskPill } from "@/components/desk-pill";
+import { formatScore } from "@/lib/copy";
 import type { Game } from "@/lib/types";
 
 export function Scoreboard({ games }: { games: Game[] }) {
-  if (games.length === 0) {
-    return (
-      <div className="border border-dashed border-border px-4 py-8 text-center text-sm text-ink-soft">
-        No games on the Sunday board.
-      </div>
-    );
-  }
-
-  const featured = games.filter((game) => game.demo);
-  const rest = games.filter((game) => !game.demo);
+  const demos = games.filter((game) => game.demo && !game.simulated);
+  const featured = demos.find((game) => game.id === "sunday-pilot");
+  const archive = demos.filter((game) => game.id !== "sunday-pilot");
+  if (demos.length === 0) return null;
 
   return (
-    <section className="space-y-2">
+    <section aria-labelledby="demo-archive-heading" className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
             Demo archive · not live
           </p>
-          <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            Melbourne, SNF &amp; MNF backtests
+          <h2 id="demo-archive-heading" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+            {featured ? "Featured DEMO · Melbourne" : "DEMO archive"}
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
           Demo
         </span>
       </div>
-      <div className="space-y-2">
-        {featured.map((game) => (
-          <HeroScorebug key={game.id} game={game} />
-        ))}
-        {rest.map((game) => (
-          <GhostWindowCard key={game.id} game={game} />
-        ))}
-      </div>
+      {featured ? <HeroScorebug game={featured} /> : null}
+      {archive.length > 0 ? (
+        <div>
+          <h3 className="mb-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+            More from the DEMO archive
+          </h3>
+          <ul className="divide-y divide-border border border-border">
+            {archive.map((game) => (
+              <li key={game.id}>
+                <Link
+                  href={`/games/${game.id}`}
+                  className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-3 py-3 hover:bg-card-loud focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-masthead sm:px-4"
+                >
+                  <span className="flex flex-wrap items-center gap-2">
+                    <DeskPill tone="demo">Demo</DeskPill>
+                    <span className="text-sm font-medium">{game.windowLabel} · {game.away.short} @ {game.home.short}</span>
+                  </span>
+                  <span className="font-mono text-[11px] text-ink-soft">
+                    {game.status === "final" ? "Final" : "Archive"} · {formatScore(game.officialScore.away)}–{formatScore(game.officialScore.home)} · View archive →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -15,7 +15,7 @@ export function HeroScorebug({ game }: { game: Game }) {
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.16em] text-bar-foreground/70 uppercase">
           {game.windowLabel} · {game.status === "final" ? "Final" : game.status} ·{" "}
-          {game.liveBlogEnabled ? "Blog on" : "Blog off"}
+          {game.demo ? "Archive" : game.liveBlogEnabled ? "Blog on" : "Blog off"}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
           {game.demo ? <DeskPill tone="demo">Demo</DeskPill> : null}
@@ -27,7 +27,7 @@ export function HeroScorebug({ game }: { game: Game }) {
               Final
             </DeskPill>
           ) : null}
-          {game.liveBlogEnabled ? (
+          {game.demo ? null : game.liveBlogEnabled ? (
             <DeskPill tone="live">Blog on</DeskPill>
           ) : (
             <DeskPill tone="outline" className="border-bar-foreground/30 text-bar-foreground/80">
@@ -66,10 +66,10 @@ export function HeroScorebug({ game }: { game: Game }) {
       </div>
       <div className="flex items-center justify-between gap-3 border-t border-bar-foreground/10 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.14em] text-bar-foreground/65 uppercase">
-          Open {game.windowLabel} timeline →
+          Open {game.windowLabel} {game.demo ? "DEMO archive" : "timeline"} →
         </p>
         <span className="inline-flex h-7 items-center rounded-full bg-demo px-3 font-mono text-[10px] tracking-wide text-demo-foreground uppercase">
-          Enter blog
+          {game.demo ? "View archive" : "Enter blog"}
         </span>
       </div>
     </Link>
@@ -150,7 +150,7 @@ export function AssignedScorebug({ game }: { game: Game }) {
     <Link href={`/games/${game.id}`} className="block rounded-none bg-bar text-bar-foreground">
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.16em] text-bar-foreground/70 uppercase">
-          {game.windowLabel} · Final · Blog on
+          {game.windowLabel} · Final · {game.demo ? "Archive" : "Blog on"}
         </p>
         <div className="flex gap-1.5">
           <DeskPill tone="demo">Demo</DeskPill>
@@ -177,7 +177,7 @@ export function AssignedScorebug({ game }: { game: Game }) {
           Open {game.windowLabel} timeline →
         </p>
         <span className="inline-flex h-7 items-center rounded-full bg-demo px-3 font-mono text-[10px] tracking-wide text-demo-foreground uppercase">
-          Enter blog
+          {game.demo ? "View archive" : "Enter blog"}
         </span>
       </div>
     </Link>

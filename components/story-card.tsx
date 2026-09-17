@@ -14,7 +14,7 @@ export function StoryCard({ story }: { story: Story }) {
       <article className="border-l-[6px] border-masthead px-4 py-3 sm:px-5 sm:py-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
-            <DeskPill tone="demo">Demo</DeskPill>
+            {story.demo !== false ? <DeskPill tone="demo">Demo</DeskPill> : null}
             <DeskPill tone="satire">Satire</DeskPill>
           </div>
           <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
@@ -29,6 +29,7 @@ export function StoryCard({ story }: { story: Story }) {
           <p className="mt-3 flex items-center gap-2 text-sm">
             <VoiceAvatar voice={voice} size={28} className="size-7" />
             <span className="font-medium text-ink">{voice.name}</span>
+            {story.bylineDetail ? <span className="text-ink-soft">· {story.bylineDetail}</span> : null}
             <span className="font-mono text-[10px] tracking-wide text-ink-soft uppercase">
               Cast
             </span>

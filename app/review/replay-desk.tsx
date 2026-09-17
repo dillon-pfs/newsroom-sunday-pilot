@@ -28,7 +28,7 @@ export function ReplayDesk({ initialMs = 0 }: { initialMs?: number }) {
         <p className="mt-1 text-sm">
           This reel is labeled SIMULATED on every beat. Greyshirts and Red
           Caps are desk aliases for this tape only — not public teams, not
-          the Melbourne DEMO. The public board never loads this module.
+          the Melbourne archive. The public board never loads this module.
         </p>
       </div>
 

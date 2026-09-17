@@ -9,7 +9,7 @@ const nav = [
   { href: "/", label: "Board", match: (path: string) => path === "/" },
   {
     href: "/games/sunday-pilot",
-    label: "DEMO",
+    label: "Archive",
     match: (path: string) => isDemoGamePath(path),
   },
   {

@@ -12,12 +12,12 @@ export async function generateMetadata({
   const { id } = await params;
   const game = getPublicGame(id);
   if (!game) return { title: "Game" };
-  const label = game.demo ? "DEMO / SATIRE" : "NFL scoreboard";
+  const label = game.demo ? "Archive" : "NFL scoreboard";
   return shareMetadata(
     `${game.name} · ${label}`,
     game.demo
-      ? `${game.windowLabel}: an editorial backtest, never a live score.`
-      : "Live NFL game detail from the Poor Form scoreboard pilot.",
+      ? `${game.windowLabel}: a filed archive, never a live score.`
+      : "Live NFL game detail from the Poor Form scoreboard.",
   );
 }
 

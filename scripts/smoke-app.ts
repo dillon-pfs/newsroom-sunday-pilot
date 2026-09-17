@@ -15,7 +15,7 @@ const again = await (await fetch(`${origin}/api/nfl/scores`)).json() as Scoreboa
 assert.equal(again.lastSuccessfulFetchAt, body.lastSuccessfulFetchAt, "Repeated requests should reuse the snapshot");
 const home = await (await fetch(origin)).text();
 assert.ok(home.includes("Around the league"));
-assert.ok(home.includes("Melbourne, SNF &amp; MNF backtests"));
+assert.ok(home.includes("Melbourne, SNF &amp; MNF"));
 assert.ok(!home.includes("Greyshirts"), "Review-only simulated teams must not reach the public board");
 const detail = await fetch(`${origin}/scores/${encodeURIComponent(body.games[0].id)}`);
 assert.equal(detail.status, 200);
@@ -25,7 +25,7 @@ for (const [slug, label] of [["sunday-pilot", "Melbourne"], ["demo-dal-nyg-snf",
   const demo = await fetch(`${origin}/games/${slug}`);
   assert.equal(demo.status, 200);
   const html = await demo.text();
-  assert.ok(html.includes("DEMO") && html.includes(label), `${slug} must keep its demo labeling`);
+  assert.ok(html.includes("Archive") && html.includes(label), `${slug} must keep its archive labeling`);
   assert.ok(!html.includes("Around the league"), "Live scoreboard must not replace a demo timeline");
 }
 const redirect = await fetch(`${origin}/demo`, { redirect: "manual" });

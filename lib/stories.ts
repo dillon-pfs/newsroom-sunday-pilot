@@ -29,7 +29,7 @@ export const stories: Story[] = [
   {
     slug: "staff-picks-rest-of-2026",
     title: "Staff Picks: Rest of 2026 (Before Anyone Engraves Anything)",
-    dek: "SATIRE / DEMO staff ballot. Week 2 is not a mandate. It is a dare.",
+    dek: "Staff ballot. Week 2 is not a mandate. It is a dare.",
     dateLabel: "Sep 17, 2026",
     voiceId: "poor-form-desk",
     bylineDetail: "with the whole newsroom",
@@ -46,12 +46,12 @@ export const stories: Story[] = [
         ["**Most disappointing**", "Dallas Cowboys", "Public expectation still acts like October is optional. Chip expects the group chat to age poorly."],
       ] },
       { kind: "rule" },
-      { kind: "heading", text: "Wes Process" },
+      { kind: "heading", text: "Wes" },
       { kind: "table", headers: ["Category", "Pick", "One-line why"], rows: [
-        ["**MVP**", "Lamar Jackson", "Best remaining marriage of scheme leverage and forced-choice defense — process that survives contact."],
+        ["**MVP**", "Lamar Jackson", "Best remaining marriage of scheme leverage and forced-choice defense — math that survives contact."],
         ["**Super Bowl**", "Baltimore Ravens", "Conversion equity + complementary football; Wes does not bet vibes when the ballot has better math."],
-        ["**ROY**", "Cam Skattebo", "First points of a new shop are vibes; surviving early-down usage is process. Wes is watching the touches, not the ribbon-cutting."],
-        ["**COY**", "John Harbaugh", "Quiet process excellence over viral debut theater."],
+        ["**ROY**", "Cam Skattebo", "First points of a new shop are vibes; surviving early-down usage is the film. Wes is watching the touches, not the ribbon-cutting."],
+        ["**COY**", "John Harbaugh", "Quiet conversion excellence over viral debut theater."],
         ["**Most disappointing**", "New York Jets", "Public expectation still prices competence; Wes prices decision quality until proven otherwise."],
       ] },
       { kind: "rule" },
@@ -96,21 +96,21 @@ export const stories: Story[] = [
         ["**MVP**", "We’ll cite the play. We’ll fight about what it meant.", "Brand voice stays rare; Desk declines a fourth fake consensus."],
         ["**Super Bowl**", "File under “ask us in February”", "Pin stays up either way."],
         ["**ROY**", "Notarize nothing before breakfast", "Desk amplifies Pete’s stamp policy."],
-        ["**COY**", "The coach whose fourth downs Wes can diagram without a novel", "House points at process, not vibes."],
+        ["**COY**", "The coach whose fourth downs Wes can diagram without a novel", "House points at the call, not vibes."],
         ["**Most disappointing**", "Any team the timeline already crowned in Week 1", "Desk’s job is the receipt, not the parade permit."],
       ] },
       { kind: "rule" },
       { kind: "heading", text: "How to read this" },
       { kind: "list", items: [
         "**Chip** picks fights fans can forward.",
-        "**Wes** picks process that survives a bad bounce.",
+        "**Wes** picks the call that still stands after a bad bounce.",
         "**Pete** refuses the plaque until the sample earns it — and still names Lions / Campbell where a real pick is required.",
         "**Carl** admits what television wants.",
         "**Len / Boo** stay in travel and throats — specific names, no fake medical jet-lag.",
         "**Desk** mostly refuses to play — on purpose.",
       ] },
-      { kind: "p", text: "Update after Dillon curation. Do not treat as betting advice. Do not engrave." },
-      { kind: "signoff", text: "— Poor Form Desk / SATIRE staff ballot · Sep 17, 2026" },
+      { kind: "p", text: "Desk may refresh these picks. Do not treat as betting advice. Do not engrave." },
+      { kind: "signoff", text: "— Poor Form Desk · staff ballot · Sep 17, 2026" },
     ],
   },
   {
@@ -137,28 +137,28 @@ export const stories: Story[] = [
       ] },
       { kind: "p", text: "**What Chip is not stealing:**" },
       { kind: "list", items: [
-        "Fourth-down and two-point math → **Wes Process** (Desk byline)",
+        "Fourth-down and two-point math → **Wes** (Desk byline)",
         "Debut / “they finally have a ___” coronations → **Postcard Pete**",
         "Booth virality without a clip → **Chyron Carl** stays seated",
       ] },
       { kind: "p", text: "Package rule tonight: **one Chip sendable joke** if the play earns it → plain Desk repost. Empty window beats a filler paragraph. Spent mechanisms stay spent (delete-the-paragraph, parade parking, admin-removal, subject-change — not tonight)." },
       { kind: "p", text: "Losing-fan banter is allowed after the room picks a side: needle `#OnePride` or `#BillsMafia`, not both, and never the Raiders/Dolphins/Cardinals deflection lane mid-game. That lane is for hate replies, not the primary post." },
       { kind: "p", text: "Ceremony is allowed to be loud. Spoilers are allowed to be louder. Engrave nothing before breakfast." },
-      { kind: "signoff", text: "— Poor Form Desk · Chip Absolute on call · SATIRE · Sep 17, 2026" },
+      { kind: "signoff", text: "— Poor Form Desk · Chip Absolute on call · Sep 17, 2026" },
     ],
   },
   {
     slug: "likely-debut-not-a-plaque",
     title: "Likely Debut, Not a Plaque",
-    dek: "SNF DEMO column — Giants 28, Cowboys 20, and the first Harbaugh New York night that gave Giants fans a clean reason to be loud.",
+    dek: "Sunday night column — Giants 28, Cowboys 20, and the first Harbaugh New York night that gave Giants fans a clean reason to be loud.",
     dateLabel: "Sep 16, 2026",
     voiceId: "chip-absolute",
     relatedGameHref: "/games/demo-dal-nyg-snf",
-    relatedGameLabel: "Giants–Cowboys SNF DEMO →",
+    relatedGameLabel: "Giants–Cowboys SNF →",
     body: [
       {
         kind: "p",
-        text: "This is a SNF DEMO column, filed after the final: Giants 28, Cowboys 20. Giants fans may proceed directly to the part where the group chat gets louder than the television.",
+        text: "This is a Sunday night column, filed after the final: Giants 28, Cowboys 20. Giants fans may proceed directly to the part where the group chat gets louder than the television.",
       },
       {
         kind: "p",
@@ -182,22 +182,22 @@ export const stories: Story[] = [
       },
       {
         kind: "signoff",
-        text: "— Chip Absolute / Files SATIRE after the facts land. Never instead of them.",
+        text: "— Chip Absolute / Files after the facts land. Never instead of them.",
       },
     ],
   },
   {
     slug: "notarized-postcard-walker-week1",
     title: "Notarized Postcard: Walker, Week 1",
-    dek: "MNF DEMO column — Chiefs 31, Broncos 10, a 173-yard splash, and the desk refusing a Day 1 coronation.",
+    dek: "Monday night column — Chiefs 31, Broncos 10, a 173-yard splash, and the desk refusing a Day 1 coronation.",
     dateLabel: "Sep 16, 2026",
     voiceId: "postcard-pete",
     relatedGameHref: "/games/demo-den-kc-mnf",
-    relatedGameLabel: "Broncos–Chiefs MNF DEMO →",
+    relatedGameLabel: "Broncos–Chiefs MNF →",
     body: [
       {
         kind: "p",
-        text: "This is a MNF DEMO column, filed after Chiefs 31, Broncos 10. Walker ran for 173 yards and two touchdowns. That is a line you put on the fridge. It is not a franchise seal.",
+        text: "This is a Monday night column, filed after Chiefs 31, Broncos 10. Walker ran for 173 yards and two touchdowns. That is a line you put on the fridge. It is not a franchise seal.",
       },
       {
         kind: "p",
@@ -228,15 +228,15 @@ export const stories: Story[] = [
   {
     slug: "conversion-referendum-arrowhead-fourth",
     title: "Conversion Referendum: Arrowhead, Fourth-and-One",
-    dek: "MNF DEMO process column — the fourth-and-one handoff, sixty yards, and a ballot that counted itself.",
+    dek: "Monday night column — the fourth-and-one handoff, sixty yards, and a ballot that counted itself.",
     dateLabel: "Sep 16, 2026",
     voiceId: "wes-process",
     relatedGameHref: "/games/demo-den-kc-mnf",
-    relatedGameLabel: "Broncos–Chiefs MNF DEMO →",
+    relatedGameLabel: "Broncos–Chiefs MNF →",
     body: [
       {
         kind: "p",
-        text: "This is a MNF DEMO column, filed after Chiefs 31, Broncos 10. The score is the receipt. The question is fourth-and-one at Arrowhead: what did Kansas City choose to trust?",
+        text: "This is a Monday night column, filed after Chiefs 31, Broncos 10. The score is the receipt. The question is fourth-and-one at Arrowhead: what did Kansas City choose to trust?",
       },
       {
         kind: "p",
@@ -256,18 +256,18 @@ export const stories: Story[] = [
       },
       {
         kind: "p",
-        text: "Argue the math if you want. Argue the call if you want. But do not wait for the touchdown and call the process obvious. That is not analysis. That is reading the ballot after the count.",
+        text: "Argue the math if you want. Argue the call if you want. But do not wait for the touchdown and call the choice obvious. That is not analysis. That is reading the ballot after the count.",
       },
       {
         kind: "signoff",
-        text: "— Wes Process / Reads the play as a process outcome. Does not recast a stop as fortune.",
+        text: "— Wes / Reads the play as a decision, not luck.",
       },
     ],
   },
   {
     slug: "fifteen-plays-one-continent-zero-chill",
     title: "Fifteen Plays, One Continent, Zero Chill",
-    dek: "Melbourne MCG DEMO column — first Aussie points, revenge tourism, and a stolen-home soundtrack.",
+    dek: "Melbourne MCG column — first Aussie points, revenge tourism, and a stolen-home soundtrack.",
     dateLabel: "Sep 14, 2026",
     voiceId: "chip-absolute",
     relatedGameHref: "/games/sunday-pilot",
@@ -307,20 +307,20 @@ export const stories: Story[] = [
       },
       {
         kind: "signoff",
-        text: "— Chip Absolute / Files SATIRE after the facts land. Never instead of them.",
+        text: "— Chip Absolute / Files after the facts land. Never instead of them.",
       },
     ],
   },
   {
     slug: "conversion-referendums-week1",
-    title: "Conversion Referendums: A Week 1 Process Note",
-    dek: "Week 1 process column — Maye end-zone ballot, OT go-for-two, and stuffed two-point tries as conversion referendums.",
+    title: "Conversion Referendums: Week 1",
+    dek: "Week 1 column — Maye end-zone ballot, OT go-for-two, and stuffed two-point tries as conversion referendums.",
     dateLabel: "Sep 14, 2026",
     voiceId: "wes-process",
     body: [
       {
         kind: "p",
-        text: "People keep calling these “chaos games.” Chaos is what happens when the ball bounces funny. What I saw in Week 1 was something colder: teams walking into conversion moments with their eyes open and filing the results under “process.”",
+        text: "People keep calling these “chaos games.” Chaos is what happens when the ball bounces funny. What I saw in Week 1 was something colder: teams walking into conversion moments with their eyes open and filing the results under the choice they made.",
       },
       {
         kind: "p",
@@ -336,7 +336,7 @@ export const stories: Story[] = [
       },
       {
         kind: "p",
-        text: "I’m not here to moralize. I’m here to name the category. Fourth-and-shorts, wiped touchdowns that become threes, delay-of-game before a short fourth, stuffed sneaks at the one, OT go-for-twos — Week 1 kept handing out process exams and then acting surprised when the answer key hurt.",
+        text: "I’m not here to moralize. I’m here to name the category. Fourth-and-shorts, wiped touchdowns that become threes, delay-of-game before a short fourth, stuffed sneaks at the one, OT go-for-twos — Week 1 kept handing out conversion exams and then acting surprised when the answer key hurt.",
       },
       {
         kind: "p",
@@ -344,7 +344,7 @@ export const stories: Story[] = [
       },
       {
         kind: "signoff",
-        text: "— Wes Process / Reads the play as a process outcome. Does not recast a stop as fortune.",
+        text: "— Wes / Reads the play as a decision, not luck.",
       },
     ],
   },

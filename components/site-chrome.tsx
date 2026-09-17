@@ -14,8 +14,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <SiteNav />
           </div>
           <p className="max-w-3xl text-sm text-ink-soft">
-            NFL scores and a satirical desk. Melbourne, SNF and MNF are labeled
-            DEMO backtests. SIMULATED tape stays on the private review screen.
+            NFL scores and a desk with opinions. Melbourne, SNF and MNF are
+            filed archives, not live scores.
           </p>
         </div>
       </header>
@@ -26,13 +26,12 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-1 px-4 py-3 font-mono text-[11px] tracking-wide text-ink-soft uppercase sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p className="flex items-center gap-2">
             <BrandMark size={16} />
-            Poor Form Sports · Lead: Chip Absolute · DEMO: Melbourne · SNF · MNF
+            Poor Form Sports · Lead: Chip Absolute · Archive: Melbourne · SNF · MNF
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
             <a href="https://x.com/PoorFormSports" target="_blank" rel="noopener noreferrer" className="hover:text-masthead hover:underline">Follow the Desk</a>
-            <Link href="/about" className="hover:text-masthead hover:underline">About satire</Link>
+            <Link href="/about" className="hover:text-masthead hover:underline">About</Link>
             <Link href="/mail" className="hover:text-masthead hover:underline">Mail the Desk</Link>
-            <span>Public-live path never loads the SIMULATED reel.</span>
           </p>
         </div>
       </footer>

@@ -11,7 +11,7 @@ export function shareMetadata(title: string, description: string): Metadata {
       description,
       siteName: "Poor Form Sports",
       type: "website",
-      images: [{ url: image, alt: "Poor Form Sports · DEMO / SATIRE" }],
+      images: [{ url: image, alt: "Poor Form Sports" }],
     },
     twitter: {
       card: "summary_large_image",

@@ -3,7 +3,7 @@ import type { FeedEntry } from "@/lib/types";
 export const DEMO_GAME_ID = "sunday-pilot";
 
 export const DEMO_BANNER =
-  "DEMO — SF 27 LAR 7 · Melbourne MCG backtest · not live · ESPN/Reuters/Rams.com/NFL gamebook";
+  "SF 27 LAR 7 · Melbourne MCG · not live · ESPN/Reuters/Rams.com/NFL gamebook";
 
 export const melbourneDemoEntries: FeedEntry[] = [
   {
@@ -24,8 +24,8 @@ export const melbourneDemoEntries: FeedEntry[] = [
       },
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
-        line: "Conversion Referendum: fifteen plays, three points, first Australian regular-season stamp. Process showed up. Drama did not.",
+        voiceName: "Wes",
+        line: "Conversion Referendum: fifteen plays, three points, first Australian regular-season stamp. The ballot showed up. Drama did not.",
       },
     ],
   },
@@ -153,8 +153,8 @@ export const melbourneDemoEntries: FeedEntry[] = [
     satire: [
       {
         voiceId: "wes-process",
-        voiceName: "Wes Process",
-        line: "Conversion Referendum: fourth-and-goal from the one, sneak stuffed, turnover on downs. Not unlucky — process with a bruise.",
+        voiceName: "Wes",
+        line: "Conversion Referendum: fourth-and-goal from the one, sneak stuffed, turnover on downs. Not unlucky — a call with a bruise.",
       },
     ],
   },

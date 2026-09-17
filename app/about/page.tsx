@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { DeskPill } from "@/components/desk-pill";
 
 export const metadata = { title: "About" };
 
@@ -14,12 +13,14 @@ export default function AboutPage() {
         </p>
       </section>
       <section className="space-y-3 border border-border bg-card-loud p-4">
-        <div className="flex flex-wrap gap-2"><DeskPill tone="demo">DEMO</DeskPill><DeskPill tone="satire">SATIRE</DeskPill></div>
         <p className="text-sm leading-6 text-ink">
-          DEMO games are editorial backtests and are never live NFL scores. SATIRE lines are opinion and comedy, never reporting or breaking news. Official facts stay separate and labeled.
+          Entertainment only. Not reporting. Not betting advice.
+        </p>
+        <p className="text-sm leading-6 text-ink">
+          Archive games are filed after the fact and are never live NFL scores. Desk lines are opinion and comedy. Official facts stay separate and labeled.
         </p>
         <p className="text-sm leading-6 text-ink-soft">
-          The private SIMULATED reel stays off the public board. See a line that missed? <Link href="/mail" className="text-masthead underline-offset-4 hover:underline">Mail the Desk.</Link>
+          See a line that missed? <Link href="/mail" className="text-masthead underline-offset-4 hover:underline">Mail the Desk.</Link>
         </p>
       </section>
     </div>

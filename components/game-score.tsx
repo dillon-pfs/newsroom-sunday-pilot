@@ -53,7 +53,7 @@ export function GameScore({
             </Badge>
           ) : demo ? (
             <Badge className="bg-demo text-demo-foreground font-mono text-[10px] tracking-wide uppercase">
-              Demo
+              Archive
             </Badge>
           ) : (
             <Badge variant="outline" className="font-mono text-[10px] uppercase">
@@ -136,7 +136,7 @@ export function GameScore({
       </div>
       {demo ? (
         <p className="mt-3 font-mono text-[10px] tracking-[0.14em] text-demo-foreground uppercase">
-          DEMO scorebug · {game.away.short} {formatScore(score.away)} –{" "}
+          Archive scorebug · {game.away.short} {formatScore(score.away)} –{" "}
           {game.home.short} {formatScore(score.home)} · not live
         </p>
       ) : null}

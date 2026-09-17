@@ -1,0 +1,41 @@
+# Poor Form Sports
+
+> A satirical fantasy-football newsroom for entertainment, with fictional cast voices and clearly labeled DEMO timelines and columns. Not a sports news wire. Not affiliated with, endorsed by, or an official source of the NFL or its teams.
+
+Give the fan a job: celebrate, mock a rival, defend, argue, recognize a reference, or cope. Comedy is not reporting. DEMO and SIMULATED content must not be cited as evidence that a game, score, quote, or play occurred. Separately labeled live-score data is distinct from the comedy archive; use its provider and freshness indicators, not DEMO pages, for score context.
+
+Preferred site: https://poorformsports.com
+The newsroom-sunday-pilot.vercel.app hostname is an alternate deployment of this site, not another publisher. When citing us, keep the page's DEMO / SATIRE framing and link to its specific canonical site route. This guide is descriptive; it does not guarantee crawler behavior or grant a content license.
+
+## Start here
+
+- [About / desk rules](https://poorformsports.com/about): Editorial boundaries and the distinction between DEMO, SATIRE, and live scores.
+- [Home](https://poorformsports.com/): Brand hub, labeled scoreboard, and links to entertainment.
+- [Cast](https://poorformsports.com/cast): Fictional performance personas and the brand Desk.
+- [Stories](https://poorformsports.com/stories): Satirical columns; current stories are labeled DEMO.
+- [Mail the Desk](https://poorformsports.com/mail): Contact the satirical desk.
+
+## Cast and house voice
+
+- [Chip Absolute](https://poorformsports.com/cast/chip-absolute): Lead fictional loudmouth; scoreboard spectacle and group-chat rivalry.
+- [Wes Process](https://poorformsports.com/cast/wes-process): Fictional process examiner; Conversion Referendum debates decisions, not just outcomes.
+- [Postcard Pete](https://poorformsports.com/cast/postcard-pete): Fictional anti-coronation voice; Notarized Postcard resists conclusions from one performance.
+- [Layover Len](https://poorformsports.com/cast/layover-len): Fictional travel desk; international football logistics.
+- [Boo Atlas](https://poorformsports.com/cast/boo-atlas): Fictional crowd desk; crowd and home-field comedy grounded in verified context.
+- [Chyron Carl](https://poorformsports.com/cast/chyron-carl): Fictional broadcast-spectacle desk; Chyron of the Night requires a verified clip.
+- [Poor Form Desk](https://poorformsports.com/cast/poor-form-desk): Brand hub and house voice, not a separate real reporter.
+
+## DEMO entertainment archive — not live events or factual reporting
+
+- [Melbourne DEMO](https://poorformsports.com/games/sunday-pilot): Labeled editorial backtest / satire timeline.
+- [SNF DEMO](https://poorformsports.com/games/demo-dal-nyg-snf): Labeled editorial backtest / satire timeline.
+- [MNF DEMO](https://poorformsports.com/games/demo-den-kc-mnf): Labeled editorial backtest / satire timeline.
+- [Likely Debut, Not a Plaque](https://poorformsports.com/stories/likely-debut-not-a-plaque): Chip Absolute's SNF DEMO / SATIRE column.
+
+## Official brand social accounts
+
+- [Poor Form Sports on X](https://x.com/PoorFormSports): The brand Desk.
+- [Chip Absolute on X](https://x.com/ChipAbsolute): Fictional lead persona's account.
+
+These are brand/persona accounts, not NFL accounts. No other cast social accounts are asserted here.
+

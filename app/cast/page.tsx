@@ -5,8 +5,8 @@ import { CAST } from "@/lib/cast";
 import { shareMetadata } from "@/lib/share";
 
 export const metadata = shareMetadata(
-  "Cast · DEMO / SATIRE",
-  "Meet the Poor Form Desk: six named voices and the house Desk, each with a defined satire lane.",
+  "Cast",
+  "Meet the Poor Form Desk: six named voices and the house Desk.",
 );
 
 export default function CastIndexPage() {
@@ -20,9 +20,9 @@ export default function CastIndexPage() {
           Cast
         </h1>
         <p className="text-sm leading-6 text-ink/75">
-          Six named voices plus the house Desk. Chip Absolute leads. SATIRE lines on the timelines are
-          Editor-approved copy, shown with byline. Carl is silent on Melbourne
-          and files one MNF platform beat. Poor Form Desk holds the house stamp.
+          Six named voices plus the house Desk. Chip Absolute leads. Desk lines
+          on the timelines are shown with byline. Carl is silent on Melbourne
+          and files one Monday night platform beat. Poor Form Desk holds the house stamp.
         </p>
       </section>
       <CastStrip />

@@ -3,7 +3,7 @@ import { DEMO_BANNER as dalNygBanner, DEMO_GAME_ID as dalNygId } from "@/lib/dem
 import { DEMO_BANNER as denKcBanner, DEMO_GAME_ID as denKcId } from "@/lib/demo/den-kc-mnf";
 
 export const HOME_DEMO_BANNER =
-  "DEMO — labeled backtests · SF 27 LAR 7 · NYG 28 DAL 20 · KC 31 DEN 10 · not live";
+  "Archive · SF 27 LAR 7 · NYG 28 DAL 20 · KC 31 DEN 10 · not live";
 
 type DemoChrome = {
   banner: string;

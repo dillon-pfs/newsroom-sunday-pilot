@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { DeskPill } from "@/components/desk-pill";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { storyVoice, type Story } from "@/lib/stories";
 
@@ -13,10 +12,9 @@ export function StoryCard({ story }: { story: Story }) {
     >
       <article className="border-l-[6px] border-masthead px-4 py-3 sm:px-5 sm:py-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5">
-            {story.demo !== false ? <DeskPill tone="demo">Demo</DeskPill> : null}
-            <DeskPill tone="satire">Satire</DeskPill>
-          </div>
+          <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+            Column
+          </p>
           <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
             {story.dateLabel}
           </p>

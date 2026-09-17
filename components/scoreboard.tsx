@@ -18,14 +18,14 @@ export function Scoreboard({ games }: { games: Game[] }) {
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-            Demo archive · not live
+            Filed archive · not live
           </p>
           <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            Melbourne, SNF &amp; MNF backtests
+            Melbourne, SNF &amp; MNF
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
-          Demo
+          Archive
         </span>
       </div>
       <div className="space-y-2">

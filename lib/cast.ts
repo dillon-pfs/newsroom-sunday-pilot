@@ -38,11 +38,11 @@ export const CAST: Voice[] = [
   },
   {
     slug: "wes-process",
-    name: "Wes Process",
+    name: "Wes",
     desk: "Poor Form Desk",
-    title: "Process",
+    title: "Downs",
     lens: "Downs, bruises, results that are not luck.",
-    bio: "Wes Process treats football like a series of referendums on courage and math. Process over outcome. He will respect the ballot even when the ball does not.",
+    bio: "Wes treats football like a series of referendums on courage and math. He will respect the ballot even when the ball does not.",
     initials: "WP",
     mark: "#3d4f3a",
     avatar: "/cast/wes-process.png",
@@ -90,7 +90,7 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "Graphics",
     lens: "Lower-thirds. Silent on Melbourne; one MNF platform beat.",
-    bio: "Chyron Carl roasts how TV sells the night — not fake transcripts, not invented announcer quotes. Sparse beats. Platform spectacle stays meta.",
+    bio: "Chyron Carl roasts how TV sells the night — not fake transcripts, not invented announcer quotes. Sparse beats. Platform spectacle stays on the booth.",
     initials: "CC",
     mark: "#4a5560",
     avatar: "/cast/chyron-carl.png",
@@ -122,21 +122,25 @@ export const CAST: Voice[] = [
     desk: "Poor Form Desk",
     title: "House",
     lens: "The stamp on the strip. House voice, house clock.",
-    bio: "Poor Form Sports is a satirical fantasy football newsroom. We file jokes after the facts land — never instead of them. If it reads like real reporting, we cut it.",
+    bio: "Poor Form Sports is an entertainment desk. We file jokes after the facts land — never instead of them. If it reads like real reporting, we cut it.",
     initials: "PFS",
     mark: "#0e0c0b",
     avatar: "/cast/poor-form-desk.png",
-    funFact: "Wave 0 is Desk + Chip Absolute only; everybody else stays dark until their format/doctrine is locked.",
+    funFact: "The house stamp stays rare; named voices carry the jokes.",
     favoriteCoworker: { slug: "chip-absolute", why: "He fills the timeline so the Desk can pretend we’re a real operation." },
     leastFavoriteCoworker: { slug: "postcard-pete", why: "He refuses every plaque we try to hang in the lobby." },
     x: { handle: "PoorFormSports", url: "https://x.com/PoorFormSports" },
-    appearsWhen: "ensemble RT, hub soft-launch, or company voice — never a seventh joke seat.",
+    appearsWhen: "house voice — never a seventh joke seat.",
   },
 ];
 
 export function getVoice(slug: string): Voice | undefined {
   const id = slug === "lead-blogger" ? LEAD_VOICE_ID : slug;
   return CAST.find((voice) => voice.slug === id);
+}
+
+export function voiceDisplayName(slug: string, fallback?: string) {
+  return getVoice(slug)?.name ?? fallback ?? slug;
 }
 
 export function voiceToBlogger(voice: Voice): Blogger {

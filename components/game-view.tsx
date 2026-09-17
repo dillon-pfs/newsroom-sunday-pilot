@@ -45,7 +45,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
                   </Link>
                 </p>
               ) : null}
-              <DeskPill tone="demo">Demo</DeskPill>
+              <DeskPill tone="outline">Archive</DeskPill>
               <DeskPill tone="final">Final</DeskPill>
             </div>
             <p className="mt-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
@@ -68,8 +68,8 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
           <section className="space-y-3">
             <div className="flex flex-wrap items-end justify-between gap-2">
               <div>
-                <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">
-                  DEMO timeline
+                <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
+                  Timeline
                 </p>
                 <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
                   Timeline
@@ -137,7 +137,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-ink-soft">
             Editorial left this game as scoreboard-only. Scores stay — unless
-            a labeled DEMO result is on the board.
+            an archive result is on the board.
           </p>
         </section>
       )}

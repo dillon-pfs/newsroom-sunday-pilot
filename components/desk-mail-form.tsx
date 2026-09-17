@@ -44,7 +44,7 @@ export function DeskMailForm() {
       </button>
       {sent ? (
         <p role="status" className="text-sm text-ink-soft">
-          Your mail app should be open. The Desk will read it as satire, not a support ticket.
+          Your mail app should be open. The Desk will read it as mail, not a support ticket.
         </p>
       ) : null}
     </form>

@@ -17,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const voice = getVoice(slug);
   return voice
-    ? shareMetadata(`${voice.name} · ${voice.title}`, `${voice.bio} Poor Form Sports DEMO / SATIRE.`)
+    ? shareMetadata(`${voice.name} · ${voice.title}`, `${voice.bio} Poor Form Sports.`)
     : { title: "Cast" };
 }
 
@@ -70,7 +70,7 @@ export default async function CastVoicePage({
             )}
             {lead ? (
               <span className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-                Files satire after facts
+                Files after the facts land
               </span>
             ) : null}
             {demoAssignments.length > 0 ? <DeskPill tone="demo">On assignment</DeskPill> : null}
@@ -132,14 +132,14 @@ export default async function CastVoicePage({
 
       {voice.slug === "chyron-carl" ? (
         <p className="text-sm text-ink-soft">
-          Carl is silent on the Melbourne DEMO. One SATIRE line on the MNF
-          platform beat.
+          Carl is silent on the Melbourne archive. One desk line on the Monday
+          night platform beat.
         </p>
       ) : null}
 
       {voice.slug === "poor-form-desk" ? (
         <p className="text-sm text-ink-soft">
-          House desk. Holds the PFS stamp. SATIRE stays on the named voices.
+          House desk. Holds the PFS stamp. Jokes stay on the named voices.
         </p>
       ) : null}
 
@@ -181,7 +181,7 @@ export default async function CastVoicePage({
       {demoAssignments.length > 0 ? (
         <section className="space-y-3">
           <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">On assignment</p>
-          <h2 className="font-heading text-2xl font-semibold">Labeled DEMO lines</h2>
+          <h2 className="font-heading text-2xl font-semibold">Archive lines</h2>
           <div className="flex flex-wrap gap-2">
             {demoAssignments.map((game) => (
               <Link key={game.id} href={`/games/${game.id}`} className="border border-border bg-card px-3 py-2 text-sm underline-offset-4 hover:underline">

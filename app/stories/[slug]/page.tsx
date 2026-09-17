@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DeskPill } from "@/components/desk-pill";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { getStory, listStories, storyVoice } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
@@ -30,7 +29,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const story = getStory(slug);
   return story
-    ? shareMetadata(`${story.title} · ${story.demo === false ? "SATIRE" : "DEMO / SATIRE"}`, story.dek)
+    ? shareMetadata(story.title, story.dek)
     : { title: "Story" };
 }
 
@@ -53,11 +52,6 @@ export default async function StoryArticlePage({
         <span className="mx-2 text-ink/30">/</span>
         <span>{story.title}</span>
       </p>
-
-      <div className="flex items-center gap-1.5">
-        {story.demo !== false ? <DeskPill tone="demo">Demo</DeskPill> : null}
-        <DeskPill tone="satire">Satire</DeskPill>
-      </div>
 
       <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
         {story.title}
@@ -197,14 +191,13 @@ export default async function StoryArticlePage({
         {story.relatedGameHref ? (
           <div>
             <p className="mb-2 font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-              Related DEMO
+              Related game
             </p>
             <Link
               href={story.relatedGameHref}
               className="flex h-[4.5rem] items-center justify-between gap-3 bg-bar px-4 text-bar-foreground"
             >
               <span className="flex items-center gap-2">
-                <DeskPill tone="demo">Demo</DeskPill>
                 <span className="font-mono text-xs tracking-wide uppercase">
                   {story.relatedGameLabel ?? "Melbourne game →"}
                 </span>

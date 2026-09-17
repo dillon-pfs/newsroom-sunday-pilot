@@ -20,7 +20,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Fifteen plays for a field goal on a new continent. That’s not football — that’s a hostage negotiation with uprights.",
+        line: "Fifteen plays. Three points. Screenshot this for the Rams friend who thought the drive was about to become a touchdown.",
       },
       {
         voiceId: "wes-process",
@@ -43,7 +43,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "First NFL touchdown on Australian soil and it’s Kyren Williams. History just wore a Rams jersey for six seconds and I need a minute.",
+        line: "First NFL touchdown on Australian soil and it’s Kyren Williams. Rams group chat: wake up the continent.",
       },
       {
         voiceId: "postcard-pete",
@@ -77,7 +77,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Interception. Interception. Same quarter. At this point the football is applying for dual citizenship.",
+        line: "Two picks, same quarter. Forward this to whoever still trusts deep shots tonight.",
       },
     ],
   },
@@ -95,7 +95,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Ex-Ram Demarcus Robinson just scored on the Rams in Australia. Somewhere a group chat just combusted.",
+        line: "Ex-Ram Demarcus Robinson just scored on the Rams in Melbourne. Screenshot for every Rams group chat that still had him in the family.",
       },
     ],
   },
@@ -118,7 +118,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "boo-atlas",
         voiceName: "Boo Atlas",
-        line: "The building booed one jersey and adopted the other. Neutral site? The throats filed a dissenting opinion.",
+        line: "The building booed one jersey and adopted the other. Neutral site? The throats voted no.",
       },
     ],
   },
@@ -136,7 +136,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "Deebo sets the table, Evans scores his first as a 49er, and Melbourne high-fives itself like it drafted him.",
+        line: "Evans’ first as a 49er and Melbourne is celebrating like it drafted him. Niners fans: send this with a straight face.",
       },
     ],
   },
@@ -172,7 +172,7 @@ export const melbourneDemoEntries: FeedEntry[] = [
       {
         voiceId: "chip-absolute",
         voiceName: "Chip Absolute",
-        line: "You stuff them at the one, then they go ninety-nine yards. That’s not a drive — that’s revenge tourism.",
+        line: "You stuff them at the one, then they go ninety-nine. Send this to the Rams fan who celebrated the stop.",
       },
     ],
   },
@@ -191,6 +191,11 @@ export const melbourneDemoEntries: FeedEntry[] = [
         voiceId: "postcard-pete",
         voiceName: "Postcard Pete",
         line: "Notarized Postcard: fifty-six-yard bow on a new continent. Cool ending. Still not a dynasty stamp.",
+      },
+      {
+        voiceId: "poor-form-desk",
+        voiceName: "Poor Form Desk",
+        line: "Chip already made the Rams group chats unlivable. We’re just logging the score.",
       },
     ],
   },

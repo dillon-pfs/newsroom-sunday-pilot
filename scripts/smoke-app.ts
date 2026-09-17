@@ -15,7 +15,10 @@ const again = await (await fetch(`${origin}/api/nfl/scores`)).json() as Scoreboa
 assert.equal(again.lastSuccessfulFetchAt, body.lastSuccessfulFetchAt, "Repeated requests should reuse the snapshot");
 const home = await (await fetch(origin)).text();
 assert.ok(home.includes("Around the league"));
-assert.ok(home.includes("Melbourne, SNF &amp; MNF"));
+assert.ok(home.includes("Featured · Melbourne"));
+assert.ok(home.includes("More from the archive"));
+assert.ok(home.includes("/games/sunday-pilot") && home.includes("/games/demo-dal-nyg-snf") && home.includes("/games/demo-den-kc-mnf"));
+assert.ok(!home.includes("Blog on"), "DEMO archive cards must not show live Blog on chrome");
 assert.ok(!home.includes("Greyshirts"), "Review-only simulated teams must not reach the public board");
 const detail = await fetch(`${origin}/scores/${encodeURIComponent(body.games[0].id)}`);
 assert.equal(detail.status, 200);

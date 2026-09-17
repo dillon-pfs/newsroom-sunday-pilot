@@ -121,6 +121,8 @@ test("about, stories shelf, and site chrome drop DEMO/SATIRE words", () => {
     "components/site-nav.tsx",
     "components/story-card.tsx",
     "components/demo-banner.tsx",
+    "components/scoreboard.tsx",
+    "components/scorebug.tsx",
     "lib/live/catalog.ts",
   ];
   for (const file of files) {

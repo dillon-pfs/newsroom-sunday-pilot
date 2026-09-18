@@ -5,7 +5,7 @@ date: 2026-09-17
 voiceId: poor-form-desk
 dek: Staff ballot. Week 2 is not a mandate. It is a dare.
 label: DEMO / SATIRE
-order: 0
+order: 1
 bylineDetail: with the whole newsroom
 ---
 

@@ -6,7 +6,7 @@ import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 import { visit } from "unist-util-visit";
 import type { Root, RootContent } from "mdast";
-import type { Root as HtmlRoot } from "hast";
+import type { Element, Root as HtmlRoot } from "hast";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -43,9 +43,32 @@ const renderer = unified()
         };
         return index + 1;
       }
+      if (node.tagName === "p" && parent && typeof index === "number") {
+        const figure = figureFromParagraph(node);
+        if (figure) {
+          parent.children[index] = figure;
+          return index + 1;
+        }
+      }
     });
   })
   .use(rehypeStringify);
+
+function figureFromParagraph(node: Element): Element | undefined {
+  const meaningful = node.children.filter((child) => child.type !== "text" || child.value.trim());
+  const image = meaningful[0];
+  if (meaningful.length !== 1 || image.type !== "element" || image.tagName !== "img") return;
+  const caption = typeof image.properties.title === "string" ? image.properties.title.trim() : "";
+  if (caption) delete image.properties.title;
+  return {
+    type: "element",
+    tagName: "figure",
+    properties: {},
+    children: caption
+      ? [image, { type: "element", tagName: "figcaption", properties: {}, children: [{ type: "text", value: caption }] }]
+      : [image],
+  };
+}
 
 export function renderMarkdown(tree: Root): string {
   return renderer.stringify(renderer.runSync(tree));

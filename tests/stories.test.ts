@@ -20,18 +20,36 @@ function withFiles(files: Record<string, string>, check: (directory: string) => 
 
 test("all migrated public URLs resolve from files, preserving dates, bylines and labels", () => {
   const stories = loadStories();
-  for (const slug of ["staff-picks-rest-of-2026", "tnf-whats-ahead-lions-at-bills-2026-09-17", "likely-debut-not-a-plaque", "notarized-postcard-walker-week1", "conversion-referendum-arrowhead-fourth", "fifteen-plays-one-continent-zero-chill", "conversion-referendums-week1"]) {
+  for (const slug of ["tnf-det-buf-recap-highmark-2026-09-17", "staff-picks-rest-of-2026", "tnf-whats-ahead-lions-at-bills-2026-09-17", "likely-debut-not-a-plaque", "notarized-postcard-walker-week1", "conversion-referendum-arrowhead-fourth", "fifteen-plays-one-continent-zero-chill", "conversion-referendums-week1"]) {
     const story = stories.find((item) => item.slug === slug);
     assert.ok(story, slug);
     assert.ok(story.html.includes("<p>"));
     assert.equal(story.label, slug.startsWith("tnf-") ? "SATIRE" : "DEMO / SATIRE");
   }
+  assert.equal(stories[0]?.slug, "tnf-det-buf-recap-highmark-2026-09-17");
   const staff = stories.find((story) => story.slug === "staff-picks-rest-of-2026")!;
   assert.equal(staff.dateLabel, "Sep 17, 2026");
   assert.equal(staff.bylineDetail, "with the whole newsroom");
   assert.equal((staff.html.match(/<table>/g) ?? []).length, 7);
   assert.equal((staff.html.match(/<tr>/g) ?? []).length, 42);
   assert.match(stories.find((story) => story.slug === "fifteen-plays-one-continent-zero-chill")!.html, /<em>acted<\/em>/);
+  const highmark = stories.find((story) => story.slug === "tnf-det-buf-recap-highmark-2026-09-17")!;
+  assert.equal(highmark.dateLabel, "Sep 17, 2026");
+  assert.equal(highmark.bylineDetail, "with Desk segments");
+  assert.match(highmark.html, /<figure>/);
+  assert.match(highmark.html, /src="\/graphics\/dan-with-without-ben-parody-2026-09-17\.jpg"/);
+  assert.match(highmark.html, /<figcaption>With Ben. Without Ben.<\/figcaption>/);
+  assert.doesNotMatch(highmark.html, /title="/);
+});
+
+test("a lone Markdown image becomes a figure; the title is the caption", () => {
+  const html = renderMarkdown(parseMarkdown('![Alt text](/graphics/example.jpg "With Ben. Without Ben.")').tree);
+  assert.match(html, /<figure>/);
+  assert.match(html, /src="\/graphics\/example.jpg"/);
+  assert.match(html, /alt="Alt text"/);
+  assert.match(html, /<figcaption>With Ben. Without Ben.<\/figcaption>/);
+  assert.doesNotMatch(html, /<p>/);
+  assert.doesNotMatch(html, /title="/);
 });
 
 test("a new content-only file renders headings, tables, emphasis, lists and internal links", () => {

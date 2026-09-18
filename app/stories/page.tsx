@@ -9,6 +9,7 @@ export const metadata = shareMetadata(
 
 export default function StoriesIndexPage() {
   const stories = listStories();
+  const [featured, ...rest] = stories;
 
   return (
     <div className="space-y-6">
@@ -20,27 +21,28 @@ export default function StoriesIndexPage() {
           Stories
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
-          Filed columns from the Poor Form Desk. Entertainment only.
+          Filed columns from the Poor Form Desk. Latest first. Entertainment only.
         </p>
       </section>
 
       {stories.length === 0 ? (
         <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-          More stories when Editor lands copy.
+          More stories when the desk files the next column.
         </p>
       ) : (
-        <ul className="space-y-3">
-          {stories.map((story) => (
-            <li key={story.slug}>
-              <StoryCard story={story} />
-            </li>
-          ))}
-        </ul>
+        <div className="space-y-3">
+          {featured ? <StoryCard story={featured} featured /> : null}
+          {rest.length > 0 ? (
+            <ul className="space-y-3">
+              {rest.map((story) => (
+                <li key={story.slug}>
+                  <StoryCard story={story} />
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
       )}
-
-      <p className="border-t border-border pt-4 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-        More stories when Editor lands copy.
-      </p>
     </div>
   );
 }

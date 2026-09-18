@@ -28,8 +28,8 @@ export default function HomePage() {
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
           Follow the NFL scoreboard when it is up, then catch up with Chip
-          Absolute and the desk. Entertainment only. Melbourne, SNF and MNF
-          archives sit below.
+          Absolute and the desk. Entertainment only. Filed archives sit below
+          the board; latest desk columns lead Stories.
         </p>
       </section>
 

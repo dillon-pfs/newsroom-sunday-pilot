@@ -37,7 +37,7 @@ export function gamesForBlogger(bloggerId: string): Game[] {
   return games.filter((game) => game.assignedBloggerId === voice.slug);
 }
 
-/** Public DEMO timelines where a named voice has a labeled SATIRE line. */
+/** Public archive timelines where a named voice has a labeled desk line. */
 export function demoGamesForVoice(voiceId: string): Game[] {
   const gameIds = new Set(
     publicLiveEntries

@@ -29,7 +29,7 @@ export const games: Game[] = [
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "Melbourne MCG archive — not a live wire. Sources: ESPN, Reuters, Rams.com, NFL gamebook. Injury beats skipped. Carl silent.",
+      "Melbourne MCG archive — not a live wire. Sources: ESPN, Reuters, Rams.com, NFL gamebook.",
   },
   {
     id: "demo-dal-nyg-snf",
@@ -44,7 +44,7 @@ export const games: Game[] = [
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "DAL @ NYG Sunday night archive — not a live wire. Sources: ESPN, CBS, NBC, Giants.com. Injury beats skipped. Len, Boo, Carl silent.",
+      "DAL @ NYG Sunday night archive — not a live wire. Sources: ESPN, CBS, NBC, Giants.com.",
   },
   {
     id: "demo-den-kc-mnf",
@@ -59,7 +59,7 @@ export const games: Game[] = [
     assignedBloggerId: LEAD_VOICE_ID,
     demo: true,
     feedNote:
-      "DEN @ KC Monday night archive — not a live wire. Sources: ESPN recap gameId 401872931. X crawl metrics cited in digest only. Injury beats skipped. Len, Boo silent.",
+      "DEN @ KC Monday night archive — not a live wire. Sources: ESPN recap gameId 401872931.",
   },
 ];
 

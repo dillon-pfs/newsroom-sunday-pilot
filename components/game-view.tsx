@@ -53,7 +53,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
             </p>
             {voices.length > 0 ? (
               <div className="mt-4 border-t border-border pt-3">
-                <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">Who should talk?</p>
+                <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">Voices in this archive</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {voices.map((voice) => (
                     <Link key={voice.slug} href={`/cast/${voice.slug}`} className="border border-border bg-card px-2 py-1 text-sm underline-offset-4 hover:underline">
@@ -75,16 +75,11 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
                   Timeline
                 </h2>
               </div>
-              <div className="flex items-center gap-1.5">
-                <DeskPill tone="outline">Public live feed</DeskPill>
-                {paused ? (
-                  <DeskPill tone="warn">Updates delayed</DeskPill>
-                ) : (
-                  <DeskPill tone="outline">Listening</DeskPill>
-                )}
-              </div>
+              <DeskPill tone="outline">Filed timeline</DeskPill>
             </div>
-            <PublicFeedControls paused={paused} gameId={game.id} />
+            <p className="text-sm text-ink-soft">
+              This game is final. Read the filed timeline below; this page is not a live feed.
+            </p>
             <EntryList
               entries={entries}
               emptyTitle="No official hooks yet"

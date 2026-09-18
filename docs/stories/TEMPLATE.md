@@ -18,6 +18,8 @@ Replace this paragraph with approved story copy. Do not repeat the title here.
 
 Use **bold**, *emphasis*, and [a cast link](/cast/poor-form-desk).
 
+![Replace with alt text](/brand/wordmark-bar.png "Optional caption")
+
 - Replace with a filed bullet, or remove this list.
 
 | Category | Pick | One-line why |

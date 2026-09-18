@@ -27,6 +27,20 @@
 .story-body pre { overflow-x: auto; background: var(--card); padding: 1rem; }
 .story-body code { font-family: var(--font-plex-mono); }
 .story-body img { max-width: 100%; height: auto; }
+.story-body figure { margin: 0; }
+.story-body figure img {
+  width: 100%;
+  border: 2px solid var(--border);
+  background: var(--card-loud);
+}
+.story-body figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--font-plex-mono);
+  font-size: 11px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
 .story-body > p:last-child:has(> em:only-child) { font-family: var(--font-newsreader); }
 .story-table { overflow-x: auto; border: 1px solid var(--border); }
 .story-table table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; font-size: 0.875rem; line-height: 1.5rem; }

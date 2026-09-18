@@ -162,6 +162,23 @@ export default async function StoryArticlePage({
               </div>
             );
           }
+          if (block.kind === "figure") {
+            return (
+              <figure key={`figure-${index}`} className="space-y-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={block.src}
+                  alt={block.alt}
+                  className="w-full border-2 border-border bg-card-loud"
+                />
+                {block.caption ? (
+                  <figcaption className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+                    {block.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            );
+          }
           return null;
         })}
       </div>

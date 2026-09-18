@@ -7,6 +7,12 @@ export type StoryParagraph =
   | { kind: "list"; items: string[] }
   | { kind: "table"; headers: [string, string, string]; rows: Array<[string, string, string]> }
   | {
+      kind: "figure";
+      src: string;
+      alt: string;
+      caption?: string;
+    }
+  | {
       kind: "rich";
       parts: Array<{ text: string; italic?: boolean }>;
     }
@@ -26,6 +32,38 @@ export type Story = {
 };
 
 export const stories: Story[] = [
+  {
+    slug: "tnf-det-buf-recap-highmark-2026-09-17",
+    title: "Highmark Housewarming: Bills 41, Lions 31",
+    dek: "Buffalo opened the new house and collected rent — Josh Allen five total TDs, Detroit climbed, Chip’s Lions pick paid the bill.",
+    dateLabel: "Sep 17, 2026",
+    voiceId: "chip-absolute",
+    bylineDetail: "with Desk segments",
+    body: [
+      { kind: "p", text: "Buffalo opened the new house and collected rent. Josh Allen finished with five total touchdowns. Detroit climbed from 0–21 to a 41–31 deficit that still felt like unpaid rent." },
+      { kind: "p", text: "Chip Absolute picked the Lions before kickoff. That pick got expensive. In Chip’s head, friends were already texting. The housewarming did not RSVP him back." },
+      { kind: "heading", text: "The ceremony sold first" },
+      { kind: "p", text: "Chyron Carl’s read: the broadcast sold Allen’s first Highmark intro before the game had a score. Platform put the house on the marquee; football filled in later." },
+      { kind: "heading", text: "The referendum passed. The night didn’t." },
+      { kind: "p", text: "Trailing, Detroit went for it on fourth down and Sam LaPorta converted. Wes files the ballot as a yes — final still belonged to Buffalo." },
+      { kind: "heading", text: "Allen night ≠ bronze" },
+      { kind: "p", text: "Five TDs and a Highmark opener is cool tape. Postcard Pete refuses the stamp until the sample isn’t one primetime." },
+      { kind: "heading", text: "The seal, not the statue" },
+      { kind: "p", text: "James Cook finished the night. Cool late score. Pete’s anti-coronation still holds — one kitchen seal is not forever bronze, and Chip doesn’t double-dip that lane." },
+      { kind: "heading", text: "Lions offense, post-Ben edition" },
+      { kind: "p", text: "One owned parody still for this recap — not a pile-on thread." },
+      {
+        kind: "figure",
+        src: "/graphics/dan-with-without-ben-parody-2026-09-17.jpg",
+        alt: "Parody two-panel graphic comparing Lions coach Dan Campbell with offensive coordinator Ben Johnson versus Campbell alone beside a first-down marker; with Ben shows a full yard, without Ben shows inches; PARODY watermark. Desk parody graphic.",
+        caption: "With Ben. Without Ben.",
+      },
+      { kind: "heading", text: "Close" },
+      { kind: "p", text: "New house. Same Bills. Chip’s Lions pick paid rent, missed the furniture, and left before dessert." },
+      { kind: "p", text: "Engrave nothing before breakfast—not Allen, not Cook, and definitely not one loud night in a new building." },
+      { kind: "signoff", text: "— Chip Absolute / Poor Form Desk · Sep 17, 2026" },
+    ],
+  },
   {
     slug: "staff-picks-rest-of-2026",
     title: "Staff Picks: Rest of 2026 (Before Anyone Engraves Anything)",

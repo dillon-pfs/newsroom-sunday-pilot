@@ -110,6 +110,51 @@ test("staff picks and other story copy stay house voice", () => {
   assert.equal(/picks process that survives/.test(stories), false);
 });
 
+test("Option A public corrections land in live staff-picks and cast copy", () => {
+  const stories = source("lib/stories.ts").replaceAll("wes-process", "wes");
+  const cast = source("lib/cast.ts");
+  const castIndex = source("app/cast/page.tsx");
+  const castProfile = source("app/cast/[slug]/page.tsx");
+
+  assert.match(stories, /Filed Sep 17, 2026 · Corrected Sep 18, 2026/);
+  assert.match(
+    stories,
+    /\*\*Correction — Sep 18, 2026:\*\* An earlier version named Jim Harbaugh as the Giants coach; the correct name is John Harbaugh\. It also listed Kenneth Walker III, Isaiah Likely, Jaxson Dart and Cam Skattebo in 2026 Rookie of the Year rows\. Walker and Likely entered the NFL in 2022; Dart and Skattebo in 2025\. We have withdrawn those entries without substituting new picks\./,
+  );
+  assert.match(stories, /John Harbaugh \(NYG\)/);
+  assert.equal(/Jim Harbaugh \(NYG\)/.test(stories), false);
+  assert.equal((stories.match(/Withdrawn — not eligible for 2026 Rookie of the Year\./g) ?? []).length, 5);
+  assert.equal((stories.match(/Withdrawn after eligibility check\. Original ballot preserved in revision history\./g) ?? []).length, 5);
+  assert.match(stories, /\["\*\*ROY\*\*", "\*\*Stamp refused\*\*", "Debut lines are cool tape\. They are not bronzes\. Ask again after Thanksgiving\."\]/);
+  assert.match(stories, /heading", text: "Poor Form Desk"/);
+  assert.equal(/optional house row/.test(stories), false);
+  assert.equal(/What Chip is watching \(one bit, not a buffet\)/.test(stories), false);
+  assert.match(stories, /\*\*What Chip is watching:\*\*/);
+  assert.equal(/What Chip is not stealing/.test(stories), false);
+  assert.equal(/Package rule tonight/.test(stories), false);
+  assert.equal(/Losing-fan banter/.test(stories), false);
+  assert.equal(/pile-on thread/.test(stories), false);
+  assert.equal(/heading", text: "Close"/.test(stories), false);
+  assert.match(stories, /New house\. Same Bills\. Chip’s Lions pick paid rent, missed the furniture, and left before dessert\./);
+  assert.match(stories, /Engrave nothing before breakfast—not Allen, not Cook, and definitely not one loud night in a new building\./);
+  assert.match(stories, /caption: "With Ben\. Without Ben\."/);
+  assert.match(stories, /Ceremony is allowed to be loud\. Spoilers are allowed to be louder\. Engrave nothing before breakfast\./);
+
+  assert.match(cast, /Loud picks\. His name stays on them\./);
+  assert.match(cast, /He believes indoor voices are for people who haven’t made a pick yet\./);
+  assert.match(cast, /A great night can earn a stamp\. A career takes longer\./);
+  assert.match(cast, /He can stamp a night worth keeping\. He will not turn it into a career verdict\./);
+  assert.match(cast, /When the broadcast becomes the story\./);
+  assert.match(cast, /Public segment: Notarized Postcard\./);
+  assert.equal(/does not notarize postcards/.test(cast), false);
+  assert.equal(/Absolute takes\. Scoreboard theater/.test(cast), false);
+  assert.equal(/Silent on Melbourne/.test(cast), false);
+  assert.equal(/Carl is silent/.test(castIndex), false);
+  assert.equal(/Carl is silent/.test(castProfile), false);
+  assert.equal(/Monday night platform beat/.test(castIndex), false);
+  assert.equal(/Monday night platform beat/.test(castProfile), false);
+});
+
 test("about, stories shelf, and site chrome drop DEMO/SATIRE words", () => {
   const files = [
     "app/about/page.tsx",

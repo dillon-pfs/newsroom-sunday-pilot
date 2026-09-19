@@ -130,13 +130,6 @@ export default async function CastVoicePage({
         </div>
       </section>
 
-      {voice.slug === "chyron-carl" ? (
-        <p className="text-sm text-ink-soft">
-          Carl is silent on the Melbourne archive. One desk line on the Monday
-          night platform beat.
-        </p>
-      ) : null}
-
       {voice.slug === "poor-form-desk" ? (
         <p className="text-sm text-ink-soft">
           House desk. Holds the PFS stamp. Jokes stay on the named voices.

@@ -21,8 +21,7 @@ export default function CastIndexPage() {
         </h1>
         <p className="text-sm leading-6 text-ink/75">
           Six named voices plus the house Desk. Chip Absolute leads. Desk lines
-          on the timelines are shown with byline. Carl is silent on Melbourne
-          and files one Monday night platform beat. Poor Form Desk holds the house stamp.
+          on the timelines are shown with byline. Poor Form Desk holds the house stamp.
         </p>
       </section>
       <CastStrip />

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { CastStrip } from "@/components/cast-strip";
 import { BestOfDemo } from "@/components/best-of-demo";
 import { Scoreboard } from "@/components/scoreboard";
@@ -38,19 +37,6 @@ export default function HomePage() {
       <BestOfDemo />
       <CastStrip />
       <StoriesStrip stories={stories} />
-
-      <section className="border-t border-border pt-4">
-        <h2 className="font-heading text-lg font-semibold">Desk review</h2>
-        <p className="mt-1 max-w-xl text-sm leading-6 text-ink-soft">
-          Private desk tape. Not on the public board.
-        </p>
-        <Link
-          href="/review"
-          className="mt-2 inline-block font-mono text-xs tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
-        >
-          Unlock review
-        </Link>
-      </section>
     </div>
   );
 }

@@ -15,20 +15,17 @@ const DEMO_CHROME: Record<string, DemoChrome> = {
   [melbourneId]: {
     banner: melbourneBanner,
     kicker: "Melbourne · MCG",
-    sources:
-      "Sources: ESPN, Reuters, Rams.com, NFL gamebook · Injury beats skipped · Carl silent",
+    sources: "Sources: ESPN, Reuters, Rams.com, NFL gamebook",
   },
   [dalNygId]: {
     banner: dalNygBanner,
     kicker: "SNF · MetLife",
-    sources:
-      "Sources: ESPN, CBS, NBC, Giants.com · Injury beats skipped · Len, Boo, Carl silent",
+    sources: "Sources: ESPN, CBS, NBC, Giants.com",
   },
   [denKcId]: {
     banner: denKcBanner,
     kicker: "MNF · Arrowhead",
-    sources:
-      "Sources: ESPN recap gameId 401872931 · X crawl cited in digest only · Injury beats skipped · Len, Boo silent",
+    sources: "Sources: ESPN recap gameId 401872931",
   },
 };
 

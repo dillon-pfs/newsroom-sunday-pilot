@@ -32,11 +32,6 @@ const nav = [
     label: "Chip Absolute",
     match: (path: string) => path.startsWith("/cast/chip-absolute"),
   },
-  {
-    href: "/review",
-    label: "Desk review",
-    match: (path: string) => path.startsWith("/review"),
-  },
 ];
 
 export function SiteNav() {

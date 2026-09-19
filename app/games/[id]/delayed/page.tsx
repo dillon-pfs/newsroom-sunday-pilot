@@ -1,5 +1,6 @@
 import { GameView } from "@/components/game-view";
 import { getPublicGame, listPublicGames } from "@/lib/live/public";
+import { shareMetadata } from "@/lib/share";
 
 export function generateStaticParams() {
   return listPublicGames()
@@ -12,7 +13,14 @@ export async function generateMetadata({
 }: PageProps<"/games/[id]/delayed">) {
   const { id } = await params;
   const game = getPublicGame(id);
-  return { title: game ? `${game.name} · Updates delayed` : "Game" };
+  if (!game) return { title: "Game" };
+  if (game.demo) {
+    return shareMetadata(
+      `${game.name} · Archive`,
+      `${game.windowLabel}: a filed archive, never a live score.`,
+    );
+  }
+  return { title: `${game.name} · Updates delayed` };
 }
 
 export default async function DelayedGamePage({

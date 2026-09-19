@@ -24,11 +24,7 @@ export default function StoriesIndexPage() {
         </p>
       </section>
 
-      {stories.length === 0 ? (
-        <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-          More stories when Editor lands copy.
-        </p>
-      ) : (
+      {stories.length > 0 ? (
         <ul className="space-y-3">
           {stories.map((story) => (
             <li key={story.slug}>
@@ -36,11 +32,7 @@ export default function StoriesIndexPage() {
             </li>
           ))}
         </ul>
-      )}
-
-      <p className="border-t border-border pt-4 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-        More stories when Editor lands copy.
-      </p>
+      ) : null}
     </div>
   );
 }

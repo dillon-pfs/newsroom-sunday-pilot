@@ -2,6 +2,13 @@ import type { Blogger } from "@/lib/types";
 
 export const LEAD_VOICE_ID = "chip-absolute";
 
+export type VoiceStartHere = {
+  label: string;
+  href: string;
+  title: string;
+  note?: string;
+};
+
 export type Voice = {
   slug: string;
   name: string;
@@ -9,6 +16,10 @@ export type Voice = {
   title: string;
   lens: string;
   bio: string;
+  /** Public cast-page lead. Leaves `bio` as the desk bible for other surfaces. */
+  publicLead?: string;
+  publicDek?: string;
+  startHere?: VoiceStartHere[];
   initials: string;
   mark: string;
   avatar: string;
@@ -27,6 +38,21 @@ export const CAST: Voice[] = [
     title: "Lead",
     lens: "Loud picks. His name stays on them.",
     bio: "Chip Absolute is the bar-stool lead. One concrete absurdity, then a punch — if you delete the punch and it still sounds like a PA announcer, he rewrites. Loud is fine. Filler is not.",
+    publicLead: "He takes football personally. You’re allowed to make that his problem.",
+    publicDek: "He’ll defend his team, question your excuses, and leave his name on the bad takes.",
+    startHere: [
+      {
+        label: "Meet the voice",
+        href: "/stories/likely-debut-not-a-plaque",
+        title: "Likely Debut, Not a Plaque",
+      },
+      {
+        label: "Collect the receipt",
+        href: "https://x.com/ChipAbsolute/status/2101788413338808726",
+        title: "Chicago pick, owned after 9–3",
+        note: "he invited the quote-back. Then came back himself.",
+      },
+    ],
     initials: "CA",
     mark: "#c41e12",
     avatar: "/cast/chip-absolute.png",

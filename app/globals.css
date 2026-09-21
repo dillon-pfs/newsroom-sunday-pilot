@@ -4,6 +4,53 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.story-body p, .story-body ul, .story-body ol, .story-body blockquote {
+  max-width: 42rem;
+  line-height: 1.75;
+}
+.story-body h2, .story-body h3, .story-body h4, .story-body h5, .story-body h6 {
+  font-family: var(--font-newsreader);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  scroll-margin-top: 5rem;
+}
+.story-body h3, .story-body h4, .story-body h5, .story-body h6 { font-size: 1.25rem; }
+.story-body ul { list-style: disc; padding-left: 1.25rem; }
+.story-body ol { list-style: decimal; padding-left: 1.25rem; }
+.story-body li + li { margin-top: 0.25rem; }
+.story-body ul ul, .story-body ol ol { margin-top: 0.25rem; }
+.story-body a { color: var(--masthead); text-decoration: underline; text-underline-offset: 3px; }
+.story-body a:focus-visible, .story-table:focus-visible { outline: 2px solid var(--masthead); outline-offset: 3px; }
+.story-body hr { border-color: var(--border); }
+.story-body blockquote { border-left: 3px solid var(--masthead); padding-left: 1rem; }
+.story-body pre { overflow-x: auto; background: var(--card); padding: 1rem; }
+.story-body code { font-family: var(--font-plex-mono); }
+.story-body img { max-width: 100%; height: auto; }
+.story-body figure { margin: 0; }
+.story-body figure img {
+  width: 100%;
+  border: 2px solid var(--border);
+  background: var(--card-loud);
+}
+.story-body figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--font-plex-mono);
+  font-size: 11px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.story-body > p:last-child:has(> em:only-child) { font-family: var(--font-newsreader); }
+.story-table { overflow-x: auto; border: 1px solid var(--border); }
+.story-table table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; font-size: 0.875rem; line-height: 1.5rem; }
+.story-table thead { background: var(--card-loud); font-family: var(--font-plex-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.025em; }
+.story-table th, .story-table td { padding: 0.5rem 0.75rem; vertical-align: top; border-bottom: 1px solid var(--border); }
+.story-table th { font-weight: 600; }
+.story-table th:first-child, .story-table td:first-child { width: 9rem; }
+.story-table th:nth-child(2), .story-table td:nth-child(2) { width: 12rem; }
+.story-table tbody tr:last-child td { border-bottom: 0; }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

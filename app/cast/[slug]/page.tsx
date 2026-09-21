@@ -17,7 +17,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const voice = getVoice(slug);
   return voice
-    ? shareMetadata(`${voice.name} · ${voice.title}`, `${voice.bio} Poor Form Sports.`)
+    ? shareMetadata(
+        `${voice.name} · ${voice.title}`,
+        `${voice.publicLead ?? voice.bio} Poor Form Sports.`,
+      )
     : { title: "Cast" };
 }
 
@@ -75,9 +78,67 @@ export default async function CastVoicePage({
             ) : null}
             {demoAssignments.length > 0 ? <DeskPill tone="demo">On assignment</DeskPill> : null}
           </div>
-          <p className="max-w-2xl text-base leading-7 text-ink">{voice.bio}</p>
+          {voice.publicLead ? (
+            <>
+              <p className="max-w-2xl text-base font-semibold leading-7 text-ink">
+                {voice.publicLead}
+              </p>
+              {voice.publicDek ? (
+                <p className="max-w-2xl text-base leading-7 text-ink/80">
+                  {voice.publicDek}
+                </p>
+              ) : null}
+            </>
+          ) : (
+            <p className="max-w-2xl text-base leading-7 text-ink">{voice.bio}</p>
+          )}
         </div>
       </section>
+
+      {voice.startHere?.length ? (
+        <section className="max-w-2xl space-y-3 border border-border bg-card p-4">
+          <h2 className="font-heading text-xl font-semibold">Start here</h2>
+          <ul className="space-y-2 text-sm leading-6 text-ink">
+            {voice.startHere.map((item) => {
+              const external = item.href.startsWith("http");
+              const linkClass = "font-medium underline-offset-4 hover:underline";
+              const link = external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {item.title}
+                </a>
+              ) : (
+                <Link href={item.href} className={linkClass}>
+                  {item.title}
+                </Link>
+              );
+              return (
+                <li key={item.href}>
+                  <strong>{item.label}:</strong> {link}
+                  {item.note ? ` — ${item.note}` : null}
+                </li>
+              );
+            })}
+          </ul>
+          {voice.x ? (
+            <a
+              href={voice.x.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+            >
+              Follow Chip on X
+            </a>
+          ) : null}
+          <p className="text-sm italic text-ink-soft">
+            Fictional columnist. Football satire, not reporting.
+          </p>
+        </section>
+      ) : null}
 
       <section className="grid gap-px border border-border bg-border sm:grid-cols-2">
         <div className="bg-card p-4">
@@ -104,7 +165,7 @@ export default async function CastVoicePage({
         </div>
       </section>
 
-      {voice.x ? (
+      {!voice.startHere?.length && (voice.x ? (
         <a
           href={voice.x.url}
           target="_blank"
@@ -117,7 +178,7 @@ export default async function CastVoicePage({
         <span className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
           X account coming soon
         </span>
-      )}
+      ))}
 
       <section className="border border-border bg-card-loud py-4 pr-4 pl-0">
         <div className="border-l-[6px] border-masthead px-4">

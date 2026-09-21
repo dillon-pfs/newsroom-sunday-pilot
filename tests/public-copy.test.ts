@@ -19,7 +19,7 @@ const FORBIDDEN = [
   /\bCursor\b/,
 ];
 
-const SKIP_KEYS = new Set(["slug", "id", "voiceId", "gameId", "avatar", "url"]);
+const SKIP_KEYS = new Set(["slug", "id", "voiceId", "gameId", "avatar", "url", "href"]);
 
 function collect(value: unknown, path: string, into: Array<[string, string]>) {
   if (typeof value === "string") {
@@ -153,6 +153,42 @@ test("Option A public corrections land in live staff-picks and cast copy", () =>
   assert.equal(/Carl is silent/.test(castProfile), false);
   assert.equal(/Monday night platform beat/.test(castIndex), false);
   assert.equal(/Monday night platform beat/.test(castProfile), false);
+});
+
+test("Chip cast page leads with relationship copy, not the writer-process bio", () => {
+  const chip = CAST.find((voice) => voice.slug === "chip-absolute");
+  assert.ok(chip);
+  assert.equal(
+    chip.publicLead,
+    "He takes football personally. You’re allowed to make that his problem.",
+  );
+  assert.equal(
+    chip.publicDek,
+    "He’ll defend his team, question your excuses, and leave his name on the bad takes.",
+  );
+  assert.match(chip.bio, /One concrete absurdity, then a punch/);
+  assert.equal(chip.startHere?.length, 2);
+  assert.equal(chip.startHere?.[0]?.href, "/stories/likely-debut-not-a-plaque");
+  assert.equal(chip.startHere?.[0]?.title, "Likely Debut, Not a Plaque");
+  assert.equal(
+    chip.startHere?.[1]?.href,
+    "https://x.com/ChipAbsolute/status/2101788413338808726",
+  );
+  assert.equal(chip.startHere?.[1]?.title, "Chicago pick, owned after 9–3");
+  assert.deepEqual(
+    CAST.filter((voice) => voice.publicLead || voice.startHere).map((voice) => voice.slug),
+    ["chip-absolute"],
+  );
+
+  const profile = source("app/cast/[slug]/page.tsx");
+  assert.match(profile, /voice\.publicLead/);
+  assert.match(profile, /Start here/);
+  assert.match(profile, /Follow Chip on X/);
+  assert.match(profile, /Fictional columnist\. Football satire, not reporting\./);
+  assert.equal(/Highmark/.test(profile), false);
+  assert.equal(/One concrete absurdity/.test(profile), false);
+  assert.equal(/\bDEMO\b/.test(chip.publicLead ?? ""), false);
+  assert.equal(/\bDEMO\b/.test(JSON.stringify(chip.startHere ?? [])), false);
 });
 
 test("about, stories shelf, and site chrome drop DEMO/SATIRE words", () => {

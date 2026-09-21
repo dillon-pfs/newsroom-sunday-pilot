@@ -31,11 +31,7 @@ James Cook finished the night. Cool late score. Pete’s anti-coronation still h
 
 ## Lions offense, post-Ben edition
 
-One owned parody still for this recap — not a pile-on thread.
-
 ![Parody two-panel graphic comparing Lions coach Dan Campbell with offensive coordinator Ben Johnson versus Campbell alone beside a first-down marker; with Ben shows a full yard, without Ben shows inches; PARODY watermark. Desk parody graphic.](/graphics/dan-with-without-ben-parody-2026-09-17.jpg "With Ben. Without Ben.")
-
-## Close
 
 New house. Same Bills. Chip’s Lions pick paid rent, missed the furniture, and left before dessert.
 

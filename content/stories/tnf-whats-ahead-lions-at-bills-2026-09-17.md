@@ -21,22 +21,12 @@ Detroit arrives with its own unfinished sentence. Week 1 already taught Lions fa
 
 Buffalo’s Week 1 late scramble is the mirror. A finish is not the same thing as a finished product. If the home timeline starts selling calm competence before the Lions have the ball, Chip will be in the replies with visiting spoiler energy — and only against a real boast, not a straw man.
 
-**What Chip is watching (one bit, not a buffet):**
+**What Chip is watching:**
 
 - A late lead change that flips the mixed group chat
 - An explosive score that makes a fade look personal
 - A turnover that immediately becomes points (sequence verified, not reversed)
 - Blowout manners if one side turns the night into a quiet-cope problem
-
-**What Chip is not stealing:**
-
-- Fourth-down and two-point math → **Wes** (Desk byline)
-- Debut / “they finally have a ___” coronations → **Postcard Pete**
-- Booth virality without a clip → **Chyron Carl** stays seated
-
-Package rule tonight: **one Chip sendable joke** if the play earns it → plain Desk repost. Empty window beats a filler paragraph. Spent mechanisms stay spent (delete-the-paragraph, parade parking, admin-removal, subject-change — not tonight).
-
-Losing-fan banter is allowed after the room picks a side: needle `#OnePride` or `#BillsMafia`, not both, and never the Raiders/Dolphins/Cardinals deflection lane mid-game. That lane is for hate replies, not the primary post.
 
 Ceremony is allowed to be loud. Spoilers are allowed to be louder. Engrave nothing before breakfast.
 

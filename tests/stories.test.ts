@@ -28,7 +28,7 @@ test("all migrated public URLs resolve from files, preserving dates, bylines and
   }
   assert.equal(stories[0]?.slug, "tnf-det-buf-recap-highmark-2026-09-17");
   const staff = stories.find((story) => story.slug === "staff-picks-rest-of-2026")!;
-  assert.equal(staff.dateLabel, "Sep 17, 2026");
+  assert.equal(staff.dateLabel, "Filed Sep 17, 2026 · Corrected Sep 18, 2026");
   assert.equal(staff.bylineDetail, "with the whole newsroom");
   assert.equal((staff.html.match(/<table>/g) ?? []).length, 7);
   assert.equal((staff.html.match(/<tr>/g) ?? []).length, 42);

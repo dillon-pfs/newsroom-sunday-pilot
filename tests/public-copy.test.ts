@@ -97,7 +97,7 @@ test("timeline bylines do not show Wes Process or DEMO/SATIRE words", () => {
 
 test("staff picks and other story copy stay house voice", () => {
   // Inspect rendered content fields, not loader code or classification metadata.
-  const stories = loadStories().map((story) => [story.title, story.dek, story.bylineDetail, story.relatedGameLabel, story.body].filter(Boolean).join("\n")).join("\n").replaceAll("wes-process", "wes");
+  const stories = loadStories().map((story) => [story.title, story.dek, story.bylineDetail, story.relatedGameLabel, story.dateLabel, story.body].filter(Boolean).join("\n")).join("\n").replaceAll("wes-process", "wes");
   for (const pattern of FORBIDDEN) {
     assert.equal(pattern.test(stories), false, `content/stories still has ${pattern}`);
   }
@@ -113,12 +113,14 @@ test("staff picks and other story copy stay house voice", () => {
 });
 
 test("Option A public corrections land in live staff-picks and cast copy", () => {
-  const stories = source("lib/stories.ts").replaceAll("wes-process", "wes");
+  const staff = loadStories().find((story) => story.slug === "staff-picks-rest-of-2026");
+  const stories = loadStories().map((story) => [story.title, story.dek, story.bylineDetail, story.dateLabel, story.body].filter(Boolean).join("\n")).join("\n").replaceAll("wes-process", "wes");
   const cast = source("lib/cast.ts");
   const castIndex = source("app/cast/page.tsx");
   const castProfile = source("app/cast/[slug]/page.tsx");
 
-  assert.match(stories, /Filed Sep 17, 2026 · Corrected Sep 18, 2026/);
+  assert.ok(staff);
+  assert.equal(staff.dateLabel, "Filed Sep 17, 2026 · Corrected Sep 18, 2026");
   assert.match(
     stories,
     /\*\*Correction — Sep 18, 2026:\*\* An earlier version named Jim Harbaugh as the Giants coach; the correct name is John Harbaugh\. It also listed Kenneth Walker III, Isaiah Likely, Jaxson Dart and Cam Skattebo in 2026 Rookie of the Year rows\. Walker and Likely entered the NFL in 2022; Dart and Skattebo in 2025\. We have withdrawn those entries without substituting new picks\./,
@@ -127,8 +129,8 @@ test("Option A public corrections land in live staff-picks and cast copy", () =>
   assert.equal(/Jim Harbaugh \(NYG\)/.test(stories), false);
   assert.equal((stories.match(/Withdrawn — not eligible for 2026 Rookie of the Year\./g) ?? []).length, 5);
   assert.equal((stories.match(/Withdrawn after eligibility check\. Original ballot preserved in revision history\./g) ?? []).length, 5);
-  assert.match(stories, /\["\*\*ROY\*\*", "\*\*Stamp refused\*\*", "Debut lines are cool tape\. They are not bronzes\. Ask again after Thanksgiving\."\]/);
-  assert.match(stories, /heading", text: "Poor Form Desk"/);
+  assert.match(stories, /\|\s*\*\*ROY\*\*\s*\|\s*\*\*Stamp refused\*\*\s*\|\s*Debut lines are cool tape\. They are not bronzes\. Ask again after Thanksgiving\./);
+  assert.match(staff.body, /^## Poor Form Desk$/m);
   assert.equal(/optional house row/.test(stories), false);
   assert.equal(/What Chip is watching \(one bit, not a buffet\)/.test(stories), false);
   assert.match(stories, /\*\*What Chip is watching:\*\*/);
@@ -136,10 +138,10 @@ test("Option A public corrections land in live staff-picks and cast copy", () =>
   assert.equal(/Package rule tonight/.test(stories), false);
   assert.equal(/Losing-fan banter/.test(stories), false);
   assert.equal(/pile-on thread/.test(stories), false);
-  assert.equal(/heading", text: "Close"/.test(stories), false);
+  assert.equal(/^## Close$/m.test(stories), false);
   assert.match(stories, /New house\. Same Bills\. Chip’s Lions pick paid rent, missed the furniture, and left before dessert\./);
   assert.match(stories, /Engrave nothing before breakfast—not Allen, not Cook, and definitely not one loud night in a new building\./);
-  assert.match(stories, /caption: "With Ben\. Without Ben\."/);
+  assert.match(stories, /"With Ben\. Without Ben\."/);
   assert.match(stories, /Ceremony is allowed to be loud\. Spoilers are allowed to be louder\. Engrave nothing before breakfast\./);
 
   assert.match(cast, /Loud picks\. His name stays on them\./);

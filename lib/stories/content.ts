@@ -21,6 +21,7 @@ const schema = z.object({
   bylineDetail: requiredText.optional(),
   relatedGameHref: requiredText.optional(),
   relatedGameLabel: requiredText.optional(),
+  dateLabel: requiredText.optional(),
   order: z.number().int().nonnegative().default(0),
 }).strict();
 
@@ -78,7 +79,7 @@ export function parseStory(file: string, source: string) {
     }
   });
   if (!readable) report("body", "Add story paragraphs below the closing ---; a blank file or only separators is not a story.");
-  for (const [field, value] of Object.entries({ title: data.title, dek: data.dek, bylineDetail: data.bylineDetail, relatedGameLabel: data.relatedGameLabel, body })) {
+  for (const [field, value] of Object.entries({ title: data.title, dek: data.dek, bylineDetail: data.bylineDetail, relatedGameLabel: data.relatedGameLabel, dateLabel: data.dateLabel, body })) {
     if (!value) continue;
     const text = value.replaceAll("wes-process", "wes");
     for (const rule of copyRules) if (rule.test(text)) report(field, `Remove or rewrite public wording matching ${rule}. Keep internal names/references out of copy and classification words in label only (#17).`);
@@ -91,7 +92,7 @@ export function parseStory(file: string, source: string) {
   if (issues.length) throw new FilingError(issues);
   const story: Story = {
     ...data, body, html: renderMarkdown(tree), demo: data.label === "DEMO / SATIRE",
-    dateLabel: new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${data.date}T00:00:00Z`)),
+    dateLabel: data.dateLabel ?? new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${data.date}T00:00:00Z`)),
   };
   return { file, story, anchors, links };
 }

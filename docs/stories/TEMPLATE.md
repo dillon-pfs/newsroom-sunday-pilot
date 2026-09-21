@@ -9,6 +9,7 @@ label: "SATIRE"
 # bylineDetail: "with the whole newsroom"
 # relatedGameHref: "/games/sunday-pilot"
 # relatedGameLabel: "Melbourne game →"
+# dateLabel: "Filed Sep 17, 2026 · Corrected Sep 18, 2026"
 # order: 0
 ---
 

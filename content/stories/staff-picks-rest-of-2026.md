@@ -7,11 +7,14 @@ dek: Staff ballot. Week 2 is not a mandate. It is a dare.
 label: DEMO / SATIRE
 order: 1
 bylineDetail: with the whole newsroom
+dateLabel: "Filed Sep 17, 2026 · Corrected Sep 18, 2026"
 ---
 
 Week 2 is not a mandate. It is a dare. Before the league starts handing out imaginary plaques in September, every seat in the newsroom filed a rest-of-season ballot. One table. Five categories. No committee rewrite of each other’s personality.
 
 **Categories:** MVP · Super Bowl champion · Offensive or overall ROY (as each voice defines it) · Coach of the Year · Most disappointing team *vs current public expectation*
+
+**Correction — Sep 18, 2026:** An earlier version named Jim Harbaugh as the Giants coach; the correct name is John Harbaugh. It also listed Kenneth Walker III, Isaiah Likely, Jaxson Dart and Cam Skattebo in 2026 Rookie of the Year rows. Walker and Likely entered the NFL in 2022; Dart and Skattebo in 2025. We have withdrawn those entries without substituting new picks.
 
 ---
 
@@ -21,8 +24,8 @@ Week 2 is not a mandate. It is a dare. Before the league starts handing out imag
 | --- | --- | --- |
 | **MVP** | Josh Allen | Loudest remaining argument for “this is still his league,” and Chip needs something to scream about in January. |
 | **Super Bowl** | Buffalo Bills | New building, old hunger, and Chip refuses to pretend the ceremony energy isn’t half the product. |
-| **ROY** | Jaxson Dart | Opening night already made group chats unbearable; Chip is not waiting for a larger sample to pick a fight. |
-| **COY** | Jim Harbaugh (NYG) | First-week possession bully energy. Chip crowns vibes; Wes can argue the math later. |
+| **ROY** | Withdrawn — not eligible for 2026 Rookie of the Year. | Withdrawn after eligibility check. Original ballot preserved in revision history. |
+| **COY** | John Harbaugh (NYG) | First-week possession bully energy. Chip crowns vibes; Wes can argue the math later. |
 | **Most disappointing** | Dallas Cowboys | Public expectation still acts like October is optional. Chip expects the group chat to age poorly. |
 
 ---
@@ -33,7 +36,7 @@ Week 2 is not a mandate. It is a dare. Before the league starts handing out imag
 | --- | --- | --- |
 | **MVP** | Lamar Jackson | Best remaining marriage of scheme leverage and forced-choice defense — math that survives contact. |
 | **Super Bowl** | Baltimore Ravens | Conversion equity + complementary football; Wes does not bet vibes when the ballot has better math. |
-| **ROY** | Cam Skattebo | First points of a new shop are vibes; surviving early-down usage is the film. Wes is watching the touches, not the ribbon-cutting. |
+| **ROY** | Withdrawn — not eligible for 2026 Rookie of the Year. | Withdrawn after eligibility check. Original ballot preserved in revision history. |
 | **COY** | John Harbaugh | Quiet conversion excellence over viral debut theater. |
 | **Most disappointing** | New York Jets | Public expectation still prices competence; Wes prices decision quality until proven otherwise. |
 
@@ -57,7 +60,7 @@ Week 2 is not a mandate. It is a dare. Before the league starts handing out imag
 | --- | --- | --- |
 | **MVP** | Patrick Mahomes | Still the name the chyron knows how to sell on a cold Monday. |
 | **Super Bowl** | Kansas City Chiefs | Platform gravity + December TV real estate; Carl is honest about what the booth wants. |
-| **ROY** | Walker (KC) | The booth already sold “real RB” in twelve characters. Carl picks the chyron, not the bronze. |
+| **ROY** | Withdrawn — not eligible for 2026 Rookie of the Year. | Withdrawn after eligibility check. Original ballot preserved in revision history. |
 | **COY** | Andy Reid | The chyron already has the font. |
 | **Most disappointing** | Miami Dolphins *(vs summer hype reel)* | Preseason chyrons wrote a thriller; Carl expects the editing bay to need a softer cut. |
 
@@ -69,7 +72,7 @@ Week 2 is not a mandate. It is a dare. Before the league starts handing out imag
 | --- | --- | --- |
 | **MVP** | Brock Purdy | Week-early to Melbourne and still the one asking questions at the end. Arrival ops as résumé. |
 | **Super Bowl** | San Francisco 49ers | Already proved a week-early pack job on another continent; Len respects the itinerary. |
-| **ROY** | Jaxson Dart | New city, new shop, zero time-zone excuses on the opener — Len grades the body clock by the box score. |
+| **ROY** | Withdrawn — not eligible for 2026 Rookie of the Year. | Withdrawn after eligibility check. Original ballot preserved in revision history. |
 | **COY** | Kyle Shanahan | Packs early. Wins the matchup before kickoff. |
 | **Most disappointing** | Los Angeles Rams *(vs “we’ll be fine by Sunday” travel assumption)* | Day-before packing is a choice. Len keeps the receipt. |
 
@@ -81,13 +84,13 @@ Week 2 is not a mandate. It is a dare. Before the league starts handing out imag
 | --- | --- | --- |
 | **MVP** | Jalen Hurts | The building already voted. Boo just counts the throats. |
 | **Super Bowl** | Philadelphia Eagles | Neutral sites still remember what a hostile building feels like; Philly exports that weather. |
-| **ROY** | Isaiah Likely | Followed a coach into a new building and heard the census change before the MetroCard warmed up. |
+| **ROY** | Withdrawn — not eligible for 2026 Rookie of the Year. | Withdrawn after eligibility check. Original ballot preserved in revision history. |
 | **COY** | Nick Sirianni | Keeps a building pointed in one direction when the scoreboard wobbles. |
 | **Most disappointing** | Las Vegas Raiders *(vs “destination franchise” talk)* | Public expectation sells neon. Boo sells empty noise after halftime. |
 
 ---
 
-## Poor Form Desk (optional house row)
+## Poor Form Desk
 
 | Category | Pick | One-line why |
 | --- | --- | --- |

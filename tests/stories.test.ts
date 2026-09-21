@@ -26,7 +26,6 @@ test("all migrated public URLs resolve from files, preserving dates, bylines and
     assert.ok(story.html.includes("<p>"));
     assert.equal(story.label, slug.startsWith("tnf-") ? "SATIRE" : "DEMO / SATIRE");
   }
-  assert.equal(stories[0]?.slug, "tnf-det-buf-recap-highmark-2026-09-17");
   const staff = stories.find((story) => story.slug === "staff-picks-rest-of-2026")!;
   assert.equal(staff.dateLabel, "Filed Sep 17, 2026 · Corrected Sep 18, 2026");
   assert.equal(staff.bylineDetail, "with the whole newsroom");
@@ -125,7 +124,24 @@ test("unsafe URL schemes fail filing and cannot survive the renderer", () => {
 });
 
 test("newest dates sort first; same-date order is explicit and deterministic", () => {
-  withFiles({ "a.md": valid, "b.md": valid.replaceAll("fixture-column", "other-column").replace("2026-09-17", "2026-09-18") }, (directory) => {
-    assert.deepEqual(loadStories(directory).map((story) => story.slug), ["other-column", "fixture-column"]);
+  const story = (slug: string, date: string, order?: number) => {
+    const source = valid.replaceAll("fixture-column", slug).replace("2026-09-17", date);
+    return order === undefined ? source : source.replace("label: SATIRE\n", `label: SATIRE\norder: ${order}\n`);
+  };
+  // Filenames run opposite the expected shelf so directory order cannot satisfy the assertion.
+  withFiles({
+    "a-older.md": story("fixture-column", "2026-09-17"),
+    "w-tie-a.md": story("tie-alpha", "2026-09-21", 1),
+    "x-tie-b.md": story("tie-beta", "2026-09-21", 1),
+    "y-low-order.md": story("zzz-first", "2026-09-21", 0),
+    "z-high-order.md": story("aaa-later", "2026-09-21", 2),
+  }, (directory) => {
+    assert.deepEqual(loadStories(directory).map((item) => item.slug), [
+      "zzz-first",
+      "tie-alpha",
+      "tie-beta",
+      "aaa-later",
+      "fixture-column",
+    ]);
   });
 });

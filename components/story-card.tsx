@@ -2,7 +2,13 @@ import Link from "next/link";
 import { VoiceAvatar } from "@/components/voice-avatar";
 import { storyVoice, type Story } from "@/lib/stories";
 
-export function StoryCard({ story }: { story: Story }) {
+export function StoryCard({
+  story,
+  featured = false,
+}: {
+  story: Story;
+  featured?: boolean;
+}) {
   const voice = storyVoice(story);
 
   return (
@@ -10,24 +16,34 @@ export function StoryCard({ story }: { story: Story }) {
       href={`/stories/${story.slug}`}
       className="block border-2 border-border bg-card-loud"
     >
-      <article className="border-l-[6px] border-masthead px-4 py-3 sm:px-5 sm:py-4">
+      <article
+        className={`border-l-[6px] border-masthead px-4 py-3 sm:px-5 sm:py-4 ${featured ? "sm:py-6" : ""}`}
+      >
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-            Column
+          <p className="font-mono text-[11px] tracking-wide text-masthead uppercase">
+            {featured ? "Featured column" : "Column"}
           </p>
           <p className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
             {story.dateLabel}
           </p>
         </div>
-        <h2 className="mt-2 font-heading text-2xl font-semibold tracking-tight sm:text-[28px]">
+        <h2
+          className={`mt-2 font-heading font-semibold tracking-tight ${featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-[28px]"}`}
+        >
           {story.title}
         </h2>
-        {story.dek ? <p className="mt-1 text-sm leading-6 text-ink-soft">{story.dek}</p> : null}
+        {story.dek ? (
+          <p className={`mt-1 leading-6 text-ink-soft ${featured ? "max-w-3xl text-base" : "text-sm"}`}>
+            {story.dek}
+          </p>
+        ) : null}
         {voice ? (
           <p className="mt-3 flex items-center gap-2 text-sm">
             <VoiceAvatar voice={voice} size={28} className="size-7" />
             <span className="font-medium text-ink">{voice.name}</span>
-            {story.bylineDetail ? <span className="text-ink-soft">· {story.bylineDetail}</span> : null}
+            {story.bylineDetail ? (
+              <span className="text-ink-soft">· {story.bylineDetail}</span>
+            ) : null}
             <span className="font-mono text-[10px] tracking-wide text-ink-soft uppercase">
               Cast
             </span>
@@ -39,8 +55,9 @@ export function StoryCard({ story }: { story: Story }) {
 }
 
 export function StoriesStrip({ stories }: { stories: Story[] }) {
+  const [featured, ...rest] = stories;
   return (
-    <section className="space-y-2">
+    <section className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
@@ -57,13 +74,16 @@ export function StoriesStrip({ stories }: { stories: Story[] }) {
           All stories
         </Link>
       </div>
-      <ul className="grid gap-2 md:grid-cols-2">
-        {stories.map((story) => (
-          <li key={story.slug}>
-            <StoryCard story={story} />
-          </li>
-        ))}
-      </ul>
+      {featured ? <StoryCard story={featured} featured /> : null}
+      {rest.length > 0 ? (
+        <ul className="grid gap-2 md:grid-cols-2">
+          {rest.map((story) => (
+            <li key={story.slug}>
+              <StoryCard story={story} />
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </section>
   );
 }

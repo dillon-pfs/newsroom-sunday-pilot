@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { loadCalls } from "../lib/calls/content.ts";
 import { loadStories } from "../lib/stories/content.ts";
 import { CAST } from "../lib/cast.ts";
 import { dalNygSnfDemoEntries, DEMO_BANNER as dalNygBanner } from "../lib/demo/dal-nyg-snf.ts";
@@ -193,6 +194,33 @@ test("Chip cast page leads with relationship copy, not the writer-process bio", 
   assert.equal(/One concrete absurdity/.test(profile), false);
   assert.equal(/\bDEMO\b/.test(chip.publicLead ?? ""), false);
   assert.equal(/\bDEMO\b/.test(JSON.stringify(chip.startHere ?? [])), false);
+});
+
+test("call scoreboard copy stays house voice", () => {
+  const calls = loadCalls()
+    .map((call) => [call.game, call.window, call.take, call.result, call.note, call.dateLabel].filter(Boolean).join("\n"))
+    .join("\n");
+  for (const pattern of FORBIDDEN) {
+    assert.equal(pattern.test(calls), false, `content/calls still has ${pattern}`);
+  }
+  assert.equal(/\bprocess\b/i.test(calls), false, "content/calls still says process");
+  assert.match(calls, /Atlanta should give Bijan Robinson 25 carries\./);
+  assert.match(calls, /Bryce Young over Jared Goff\./);
+
+  const disclaimer = "Fictional columnist. Football satire, not reporting.";
+  const page = [source("app/calls/page.tsx"), source("components/calls-list.tsx"), source("app/cast/[slug]/page.tsx")]
+    .join("\n")
+    .replaceAll(disclaimer, "Fictional columnist.");
+  const strings = [...page.matchAll(/["'`]([^"'`\\]|\\.)*["'`]/g)].map((match) => match[0]);
+  for (const snippet of strings) {
+    for (const pattern of FORBIDDEN) {
+      assert.equal(pattern.test(snippet), false, `calls page still has ${pattern} in ${snippet}`);
+    }
+    assert.equal(/\bprocess\b/i.test(snippet), false, `calls page still says process: ${snippet}`);
+  }
+  assert.match(source("components/calls-list.tsx"), /Fictional columnist\. Football satire, not reporting\./);
+  assert.match(source("app/calls/page.tsx"), /shareMetadata/);
+  assert.match(source("app/cast/[slug]/page.tsx"), /href="\/calls"/);
 });
 
 test("about, stories shelf, and site chrome drop DEMO/SATIRE words", () => {

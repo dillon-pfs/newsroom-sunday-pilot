@@ -124,6 +124,14 @@ export default async function CastVoicePage({
               );
             })}
           </ul>
+          {voice.slug === "chip-absolute" ? (
+            <p className="text-sm leading-6 text-ink">
+              <Link href="/calls" className="font-medium underline-offset-4 hover:underline">
+                Chip’s calls
+              </Link>
+              <span className="text-ink-soft"> — his takes, and how each one held up.</span>
+            </p>
+          ) : null}
           {voice.x ? (
             <a
               href={voice.x.url}

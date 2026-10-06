@@ -25,6 +25,12 @@ Editor files one plain Markdown document in `content/stories/`. Follow the
 `npm run check:stories` checks the filing before a Preview build. Shelf cards and
 story pages are generated from those files; no TypeScript copy edits are needed.
 
+## File a call
+
+Add one JSON file under `content/calls/`. Follow the [calls guide](docs/calls/README.md).
+`npm run check:calls` checks the filing before a Preview build. `/calls` is generated
+from those files; no index edit is needed.
+
 ## Live NFL scoreboard
 
 The complete implementation and setup guide is in [docs/nfl-scoreboard.md](docs/nfl-scoreboard.md).
@@ -62,6 +68,7 @@ npm run smoke:failover
 | `/stories/conversion-referendums-week1` | Wes Process Week 1 process column. |
 | `/cast` | Poor Form Desk strip. |
 | `/cast/chip-absolute` (and other slugs) | Voice stubs. Chip Absolute is the lead profile. |
+| `/calls` | Chip Absolute's takes, and how each one held up. |
 | `/review` | Private review desk. Gate phrase: `desk`. |
 
 `/bloggers/lead-blogger` redirects to `/cast/chip-absolute`.

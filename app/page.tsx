@@ -1,8 +1,10 @@
 import { CastStrip } from "@/components/cast-strip";
 import { BestOfDemo } from "@/components/best-of-demo";
+import { CallsFeature } from "@/components/calls-record";
 import { Scoreboard } from "@/components/scoreboard";
 import { LiveScoreboard } from "@/components/scoreboard/live-scoreboard";
 import { StoriesStrip } from "@/components/story-card";
+import { listCalls } from "@/lib/calls";
 import { listPublicGames } from "@/lib/live/public";
 import { listStories } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
@@ -33,6 +35,7 @@ export default function HomePage() {
       </section>
 
       <LiveScoreboard />
+      <CallsFeature calls={listCalls()} />
       <Scoreboard games={games.filter((game) => game.demo)} />
       <BestOfDemo />
       <CastStrip />

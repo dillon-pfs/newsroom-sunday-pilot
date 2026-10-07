@@ -32,7 +32,10 @@ export type CallStreak =
 export type CallRecord = {
   tally: CallTally;
   streak: CallStreak;
+  /** Newest call that is not status `pending`. */
   latest: Call | null;
+  /** Newest pre-game call (`status: "pending"`). */
+  next: Call | null;
 };
 
 function isHit(status: string) {
@@ -79,6 +82,7 @@ export function getCallRecord(calls: Call[]): CallRecord {
   return {
     tally,
     streak: streakFrom(calls),
-    latest: newest[0] ?? null,
+    latest: newest.find((call) => call.status !== "pending") ?? null,
+    next: newest.find((call) => call.status === "pending") ?? null,
   };
 }

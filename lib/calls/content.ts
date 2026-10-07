@@ -28,13 +28,22 @@ const schema = z
         /^https:\/\/x\.com\/ChipAbsolute\/status\/\d+$/,
         "Use an https://x.com/ChipAbsolute/status/<id> URL. Other hosts, accounts, and query strings are rejected.",
       ),
-    result: oneLine("Add the verified result."),
-    status: z.enum(["held-up", "missed", "still-arguing"], {
-      error: 'Use status "held-up", "missed", or "still-arguing".',
+    result: oneLine("Add the verified result.").optional(),
+    status: z.enum(["held-up", "missed", "still-arguing", "pending"], {
+      error: 'Use status "held-up", "missed", "still-arguing", or "pending".',
     }),
     note: oneLine("Add the note, or omit the field.").optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((data, ctx) => {
+    if (data.status !== "pending" && !data.result) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["result"],
+        message: "Add the verified result. Omit result only while status is pending.",
+      });
+    }
+  });
 
 export type CallStatus = z.infer<typeof schema>["status"];
 
@@ -45,14 +54,16 @@ export type Call = z.infer<typeof schema> & {
 export const CALL_STATUS_LABEL: Record<CallStatus, string> = {
   "held-up": "Held up",
   missed: "Missed",
-  "still-arguing": "Pending",
+  "still-arguing": "Still arguing",
+  pending: "Pending",
 };
 
 export const CALL_STATUS_TONE = {
   "held-up": "live",
   missed: "warn",
   "still-arguing": "satire",
-} as const satisfies Record<CallStatus, "live" | "warn" | "satire">;
+  pending: "outline",
+} as const satisfies Record<CallStatus, "live" | "warn" | "satire" | "outline">;
 
 export class CallFilingError extends Error {
   constructor(public issues: string[]) {
@@ -152,9 +163,9 @@ export function parseCall(file: string, source: string): Call {
     game: data.game,
     take: data.take,
     postUrl: data.postUrl,
-    result: data.result,
     status: data.status,
   };
+  if (data.result) call.result = data.result;
   if (data.window) call.window = data.window;
   if (data.note) call.note = data.note;
   return call;
@@ -169,6 +180,7 @@ export function tallyCalls(calls: Call[]) {
     "held-up": calls.filter((call) => call.status === "held-up").length,
     missed: calls.filter((call) => call.status === "missed").length,
     "still-arguing": calls.filter((call) => call.status === "still-arguing").length,
+    pending: calls.filter((call) => call.status === "pending").length,
   };
 }
 

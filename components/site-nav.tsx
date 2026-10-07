@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 const nav = [
   { href: "/", label: "Board", match: (path: string) => path === "/" },
   {
-    href: "/games/sunday-pilot",
-    label: "Archive",
-    match: (path: string) => isDemoGamePath(path),
+    href: "/calls",
+    label: "Calls",
+    match: (path: string) => path.startsWith("/calls"),
   },
   {
     href: "/stories",
@@ -21,6 +21,11 @@ const nav = [
     href: "/cast",
     label: "Cast",
     match: (path: string) => path === "/cast",
+  },
+  {
+    href: "/games/sunday-pilot",
+    label: "Archive",
+    match: (path: string) => isDemoGamePath(path),
   },
   {
     href: "/mail",

@@ -1,14 +1,11 @@
 import Link from "next/link";
-import { HeroScorebug } from "@/components/scorebug";
 import { DeskPill } from "@/components/desk-pill";
 import { formatScore } from "@/lib/copy";
 import type { Game } from "@/lib/types";
 
 export function Scoreboard({ games }: { games: Game[] }) {
-  const demos = games.filter((game) => game.demo && !game.simulated);
-  const featured = demos.find((game) => game.id === "sunday-pilot");
-  const archive = demos.filter((game) => game.id !== "sunday-pilot");
-  if (demos.length === 0) return null;
+  const archive = games.filter((game) => game.demo && !game.simulated && game.id !== "sunday-pilot");
+  if (archive.length === 0) return null;
 
   return (
     <section aria-labelledby="archive-heading" className="space-y-3">
@@ -18,19 +15,15 @@ export function Scoreboard({ games }: { games: Game[] }) {
             Filed archive · not live
           </p>
           <h2 id="archive-heading" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-            {featured ? "Featured · Melbourne" : "Archive"}
+            Archive
           </h2>
         </div>
         <span className="inline-flex h-5 items-center rounded-full border border-border px-2 font-mono text-[10px] tracking-wide text-ink-soft uppercase">
           Archive
         </span>
       </div>
-      {featured ? <HeroScorebug game={featured} /> : null}
       {archive.length > 0 ? (
         <div>
-          <h3 className="mb-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-            More from the archive
-          </h3>
           <ul className="divide-y divide-border border border-border">
             {archive.map((game) => (
               <li key={game.id}>

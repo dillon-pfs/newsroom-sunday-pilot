@@ -117,8 +117,12 @@ test("both seed entries render with their posts, results and status", () => {
   assert.match(html, /Still arguing/);
   assert.match(html, /Pending/);
   assert.match(html, /Chip’s record/);
-  assert.match(html, /No streak yet/);
-  assert.match(html, /Next call drops soon\./);
+  // Live record state changes as calls are filed and graded; assert against computed values, not today's data.
+  const liveRecord = getCallRecord(calls);
+  const escapeRe = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  assert.match(html, new RegExp(escapeRe(liveRecord.streak.label)));
+  if (liveRecord.next) assert.match(html, new RegExp(escapeRe(liveRecord.next.take)));
+  else assert.match(html, /Next call drops soon\./);
   assert.match(html, /Latest call/);
   assert.match(html, /bg-live-green/);
   assert.match(html, /bg-satire/);

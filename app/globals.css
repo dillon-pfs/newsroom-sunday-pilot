@@ -42,7 +42,7 @@
   color: var(--ink-soft);
 }
 .story-body > p:last-child:has(> em:only-child) { font-family: var(--font-newsreader); }
-.story-table { overflow-x: auto; border: 1px solid var(--border); }
+.story-table { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); }
 .story-table table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; font-size: 0.875rem; line-height: 1.5rem; }
 .story-table thead { background: var(--card-loud); font-family: var(--font-plex-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.025em; }
 .story-table th, .story-table td { padding: 0.5rem 0.75rem; vertical-align: top; border-bottom: 1px solid var(--border); }
@@ -206,5 +206,13 @@
   }
   html {
     @apply font-sans;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--masthead);
+    outline-offset: 3px;
   }
 }

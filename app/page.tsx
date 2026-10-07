@@ -1,8 +1,10 @@
 import { CastStrip } from "@/components/cast-strip";
 import { BestOfDemo } from "@/components/best-of-demo";
+import { CallsFeature } from "@/components/calls-record";
 import { Scoreboard } from "@/components/scoreboard";
 import { LiveScoreboard } from "@/components/scoreboard/live-scoreboard";
 import { StoriesStrip } from "@/components/story-card";
+import { listCalls } from "@/lib/calls";
 import { listPublicGames } from "@/lib/live/public";
 import { listStories } from "@/lib/stories";
 import { shareMetadata } from "@/lib/share";
@@ -22,7 +24,7 @@ export default function HomePage() {
         <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
           Poor Form Sports
         </p>
-        <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           The desk has opinions. The board labels its work.
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">
@@ -33,6 +35,7 @@ export default function HomePage() {
       </section>
 
       <LiveScoreboard />
+      <CallsFeature calls={listCalls()} />
       <Scoreboard games={games.filter((game) => game.demo)} />
       <BestOfDemo />
       <CastStrip />

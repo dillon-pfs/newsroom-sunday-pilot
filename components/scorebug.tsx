@@ -8,9 +8,9 @@ export function HeroScorebug({ game }: { game: Game }) {
   const href = `/games/${game.id}`;
 
   return (
-    <Link
+      <Link
       href={href}
-      className="block rounded-none bg-bar text-bar-foreground no-underline"
+      className="block min-w-0 rounded-none bg-bar text-bar-foreground no-underline"
     >
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 sm:px-4">
         <p className="font-mono text-[10px] tracking-[0.16em] text-bar-foreground/70 uppercase">
@@ -44,7 +44,7 @@ export function HeroScorebug({ game }: { game: Game }) {
           <p className="mt-1 font-mono text-[11px] tracking-wide text-bar-foreground/55 uppercase">
             {game.away.short}
           </p>
-          <p className="text-sm text-bar-foreground/80">
+          <p className="text-sm break-words text-bar-foreground/80">
             {game.away.name} · Away
           </p>
         </div>
@@ -59,7 +59,7 @@ export function HeroScorebug({ game }: { game: Game }) {
           <p className="mt-1 font-mono text-[11px] tracking-wide text-bar-foreground/55 uppercase">
             {game.home.short}
           </p>
-          <p className="text-sm text-bar-foreground/80">
+          <p className="text-sm break-words text-bar-foreground/80">
             {game.home.name} · Home
           </p>
         </div>
@@ -117,17 +117,17 @@ export function MiniScorebug({
   return (
     <div
       className={cn(
-        "z-40 flex items-center justify-between gap-3 bg-bar px-3 py-1.5 text-bar-foreground sm:px-4",
+        "z-40 flex min-w-0 items-center gap-2 bg-bar px-3 py-1 text-bar-foreground sm:gap-3 sm:px-4",
         sticky && "sticky top-10",
       )}
     >
       <Link
         href="/"
-        className="shrink-0 font-mono text-[10px] tracking-[0.14em] text-bar-foreground/70 uppercase hover:text-bar-foreground"
+        className="inline-flex min-h-11 shrink-0 items-center font-mono text-[11px] tracking-[0.14em] text-bar-foreground/70 uppercase hover:text-bar-foreground"
       >
         ← Board
       </Link>
-      <p className="min-w-0 truncate font-mono text-sm font-medium tracking-tight sm:text-base">
+      <p className="min-w-0 flex-1 truncate text-center font-mono text-sm font-medium tracking-tight sm:text-base">
         {game.away.short} {formatScore(game.officialScore.away)}
         <span className="mx-1.5 text-bar-foreground/40">–</span>
         {game.home.short} {formatScore(game.officialScore.home)}

@@ -21,12 +21,12 @@ export function BestOfDemo() {
   });
   return (
     <section className="space-y-3 border-t border-border pt-5">
-      <div className="flex items-center gap-2"><h2 className="font-heading text-2xl font-semibold">Best of the Desk</h2></div>
-      <ul className="grid gap-2 sm:grid-cols-2">
+      <h2 className="font-heading text-xl font-semibold tracking-tight">Best of the Desk</h2>
+      <ul className="grid gap-3 sm:grid-cols-2">
         {lines.map(({ gameId, entry, line }) => (
-          <li key={`${entry.id}-${line.voiceId}`} className="border border-border bg-card p-3">
-            <p className="font-heading text-base leading-6 italic">“{line.line}”</p>
-            <Link href={`/games/${gameId}#${entry.id}`} className="mt-2 inline-block font-mono text-[10px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline">
+          <li key={`${entry.id}-${line.voiceId}`} className="border border-border bg-card px-4 py-3">
+            <p className="font-heading text-base leading-6 break-words italic">“{line.line}”</p>
+            <Link href={`/games/${gameId}#${entry.id}`} className="mt-1 inline-flex min-h-11 items-center font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline">
               {voiceDisplayName(line.voiceId, line.voiceName)} · open moment
             </Link>
           </li>

@@ -1,23 +1,16 @@
 import Link from "next/link";
-import { DeskPill } from "@/components/desk-pill";
-import {
-  CALL_STATUS_LABEL,
-  CALL_STATUS_TONE,
-  tallyCalls,
-  type Call,
-  type CallStatus,
-} from "@/lib/calls";
-
-const tallyOrder: CallStatus[] = ["held-up", "missed", "still-arguing"];
+import { CallStatusTag, CallsDesk } from "@/components/calls-record";
+import type { Call } from "@/lib/calls";
 
 export function CallsList({ calls }: { calls: Call[] }) {
-  const tally = tallyCalls(calls);
-
   return (
     <div className="space-y-6">
       <section className="max-w-3xl space-y-2">
         <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-          <Link href="/cast/chip-absolute" className="underline-offset-4 hover:underline">
+          <Link
+            href="/cast/chip-absolute"
+            className="relative inline-flex items-center underline-offset-4 after:absolute after:-inset-x-1 after:-inset-y-3 after:content-[''] hover:underline"
+          >
             Chip Absolute
           </Link>
         </p>
@@ -32,21 +25,7 @@ export function CallsList({ calls }: { calls: Call[] }) {
         </p>
       </section>
 
-      <ul
-        aria-label="Call tally"
-        className="grid grid-cols-3 gap-px border border-border bg-border"
-      >
-        {tallyOrder.map((status) => (
-          <li key={status} className="bg-card px-2 py-3 sm:px-4">
-            <p className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-              {tally[status]}
-            </p>
-            <p className="mt-1 font-mono text-[10px] leading-tight tracking-wide text-ink-soft uppercase sm:text-[11px]">
-              {CALL_STATUS_LABEL[status]}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <CallsDesk calls={calls} showLatest />
 
       {calls.length === 0 ? (
         <p className="text-sm text-ink-soft">No calls filed.</p>
@@ -61,23 +40,23 @@ export function CallsList({ calls }: { calls: Call[] }) {
                       <time dateTime={call.date}>{call.dateLabel}</time>
                       {call.window ? ` · ${call.window}` : ""}
                     </p>
-                    <DeskPill tone={CALL_STATUS_TONE[call.status]}>
-                      {CALL_STATUS_LABEL[call.status]}
-                    </DeskPill>
+                    <CallStatusTag status={call.status} />
                   </div>
                   <p className="mt-2 font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
                     {call.game}
                   </p>
-                  <h2 className="mt-1 font-heading text-2xl font-semibold tracking-tight">
+                  <h2 className="mt-1 font-heading text-2xl font-semibold tracking-tight break-words">
                     {call.take}
                   </h2>
-                  <p className="mt-3 text-sm leading-6 text-ink">
-                    <span className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
-                      Result
-                    </span>
-                    {" · "}
-                    {call.result}
-                  </p>
+                  {call.result ? (
+                    <p className="mt-3 text-sm leading-6 text-ink">
+                      <span className="font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+                        Result
+                      </span>
+                      {" · "}
+                      {call.result}
+                    </p>
+                  ) : null}
                   {call.note ? (
                     <p className="mt-2 text-sm leading-6 text-ink-soft italic">{call.note}</p>
                   ) : null}
@@ -85,7 +64,7 @@ export function CallsList({ calls }: { calls: Call[] }) {
                     href={call.postUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+                    className="mt-2 inline-flex min-h-11 items-center font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
                   >
                     The X post
                   </a>

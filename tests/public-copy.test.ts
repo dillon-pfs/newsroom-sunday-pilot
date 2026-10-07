@@ -208,7 +208,7 @@ test("call scoreboard copy stays house voice", () => {
   assert.match(calls, /Bryce Young over Jared Goff\./);
 
   const disclaimer = "Fictional columnist. Football satire, not reporting.";
-  const page = [source("app/calls/page.tsx"), source("components/calls-list.tsx"), source("app/cast/[slug]/page.tsx")]
+  const page = [source("app/calls/page.tsx"), source("components/calls-list.tsx"), source("components/calls-record.tsx"), source("app/page.tsx"), source("app/cast/[slug]/page.tsx")]
     .join("\n")
     .replaceAll(disclaimer, "Fictional columnist.");
   const strings = [...page.matchAll(/["'`]([^"'`\\]|\\.)*["'`]/g)].map((match) => match[0]);

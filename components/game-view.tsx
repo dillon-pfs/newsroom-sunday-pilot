@@ -30,7 +30,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
             <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
               {chrome?.kicker ?? game.windowLabel}
             </p>
-            <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h1 className="font-heading text-3xl font-semibold tracking-tight break-words sm:text-4xl">
               {game.name}
             </h1>
             <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
@@ -56,7 +56,7 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
                 <p className="font-mono text-[11px] tracking-[0.18em] text-demo uppercase">Voices in this archive</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {voices.map((voice) => (
-                    <Link key={voice.slug} href={`/cast/${voice.slug}`} className="border border-border bg-card px-2 py-1 text-sm underline-offset-4 hover:underline">
+                    <Link key={voice.slug} href={`/cast/${voice.slug}`} className="inline-flex min-h-11 items-center border border-border bg-card px-3 text-sm underline-offset-4 hover:underline">
                       {voice.name}
                     </Link>
                   ))}
@@ -67,14 +67,9 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
 
           <section className="space-y-3">
             <div className="flex flex-wrap items-end justify-between gap-2">
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
-                  Timeline
-                </p>
-                <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-                  Timeline
-                </h2>
-              </div>
+              <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+                Timeline
+              </h2>
               <DeskPill tone="outline">Filed timeline</DeskPill>
             </div>
             <p className="text-sm text-ink-soft">
@@ -93,12 +88,12 @@ export function GameView({ id, paused }: { id: string; paused: boolean }) {
 
   return (
     <div className="space-y-5">
-      <p className="font-mono text-[11px] tracking-wide uppercase">
-        <Link href="/" className="text-ink-soft hover:text-masthead">
+      <p className="flex min-w-0 flex-wrap items-center gap-x-2 font-mono text-[11px] tracking-wide uppercase">
+        <Link href="/" className="inline-flex min-h-11 items-center text-ink-soft hover:text-masthead">
           Scoreboard
         </Link>
-        <span className="mx-2 text-ink/30">/</span>
-        <span>{game.name}</span>
+        <span className="text-ink/30" aria-hidden="true">/</span>
+        <span className="min-w-0 break-words">{game.name}</span>
       </p>
 
       <GameScore game={game} />

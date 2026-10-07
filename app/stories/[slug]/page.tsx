@@ -33,15 +33,15 @@ export default async function StoryArticlePage({
 
   return (
     <article className="space-y-6">
-      <p className="font-mono text-[11px] tracking-wide uppercase">
-        <Link href="/stories" className="text-ink-soft hover:text-masthead">
+      <p className="flex min-w-0 flex-wrap items-baseline gap-x-2 font-mono text-[11px] tracking-wide uppercase">
+        <Link href="/stories" className="inline-flex min-h-11 items-center text-ink-soft hover:text-masthead">
           Stories
         </Link>
-        <span className="mx-2 text-ink/30">/</span>
-        <span>{story.title}</span>
+        <span className="text-ink/30" aria-hidden="true">/</span>
+        <span className="min-w-0 break-words">{story.title}</span>
       </p>
 
-      <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+      <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight break-words sm:text-5xl">
         {story.title}
       </h1>
 
@@ -49,7 +49,7 @@ export default async function StoryArticlePage({
         <div className="flex flex-wrap items-center gap-3">
           <Link
             href={`/cast/${voice.slug}`}
-            className="flex items-center gap-2"
+            className="inline-flex min-h-11 items-center gap-2"
           >
             <VoiceAvatar voice={voice} size={36} className="size-9" />
             <span className="font-medium text-ink">{voice.name}</span>
@@ -75,7 +75,7 @@ export default async function StoryArticlePage({
           {voice ? (
             <Link
               href={`/cast/${voice.slug}`}
-              className="flex items-center gap-3 border-2 border-border bg-card-loud px-3 py-3"
+              className="flex h-full min-h-[4.5rem] items-center gap-3 border-2 border-border bg-card-loud px-4 py-3"
             >
               <VoiceAvatar voice={voice} size={40} className="size-10" />
               <span>
@@ -96,7 +96,7 @@ export default async function StoryArticlePage({
             </p>
             <Link
               href={story.relatedGameHref}
-              className="flex h-[4.5rem] items-center justify-between gap-3 bg-bar px-4 text-bar-foreground"
+              className="flex h-full min-h-[4.5rem] items-center justify-between gap-3 bg-bar px-4 text-bar-foreground"
             >
               <span className="flex items-center gap-2">
                 <span className="font-mono text-xs tracking-wide uppercase">

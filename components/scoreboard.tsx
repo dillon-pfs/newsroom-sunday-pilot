@@ -36,13 +36,13 @@ export function Scoreboard({ games }: { games: Game[] }) {
               <li key={game.id}>
                 <Link
                   href={`/games/${game.id}`}
-                  className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-3 py-3 hover:bg-card-loud focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-masthead sm:px-4"
+                  className="flex min-w-0 flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 hover:bg-card-loud sm:px-5"
                 >
                   <span className="flex flex-wrap items-center gap-2">
                     <DeskPill tone="outline">Archive</DeskPill>
                     <span className="text-sm font-medium">{game.windowLabel} · {game.away.short} @ {game.home.short}</span>
                   </span>
-                  <span className="font-mono text-[11px] text-ink-soft">
+                  <span className="min-w-0 font-mono text-[11px] text-ink-soft">
                     {game.status === "final" ? "Final" : "Archive"} · {formatScore(game.officialScore.away)}–{formatScore(game.officialScore.home)} · View archive →
                   </span>
                 </Link>

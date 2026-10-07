@@ -41,12 +41,12 @@ export default async function CastVoicePage({
 
   return (
     <div className="space-y-6">
-      <p className="font-mono text-[11px] tracking-wide uppercase">
-        <Link href="/cast" className="text-ink-soft hover:text-masthead">
+      <p className="flex min-w-0 flex-wrap items-center gap-x-2 font-mono text-[11px] tracking-wide uppercase">
+        <Link href="/cast" className="inline-flex min-h-11 items-center text-ink-soft hover:text-masthead">
           Cast
         </Link>
-        <span className="mx-2 text-ink/30">/</span>
-        <span>{voice.name}</span>
+        <span className="text-ink/30" aria-hidden="true">/</span>
+        <span className="min-w-0 break-words">{voice.name}</span>
       </p>
 
       <section className="flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -64,7 +64,7 @@ export default async function CastVoicePage({
           <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
             {voice.desk}
           </p>
-          <h1 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="font-heading text-4xl font-semibold tracking-tight break-words sm:text-5xl">
             {voice.name}
           </h1>
           <div className="flex flex-wrap items-center gap-2">
@@ -137,7 +137,7 @@ export default async function CastVoicePage({
               href={voice.x.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+              className="inline-flex min-h-11 items-center border border-border bg-card-loud px-3 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
             >
               Follow Chip on X
             </a>
@@ -178,12 +178,12 @@ export default async function CastVoicePage({
           href={voice.x.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+          className="inline-flex min-h-11 items-center border border-border bg-card-loud px-3 font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
         >
           Follow @{voice.x.handle} on X
         </a>
       ) : (
-        <span className="inline-flex border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
+        <span className="inline-flex items-center border border-border bg-card-loud px-3 py-2 font-mono text-[11px] tracking-wide text-ink-soft uppercase">
           X account coming soon
         </span>
       ))}
@@ -224,7 +224,7 @@ export default async function CastVoicePage({
                 ) : (
                   <Link
                     href={`/games/${game.id}`}
-                    className="block border border-border bg-card px-4 py-3"
+                    className="block border border-border bg-card px-4 py-3 sm:px-5 sm:py-4"
                   >
                     <p className="font-heading text-lg font-semibold">
                       {game.name}
@@ -246,7 +246,7 @@ export default async function CastVoicePage({
           <h2 className="font-heading text-2xl font-semibold">Archive lines</h2>
           <div className="flex flex-wrap gap-2">
             {demoAssignments.map((game) => (
-              <Link key={game.id} href={`/games/${game.id}`} className="border border-border bg-card px-3 py-2 text-sm underline-offset-4 hover:underline">
+              <Link key={game.id} href={`/games/${game.id}`} className="inline-flex min-h-11 items-center border border-border bg-card px-3 text-sm underline-offset-4 hover:underline">
                 {game.name}
               </Link>
             ))}

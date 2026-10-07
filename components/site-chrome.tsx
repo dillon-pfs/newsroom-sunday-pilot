@@ -8,30 +8,30 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-full flex-col">
       <DemoBanner />
       <header className="border-b border-border bg-paper">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-4 py-4 sm:px-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mx-auto flex w-full max-w-5xl min-w-0 flex-col gap-3 px-4 py-4 sm:px-6">
+          <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
             <BrandLockup />
             <SiteNav />
           </div>
-          <p className="max-w-3xl text-sm text-ink-soft">
+          <p className="max-w-3xl text-sm leading-6 text-ink-soft">
             NFL scores and a desk with opinions. Melbourne, SNF and MNF are
             filed archives, not live scores.
           </p>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-5xl min-w-0 flex-1 px-4 py-6 sm:px-6">
         {children}
       </main>
       <footer className="border-t border-border">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-1 px-4 py-3 font-mono text-[11px] tracking-wide text-ink-soft uppercase sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p className="flex items-center gap-2">
+        <div className="mx-auto flex w-full max-w-5xl min-w-0 flex-col gap-2 px-4 py-4 font-mono text-[11px] tracking-wide text-ink-soft uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+          <p className="flex min-w-0 items-start gap-2 leading-5">
             <BrandMark size={16} />
-            Poor Form Sports · Lead: Chip Absolute · Archive: Melbourne · SNF · MNF
+            <span className="min-w-0">Poor Form Sports · Lead: Chip Absolute · Archive: Melbourne · SNF · MNF</span>
           </p>
-          <p className="flex flex-wrap gap-x-3 gap-y-1">
-            <a href="https://x.com/PoorFormSports" target="_blank" rel="noopener noreferrer" className="hover:text-masthead hover:underline">Follow the Desk</a>
-            <Link href="/about" className="hover:text-masthead hover:underline">About</Link>
-            <Link href="/mail" className="hover:text-masthead hover:underline">Mail the Desk</Link>
+          <p className="flex flex-wrap items-center gap-x-4">
+            <a href="https://x.com/PoorFormSports" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:text-masthead hover:underline">Follow the Desk</a>
+            <Link href="/about" className="inline-flex min-h-11 items-center hover:text-masthead hover:underline">About</Link>
+            <Link href="/mail" className="inline-flex min-h-11 items-center hover:text-masthead hover:underline">Mail the Desk</Link>
           </p>
         </div>
       </footer>

@@ -17,7 +17,7 @@ export default function StoriesIndexPage() {
         <p className="font-mono text-[11px] tracking-[0.18em] text-masthead uppercase">
           Poor Form Desk
         </p>
-        <h1 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="font-heading text-4xl font-semibold tracking-tight break-words sm:text-5xl">
           Stories
         </h1>
         <p className="text-sm leading-6 text-ink-soft sm:text-base">

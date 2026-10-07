@@ -34,19 +34,24 @@ const nav = [
   },
 ];
 
-export function SiteNav() {
-  const pathname = usePathname() ?? "/";
-
+function NavGroup({
+  items,
+  pathname,
+}: {
+  items: typeof nav;
+  pathname: string;
+}) {
   return (
-    <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs tracking-wide uppercase">
-      {nav.map((item) => {
+    <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4">
+      {items.map((item) => {
         const active = item.match(pathname);
         return (
           <Link
             key={item.href}
             href={item.href}
+            aria-current={active ? "page" : undefined}
             className={cn(
-              "underline-offset-4",
+              "inline-flex min-h-11 items-center underline-offset-4",
               active
                 ? "font-medium text-masthead"
                 : "text-ink-soft hover:text-masthead hover:underline",
@@ -56,6 +61,17 @@ export function SiteNav() {
           </Link>
         );
       })}
+    </div>
+  );
+}
+
+export function SiteNav() {
+  const pathname = usePathname() ?? "/";
+
+  return (
+    <nav className="flex flex-col font-mono text-xs tracking-wide uppercase sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
+      <NavGroup items={nav.slice(0, 4)} pathname={pathname} />
+      <NavGroup items={nav.slice(4)} pathname={pathname} />
     </nav>
   );
 }

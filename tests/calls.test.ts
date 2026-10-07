@@ -7,6 +7,7 @@ import { join, resolve } from "node:path";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { CallsList } from "../components/calls-list.tsx";
+import { getCallRecord, type Call } from "../lib/calls.ts";
 import { CallFilingError, loadCalls, parseCall, tallyCalls } from "../lib/calls/content.ts";
 
 const valid = {
@@ -67,7 +68,7 @@ test("newest dates sort first and a later post wins a same-day tie", () => {
       const html = renderToStaticMarkup(createElement(CallsList, { calls }));
       assert.match(html, /bg-live-green[\s\S]*Held up/);
       assert.match(html, /bg-warn[\s\S]*Missed/);
-      assert.match(html, /bg-satire[\s\S]*Still arguing/);
+      assert.match(html, /bg-satire[\s\S]*Pending/);
     },
   );
 });
@@ -112,7 +113,10 @@ test("both seed entries render with their posts, results and status", () => {
   assert.match(html, /href="https:\/\/x\.com\/ChipAbsolute\/status\/2106965618805412204"/);
   assert.match(html, /Held up/);
   assert.match(html, /Missed/);
-  assert.match(html, /Still arguing/);
+  assert.match(html, /Pending/);
+  assert.match(html, /Chip’s record/);
+  assert.match(html, /No streak yet/);
+  assert.match(html, /Latest call/);
   assert.match(html, /bg-live-green/);
   assert.match(html, /bg-satire/);
   const tally = tallyCalls(calls);
@@ -169,6 +173,148 @@ test("duplicate postUrl names both files and the required correction", () => {
       );
     },
   );
+});
+
+function filed(overrides: Partial<Call> & Pick<Call, "date" | "status" | "postUrl">): Call {
+  return {
+    game: "ATL at NO",
+    take: "A take.",
+    result: "A result.",
+    dateLabel: overrides.date,
+    ...overrides,
+  };
+}
+
+test("call record is empty when nothing is filed", () => {
+  const record = getCallRecord([]);
+  assert.deepEqual(record.tally, { hits: 0, misses: 0, pending: 0 });
+  assert.deepEqual(record.streak, { kind: "none", label: "No streak yet" });
+  assert.equal(record.latest, null);
+});
+
+test("call record counts every ungraded call as pending and does not invent a streak", () => {
+  const pending = filed({
+    date: "2026-10-03",
+    status: "still-arguing",
+    postUrl: "https://x.com/ChipAbsolute/status/3",
+  });
+  const ungraded = filed({
+    date: "2026-10-02",
+    status: "open" as Call["status"],
+    postUrl: "https://x.com/ChipAbsolute/status/2",
+  });
+  const record = getCallRecord([ungraded, pending]);
+  assert.deepEqual(record.tally, { hits: 0, misses: 0, pending: 2 });
+  assert.deepEqual(record.streak, { kind: "none", label: "No streak yet" });
+  assert.equal(record.latest, pending);
+});
+
+test("one graded call is not a streak, and a hot run needs two held-up results", () => {
+  const hit = (date: string, id: string) =>
+    filed({ date, status: "held-up", postUrl: `https://x.com/ChipAbsolute/status/${id}`, take: id });
+  const alone = getCallRecord([hit("2026-10-01", "1")]);
+  assert.equal(alone.tally.hits, 1);
+  assert.deepEqual(alone.streak, { kind: "none", label: "No streak yet" });
+
+  const hot = getCallRecord([
+    hit("2026-09-01", "1"),
+    filed({ date: "2026-09-15", status: "missed", postUrl: "https://x.com/ChipAbsolute/status/9", take: "old miss" }),
+    hit("2026-10-02", "3"),
+    hit("2026-10-01", "2"),
+  ]);
+  assert.deepEqual(hot.tally, { hits: 3, misses: 1, pending: 0 });
+  assert.deepEqual(hot.streak, { kind: "hot", count: 2, label: "Hot: 2 straight held up" });
+  assert.equal(hot.latest?.take, "3");
+});
+
+test("cold streak counts consecutive misses and stops when the run breaks", () => {
+  const cold = getCallRecord([
+    filed({ date: "2026-10-03", status: "missed", postUrl: "https://x.com/ChipAbsolute/status/3" }),
+    filed({ date: "2026-10-02", status: "missed", postUrl: "https://x.com/ChipAbsolute/status/2" }),
+    filed({ date: "2026-10-01", status: "held-up", postUrl: "https://x.com/ChipAbsolute/status/1" }),
+  ]);
+  assert.deepEqual(cold.streak, { kind: "cold", count: 2, label: "Cold: 2 straight missed" });
+
+  const broken = getCallRecord([
+    filed({ date: "2026-10-03", status: "held-up", postUrl: "https://x.com/ChipAbsolute/status/3" }),
+    filed({ date: "2026-10-02", status: "missed", postUrl: "https://x.com/ChipAbsolute/status/2" }),
+    filed({ date: "2026-10-01", status: "held-up", postUrl: "https://x.com/ChipAbsolute/status/1" }),
+  ]);
+  assert.deepEqual(broken.streak, { kind: "none", label: "No streak yet" });
+  assert.equal(broken.tally.hits, 2);
+  assert.equal(broken.tally.misses, 1);
+});
+
+test("pending calls are skipped in the streak and latest still follows the newest date", () => {
+  const pendingNewest = filed({
+    date: "2026-10-05",
+    status: "still-arguing",
+    postUrl: "https://x.com/ChipAbsolute/status/5",
+    take: "Still open.",
+    game: "ATL at NO",
+    window: "MNF",
+  });
+  const olderPending = filed({
+    date: "2026-10-03",
+    status: "still-arguing",
+    postUrl: "https://x.com/ChipAbsolute/status/3",
+    take: "Also open.",
+  });
+  const hits = [
+    filed({ date: "2026-10-04", status: "held-up", postUrl: "https://x.com/ChipAbsolute/status/4", take: "Newer hit." }),
+    filed({ date: "2026-10-01", status: "held-up", postUrl: "https://x.com/ChipAbsolute/status/1", take: "Older hit." }),
+  ];
+  const record = getCallRecord([hits[1], olderPending, pendingNewest, hits[0]]);
+  assert.deepEqual(record.tally, { hits: 2, misses: 0, pending: 2 });
+  assert.deepEqual(record.streak, { kind: "hot", count: 2, label: "Hot: 2 straight held up" });
+  assert.equal(record.latest, pendingNewest);
+
+  const html = renderToStaticMarkup(createElement(CallsList, { calls: [hits[1], olderPending, pendingNewest, hits[0]] }));
+  assert.match(html, /Hot: 2 straight held up/);
+  assert.match(html, /Latest call[\s\S]*Still open\./);
+  assert.match(html, /bg-live-green/);
+  const latestAt = html.indexOf("Latest call");
+  const olderHit = html.indexOf("Older hit.");
+  assert.ok(latestAt !== -1 && latestAt < html.indexOf("Still open."));
+  assert.ok(olderHit > html.indexOf("Still open."));
+});
+
+test("same-day later post is the latest call even when it is pending", () => {
+  const earlier = filed({
+    date: "2026-10-01",
+    status: "held-up",
+    postUrl: "https://x.com/ChipAbsolute/status/100",
+    take: "Earlier same-day take.",
+  });
+  const later = filed({
+    date: "2026-10-01",
+    status: "still-arguing",
+    postUrl: "https://x.com/ChipAbsolute/status/300",
+    take: "Later same-day take.",
+  });
+  const record = getCallRecord([earlier, later]);
+  assert.equal(record.latest?.take, "Later same-day take.");
+  assert.deepEqual(record.streak, { kind: "none", label: "No streak yet" });
+});
+
+test("current shelf shape stays neutral: one hit and one pending call", () => {
+  const record = getCallRecord([
+    filed({
+      date: "2026-10-05",
+      status: "still-arguing",
+      postUrl: "https://x.com/ChipAbsolute/status/2107229099995353571",
+      take: "Atlanta should give Bijan Robinson 25 carries.",
+    }),
+    filed({
+      date: "2026-10-04",
+      status: "held-up",
+      postUrl: "https://x.com/ChipAbsolute/status/2106965618805412204",
+      take: "Bryce Young over Jared Goff.",
+    }),
+  ]);
+  assert.deepEqual(record.tally, { hits: 1, misses: 0, pending: 1 });
+  assert.deepEqual(record.streak, { kind: "none", label: "No streak yet" });
+  assert.equal(record.latest?.take, "Atlanta should give Bijan Robinson 25 carries.");
 });
 
 test("CI command fails clearly on a bad post URL", () => {

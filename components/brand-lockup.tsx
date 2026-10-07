@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function BrandLockup() {
   return (
-    <Link href="/" className="flex items-center gap-3 no-underline">
+    <Link href="/" className="flex min-w-0 max-w-full items-center gap-3 no-underline">
       <Image
         src="/brand/mark-cream.png"
         alt=""
@@ -13,7 +13,7 @@ export function BrandLockup() {
         priority
       />
       <span className="flex min-w-0 flex-col gap-1">
-        <span className="font-mono text-[11px] tracking-[0.22em] text-masthead uppercase">
+        <span className="font-mono text-[11px] leading-snug tracking-[0.14em] text-masthead uppercase sm:tracking-[0.22em]">
           Poor Form Desk · Sunday pilot
         </span>
         <Image
@@ -21,7 +21,7 @@ export function BrandLockup() {
           alt="Poor Form Sports"
           width={560}
           height={284}
-          className="h-auto w-[200px] sm:w-[248px]"
+          className="h-auto w-[200px] max-w-full sm:w-[248px]"
           priority
         />
       </span>

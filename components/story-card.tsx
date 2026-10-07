@@ -14,7 +14,7 @@ export function StoryCard({
   return (
     <Link
       href={`/stories/${story.slug}`}
-      className="block border-2 border-border bg-card-loud"
+      className="block min-w-0 border-2 border-border bg-card-loud"
     >
       <article
         className={`border-l-[6px] border-masthead px-4 py-3 sm:px-5 sm:py-4 ${featured ? "sm:py-6" : ""}`}
@@ -28,7 +28,7 @@ export function StoryCard({
           </p>
         </div>
         <h2
-          className={`mt-2 font-heading font-semibold tracking-tight ${featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-[28px]"}`}
+          className={`mt-2 font-heading font-semibold tracking-tight break-words ${featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-[28px]"}`}
         >
           {story.title}
         </h2>
@@ -38,7 +38,7 @@ export function StoryCard({
           </p>
         ) : null}
         {voice ? (
-          <p className="mt-3 flex items-center gap-2 text-sm">
+          <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
             <VoiceAvatar voice={voice} size={28} className="size-7" />
             <span className="font-medium text-ink">{voice.name}</span>
             {story.bylineDetail ? (
@@ -69,7 +69,7 @@ export function StoriesStrip({ stories }: { stories: Story[] }) {
         </div>
         <Link
           href="/stories"
-          className="font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
+          className="inline-flex min-h-11 items-center font-mono text-[11px] tracking-wide text-masthead uppercase underline-offset-4 hover:underline"
         >
           All stories
         </Link>

@@ -45,7 +45,7 @@ export type Call = z.infer<typeof schema> & {
 export const CALL_STATUS_LABEL: Record<CallStatus, string> = {
   "held-up": "Held up",
   missed: "Missed",
-  "still-arguing": "Still arguing",
+  "still-arguing": "Pending",
 };
 
 export const CALL_STATUS_TONE = {

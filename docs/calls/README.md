@@ -36,10 +36,18 @@
 | `take` | Yes | One line. The take Chip posted. |
 | `postUrl` | Yes | Exactly `https://x.com/ChipAbsolute/status/<id>`, digits only after `status/`. No other host, account, query string, or trailing slash. One post, one file. |
 | `result` | Yes | Verified result, one line. |
-| `status` | Yes | `held-up`, `missed`, or `still-arguing`. |
+| `status` | Yes | The grade. `held-up` is a hit, `missed` is a miss, `still-arguing` is pending. There is no separate grade field. |
 | `note` | No | Extra line under the result. Omit the field when unused. |
 
-The page labels those statuses **Held up**, **Missed**, and **Still arguing**.
+`status` is the only grade. New calls start as `still-arguing` (pending) until the result is in, then move to `held-up` or `missed`. Anything that is not one of those two graded values counts as pending. The page labels them **Held up**, **Missed**, and **Pending**.
+
+## Chip’s record
+
+The block at the top of `/calls` reads the same `status` field:
+
+- **Tally:** hits (`held-up`), misses (`missed`), and pending (everything else, including `still-arguing`).
+- **Streak:** graded calls only, newest first. Pending calls are skipped. Two or more hits in a row is hot (“Hot: N straight held up”). Two or more misses in a row is cold (“Cold: N straight missed”). One graded call, a split, or no graded calls is “No streak yet.”
+- **Latest:** the newest `date`, pending or not. A later post wins a same-day tie.
 
 ## If the check is red
 

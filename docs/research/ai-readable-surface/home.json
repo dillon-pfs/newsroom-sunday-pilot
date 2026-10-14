@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://poorformsports.com/#organization",
+      "name": "Poor Form Sports",
+      "url": "https://poorformsports.com/",
+      "description": "Independent satirical fantasy-football entertainment brand. Not real reporting; not affiliated with or endorsed by the NFL or its teams.",
+      "logo": "https://poorformsports.com/brand/wordmark-bar.png",
+      "sameAs": [
+        "https://x.com/PoorFormSports"
+      ],
+      "publishingPrinciples": "https://poorformsports.com/about"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://poorformsports.com/#website",
+      "url": "https://poorformsports.com/",
+      "name": "Poor Form Sports",
+      "description": "Satirical fantasy-football entertainment, with labeled DEMO archives kept separate from live-score data.",
+      "publisher": {
+        "@id": "https://poorformsports.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}

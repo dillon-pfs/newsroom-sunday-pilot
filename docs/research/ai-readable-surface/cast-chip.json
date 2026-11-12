@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://poorformsports.com/cast/chip-absolute#page",
+  "url": "https://poorformsports.com/cast/chip-absolute",
+  "name": "Chip Absolute · Fictional satire persona · Poor Form Sports",
+  "description": "Profile of a fictional Poor Form Sports comedy persona, not a real journalist.",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://poorformsports.com/cast/chip-absolute#persona",
+    "name": "Chip Absolute",
+    "url": "https://poorformsports.com/cast/chip-absolute",
+    "description": "Fictional lead persona of Poor Form Sports; scoreboard spectacle and rivalry comedy, not a real sports reporter.",
+    "sameAs": [
+      "https://x.com/ChipAbsolute"
+    ]
+  }
+}
